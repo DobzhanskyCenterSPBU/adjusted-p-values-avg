@@ -1,1 +1,1 @@
-# list od algorithms
+# list of algorithms
