@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -std=gnu++14
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = 
+CXX_INCLUDES = -I/Users/EL/CLionProjects/AdjustPValue/lib/googletest-master/googletest/include -I/Users/EL/CLionProjects/AdjustPValue/lib/googletest-master/googlemock/include 
 

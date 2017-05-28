@@ -451,3 +451,41 @@ Linking CXX executable cmTC_fe6ec
     Feature record: CXX_FEATURE:0cxx_variable_templates
     Feature record: CXX_FEATURE:0cxx_variadic_macros
     Feature record: CXX_FEATURE:0cxx_variadic_templates
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /Users/EL/CLionProjects/AdjustPValue/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_dc1d8/fast"
+/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_dc1d8.dir/build.make CMakeFiles/cmTC_dc1d8.dir/build
+Building C object CMakeFiles/cmTC_dc1d8.dir/CheckIncludeFile.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc     -o CMakeFiles/cmTC_dc1d8.dir/CheckIncludeFile.c.o   -c /Users/EL/CLionProjects/AdjustPValue/cmake-build-debug/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_dc1d8
+/Applications/CLion.app/Contents/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dc1d8.dir/link.txt --verbose=1
+/Library/Developer/CommandLineTools/usr/bin/cc    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_dc1d8.dir/CheckIncludeFile.c.o  -o cmTC_dc1d8  
+
+
+Determining if the pthread_create exist passed with the following output:
+Change Dir: /Users/EL/CLionProjects/AdjustPValue/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d174e/fast"
+/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_d174e.dir/build.make CMakeFiles/cmTC_d174e.dir/build
+Building C object CMakeFiles/cmTC_d174e.dir/CheckSymbolExists.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc     -o CMakeFiles/cmTC_d174e.dir/CheckSymbolExists.c.o   -c /Users/EL/CLionProjects/AdjustPValue/cmake-build-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_d174e
+/Applications/CLion.app/Contents/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d174e.dir/link.txt --verbose=1
+/Library/Developer/CommandLineTools/usr/bin/cc    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_d174e.dir/CheckSymbolExists.c.o  -o cmTC_d174e  
+
+File /Users/EL/CLionProjects/AdjustPValue/cmake-build-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+

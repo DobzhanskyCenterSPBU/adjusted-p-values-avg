@@ -129,11 +129,61 @@ CMakeFiles/AdjustPValue.dir/PValue.cpp.o.provides: CMakeFiles/AdjustPValue.dir/P
 CMakeFiles/AdjustPValue.dir/PValue.cpp.o.provides.build: CMakeFiles/AdjustPValue.dir/PValue.cpp.o
 
 
+CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.o: CMakeFiles/AdjustPValue.dir/flags.make
+CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.o: ../Tests/InputFileTests.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/EL/CLionProjects/AdjustPValue/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.o -c /Users/EL/CLionProjects/AdjustPValue/Tests/InputFileTests.cpp
+
+CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/EL/CLionProjects/AdjustPValue/Tests/InputFileTests.cpp > CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.i
+
+CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/EL/CLionProjects/AdjustPValue/Tests/InputFileTests.cpp -o CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.s
+
+CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.o.requires:
+
+.PHONY : CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.o.requires
+
+CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.o.provides: CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.o.requires
+	$(MAKE) -f CMakeFiles/AdjustPValue.dir/build.make CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.o.provides.build
+.PHONY : CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.o.provides
+
+CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.o.provides.build: CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.o
+
+
+CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.o: CMakeFiles/AdjustPValue.dir/flags.make
+CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.o: ../Tests/PValueTests.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/EL/CLionProjects/AdjustPValue/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.o -c /Users/EL/CLionProjects/AdjustPValue/Tests/PValueTests.cpp
+
+CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/EL/CLionProjects/AdjustPValue/Tests/PValueTests.cpp > CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.i
+
+CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/EL/CLionProjects/AdjustPValue/Tests/PValueTests.cpp -o CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.s
+
+CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.o.requires:
+
+.PHONY : CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.o.requires
+
+CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.o.provides: CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.o.requires
+	$(MAKE) -f CMakeFiles/AdjustPValue.dir/build.make CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.o.provides.build
+.PHONY : CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.o.provides
+
+CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.o.provides.build: CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.o
+
+
 # Object files for target AdjustPValue
 AdjustPValue_OBJECTS = \
 "CMakeFiles/AdjustPValue.dir/main.cpp.o" \
 "CMakeFiles/AdjustPValue.dir/InputFile.cpp.o" \
-"CMakeFiles/AdjustPValue.dir/PValue.cpp.o"
+"CMakeFiles/AdjustPValue.dir/PValue.cpp.o" \
+"CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.o" \
+"CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.o"
 
 # External object files for target AdjustPValue
 AdjustPValue_EXTERNAL_OBJECTS =
@@ -141,9 +191,14 @@ AdjustPValue_EXTERNAL_OBJECTS =
 AdjustPValue: CMakeFiles/AdjustPValue.dir/main.cpp.o
 AdjustPValue: CMakeFiles/AdjustPValue.dir/InputFile.cpp.o
 AdjustPValue: CMakeFiles/AdjustPValue.dir/PValue.cpp.o
+AdjustPValue: CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.o
+AdjustPValue: CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.o
 AdjustPValue: CMakeFiles/AdjustPValue.dir/build.make
+AdjustPValue: lib/googletest-master/googlemock/gtest/libgtest.a
+AdjustPValue: lib/googletest-master/googlemock/gtest/libgtest_main.a
+AdjustPValue: lib/googletest-master/googlemock/gtest/libgtest.a
 AdjustPValue: CMakeFiles/AdjustPValue.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/EL/CLionProjects/AdjustPValue/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable AdjustPValue"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/EL/CLionProjects/AdjustPValue/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable AdjustPValue"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/AdjustPValue.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -154,6 +209,8 @@ CMakeFiles/AdjustPValue.dir/build: AdjustPValue
 CMakeFiles/AdjustPValue.dir/requires: CMakeFiles/AdjustPValue.dir/main.cpp.o.requires
 CMakeFiles/AdjustPValue.dir/requires: CMakeFiles/AdjustPValue.dir/InputFile.cpp.o.requires
 CMakeFiles/AdjustPValue.dir/requires: CMakeFiles/AdjustPValue.dir/PValue.cpp.o.requires
+CMakeFiles/AdjustPValue.dir/requires: CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.o.requires
+CMakeFiles/AdjustPValue.dir/requires: CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.o.requires
 
 .PHONY : CMakeFiles/AdjustPValue.dir/requires
 

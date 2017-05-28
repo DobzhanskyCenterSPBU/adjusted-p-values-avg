@@ -56,6 +56,50 @@ CMAKE_BINARY_DIR = /Users/EL/CLionProjects/AdjustPValue/cmake-build-debug
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/Applications/CLion.app/Contents/bin/cmake/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: install/local
+
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/Applications/CLion.app/Contents/bin/cmake/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+
+.PHONY : install/strip/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/Applications/CLion.app/Contents/bin/cmake/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/Applications/CLion.app/Contents/bin/cmake/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -123,6 +167,58 @@ AdjustPValue/fast:
 	$(MAKE) -f CMakeFiles/AdjustPValue.dir/build.make CMakeFiles/AdjustPValue.dir/build
 .PHONY : AdjustPValue/fast
 
+#=============================================================================
+# Target rules for targets named gmock
+
+# Build rule for target.
+gmock: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gmock
+.PHONY : gmock
+
+# fast build rule for target.
+gmock/fast:
+	$(MAKE) -f lib/googletest-master/googlemock/CMakeFiles/gmock.dir/build.make lib/googletest-master/googlemock/CMakeFiles/gmock.dir/build
+.PHONY : gmock/fast
+
+#=============================================================================
+# Target rules for targets named gmock_main
+
+# Build rule for target.
+gmock_main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gmock_main
+.PHONY : gmock_main
+
+# fast build rule for target.
+gmock_main/fast:
+	$(MAKE) -f lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/build.make lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/build
+.PHONY : gmock_main/fast
+
+#=============================================================================
+# Target rules for targets named gtest_main
+
+# Build rule for target.
+gtest_main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gtest_main
+.PHONY : gtest_main
+
+# fast build rule for target.
+gtest_main/fast:
+	$(MAKE) -f lib/googletest-master/googlemock/gtest/CMakeFiles/gtest_main.dir/build.make lib/googletest-master/googlemock/gtest/CMakeFiles/gtest_main.dir/build
+.PHONY : gtest_main/fast
+
+#=============================================================================
+# Target rules for targets named gtest
+
+# Build rule for target.
+gtest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gtest
+.PHONY : gtest
+
+# fast build rule for target.
+gtest/fast:
+	$(MAKE) -f lib/googletest-master/googlemock/gtest/CMakeFiles/gtest.dir/build.make lib/googletest-master/googlemock/gtest/CMakeFiles/gtest.dir/build
+.PHONY : gtest/fast
+
 InputFile.o: InputFile.cpp.o
 
 .PHONY : InputFile.o
@@ -177,6 +273,60 @@ PValue.cpp.s:
 	$(MAKE) -f CMakeFiles/AdjustPValue.dir/build.make CMakeFiles/AdjustPValue.dir/PValue.cpp.s
 .PHONY : PValue.cpp.s
 
+Tests/InputFileTests.o: Tests/InputFileTests.cpp.o
+
+.PHONY : Tests/InputFileTests.o
+
+# target to build an object file
+Tests/InputFileTests.cpp.o:
+	$(MAKE) -f CMakeFiles/AdjustPValue.dir/build.make CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.o
+.PHONY : Tests/InputFileTests.cpp.o
+
+Tests/InputFileTests.i: Tests/InputFileTests.cpp.i
+
+.PHONY : Tests/InputFileTests.i
+
+# target to preprocess a source file
+Tests/InputFileTests.cpp.i:
+	$(MAKE) -f CMakeFiles/AdjustPValue.dir/build.make CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.i
+.PHONY : Tests/InputFileTests.cpp.i
+
+Tests/InputFileTests.s: Tests/InputFileTests.cpp.s
+
+.PHONY : Tests/InputFileTests.s
+
+# target to generate assembly for a file
+Tests/InputFileTests.cpp.s:
+	$(MAKE) -f CMakeFiles/AdjustPValue.dir/build.make CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.s
+.PHONY : Tests/InputFileTests.cpp.s
+
+Tests/PValueTests.o: Tests/PValueTests.cpp.o
+
+.PHONY : Tests/PValueTests.o
+
+# target to build an object file
+Tests/PValueTests.cpp.o:
+	$(MAKE) -f CMakeFiles/AdjustPValue.dir/build.make CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.o
+.PHONY : Tests/PValueTests.cpp.o
+
+Tests/PValueTests.i: Tests/PValueTests.cpp.i
+
+.PHONY : Tests/PValueTests.i
+
+# target to preprocess a source file
+Tests/PValueTests.cpp.i:
+	$(MAKE) -f CMakeFiles/AdjustPValue.dir/build.make CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.i
+.PHONY : Tests/PValueTests.cpp.i
+
+Tests/PValueTests.s: Tests/PValueTests.cpp.s
+
+.PHONY : Tests/PValueTests.s
+
+# target to generate assembly for a file
+Tests/PValueTests.cpp.s:
+	$(MAKE) -f CMakeFiles/AdjustPValue.dir/build.make CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.s
+.PHONY : Tests/PValueTests.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -210,15 +360,29 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... install"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... AdjustPValue"
+	@echo "... gmock"
+	@echo "... gmock_main"
+	@echo "... gtest_main"
+	@echo "... gtest"
 	@echo "... InputFile.o"
 	@echo "... InputFile.i"
 	@echo "... InputFile.s"
 	@echo "... PValue.o"
 	@echo "... PValue.i"
 	@echo "... PValue.s"
+	@echo "... Tests/InputFileTests.o"
+	@echo "... Tests/InputFileTests.i"
+	@echo "... Tests/InputFileTests.s"
+	@echo "... Tests/PValueTests.o"
+	@echo "... Tests/PValueTests.i"
+	@echo "... Tests/PValueTests.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

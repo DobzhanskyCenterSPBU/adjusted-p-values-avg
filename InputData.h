@@ -12,7 +12,7 @@ class InputData {
 public:
     InputData() {};
     ~InputData() {};
-    virtual vector<char> createGenotypeVector(int lowInd, int upInd) = 0;
+    virtual vector<unsigned char> createGenotypeVector(int lowInd, int upInd) = 0;
 };
 
 #endif //P_VALUE_INPUTDATA_H

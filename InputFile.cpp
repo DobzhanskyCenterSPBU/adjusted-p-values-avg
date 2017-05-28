@@ -12,8 +12,8 @@ InputFile::InputFile (string fileName){
     this->handle.open(fileName);
 }
 
-vector<char> InputFile::createGenotypeVector(int lowInd, int upInd) {
-    vector<char> result;
+vector<unsigned char> InputFile::createGenotypeVector(int lowInd, int upInd) {
+    vector<unsigned char> result;
     char delim = ' '; // Split lines on a delimiter ' '
     string symbol;
     string curLine;
@@ -33,7 +33,7 @@ vector<char> InputFile::createGenotypeVector(int lowInd, int upInd) {
         stringstream ss;
         ss.str(curLine);
         while (getline(ss, symbol, delim)) {
-            result.push_back((char) symbol[0]);
+            result.push_back((unsigned char) symbol[0]);
         }
     }
     return result;
