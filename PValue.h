@@ -57,6 +57,10 @@ private:
     FRIEND_TEST(pvalue_check, calculate_number_of_elements_vector_all_zeros_checked);
     FRIEND_TEST(pvalue_check, calculate_number_of_elements_matrix_all_zeros_checked);
     FRIEND_TEST(pvalue_check, calculate_number_of_elements_matrix_all_threes_checked);
+    FRIEND_TEST(pvalue_check, prepare_data_cd_check);
+    FRIEND_TEST(pvalue_check, prepare_data_r_check);
+    FRIEND_TEST(pvalue_check, prepare_data_d_check);
+    FRIEND_TEST(pvalue_check, prepare_data_a_check);
 };
 
 #endif //ADJUSTPVALUE_PVALUE_H

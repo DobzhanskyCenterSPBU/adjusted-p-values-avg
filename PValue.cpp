@@ -156,6 +156,8 @@ double PValue::calcPValue(vector<vector<unsigned char>> const & cur_G, vector<un
             }
         }
 
+
+        //cout << "s:" << s << ' ' << "2*chi_sqr: " << 2*chi_sqr << endl;
         //cout << "boost::math::tgamma_lower(s, 2*chi_sqr):" << boost::math::tgamma_lower(s, 2*chi_sqr) << endl;
         D += -log10(1 - boost::math::tgamma_lower(s, 2*chi_sqr));
         //cout << "D from function: " << D << endl;
@@ -201,7 +203,7 @@ int PValue::calcNumElem(vector<vector<unsigned char>> const & genotype) {
 
 void PValue::doubleSizeOfMatrices(vector<vector<unsigned char>> & cur_G, vector<unsigned char> & cur_A){
 
-    vector<unsigned char> buf_A = cur_A;
+    vector<unsigned char> buf_A = cur_A, G_line;
     vector<vector<unsigned char>> buf_G = cur_G;
 
     cur_A = {};
@@ -209,15 +211,13 @@ void PValue::doubleSizeOfMatrices(vector<vector<unsigned char>> & cur_G, vector<
     cur_A.insert(cur_A.end(), buf_A.begin(), buf_A.end());
     cur_A.insert(cur_A.end(), buf_A.begin(), buf_A.end());
 
-    cur_G = {};
-    // Allocate space for new matrix
-    cur_G.reserve(buf_G.size());
-    for (vector<vector<unsigned char>>::size_type i = 0; i < cur_G.size(); i++){
-        cur_G[i].reserve(2*buf_G[i].size());
-    }
     // Fill cur_G
-    for (vector<vector<unsigned char>>::size_type i = 0; i < cur_G.size(); i++){
-        cur_G[i].insert(cur_G[i].end(), buf_G[i].begin(), buf_G[i].end());
-        cur_G[i].insert(cur_G[i].end(), buf_G[i].begin(), buf_G[i].end());
+    cur_G = {};
+    for (vector<vector<unsigned char>>::size_type i = 0; i < buf_G.size(); i++){
+        G_line = {};
+        G_line.reserve(2*buf_G[i].size());
+        G_line.insert(G_line.end(), buf_G[i].begin(), buf_G[i].end());
+        G_line.insert(G_line.end(), buf_G[i].begin(), buf_G[i].end());
+        cur_G.push_back(G_line);
     }
 }
