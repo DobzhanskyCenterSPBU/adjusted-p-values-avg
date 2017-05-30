@@ -12,16 +12,21 @@ InputFile::InputFile (string fileName){
     this->handle.open(fileName);
 }
 
-vector<unsigned char> InputFile::createGenotypeVector(int lowInd, int upInd) {
-    vector<unsigned char> result;
+vector<vector<unsigned char>> InputFile::createGenotypeMatrix(int lowInd, int upInd) {
+
+    vector<vector<unsigned char>> result;//(upInd - lowInd + 1)
     char delim = ' '; // Split lines on a delimiter ' '
     string symbol;
     string curLine;
+    int line_num = 0;
+
+    if (lowInd < 0) lowInd = 0;
+    if (upInd < 0) upInd = 0;
 
     // Define the length of a line in the given file
     this->handle.seekg(0);
     getline(this->handle, curLine);
-    int length = curLine.length();
+    int length = (int)(curLine.length());
 
     // Read all lines between lowInd and upInd
     for (int i = lowInd; i <= upInd; i++) {
@@ -29,11 +34,16 @@ vector<unsigned char> InputFile::createGenotypeVector(int lowInd, int upInd) {
         getline(this->handle, curLine);
         //cout << i << ' ' << curLine << endl;
 
-        // Add all symbols from current line to the resulting vector
-        stringstream ss;
-        ss.str(curLine);
-        while (getline(ss, symbol, delim)) {
-            result.push_back((unsigned char) symbol[0]);
+        // Add all symbols from current line to the resulting matrix
+        if (curLine != ""){
+            //cout << curLine << endl;
+            result.push_back({});
+            stringstream ss;
+            ss.str(curLine);
+            while (getline(ss, symbol, delim)) {
+                result[line_num].push_back((unsigned char) symbol[0]);
+            }
+            line_num++;
         }
     }
     return result;

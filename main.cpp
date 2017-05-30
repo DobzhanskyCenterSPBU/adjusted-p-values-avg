@@ -22,10 +22,14 @@ int main(int argc, char* argv[]) {
 
     InputFile genotype("/Users/EL/CLionProjects/AdjustPValue/test.txt");
     /*
-    vector<char> res = genotype.createGenotypeVector(18,19);
+    vector<vector<unsigned char>> res = genotype.createGenotypeMatrix(-3,1);
     cout << endl << "results" << endl;
-    for (vector<char>::iterator it = res.begin(); it != res.end(); ++it)
-        cout << ' ' << *it;
+    for (vector<vector<unsigned char>>::size_type i = 0; i < res.size(); i++) {
+        for (vector<unsigned char>::size_type j = 0; j < res[i].size(); j++ ) {
+            cout << res[i][j] << ' ';
+        }
+        cout << '\n';
+    }
     cout << '\n';
     */
 
@@ -35,8 +39,9 @@ int main(int argc, char* argv[]) {
     vector<double> results = PValue::adjustPValue(tests, genotype, phenotype, parameters);
 
     // Print results
-    for (vector<double>::iterator it = results.begin(); it != results.end(); ++it)
+    for (vector<double>::iterator it = results.begin(); it != results.end(); ++it) {
         cout << ' ' << *it;
+    }
     cout << '\n';
 
     // Destroy InputFile object

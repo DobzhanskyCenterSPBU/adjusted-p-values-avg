@@ -16,7 +16,7 @@ class InputFile: public InputData {
 public:
     ifstream handle;
     InputFile (string fileName);
-    vector<unsigned char> createGenotypeVector(int lowInd, int upInd);
+    vector<vector<unsigned char>> createGenotypeMatrix(int lowInd, int upInd);
     ~InputFile();
 };
 

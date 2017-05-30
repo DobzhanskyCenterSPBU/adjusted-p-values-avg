@@ -42,15 +42,21 @@ public:
     static vector<double> adjustPValue(vector<TestsData> const &tests, InputData &G,
                                        vector<unsigned char> const &A, ExecutionParameters const &cont);
 private:
-    static int prepareData(vector<unsigned char> & cur_G, vector<unsigned char> & cur_A, InputData & G,
+    static void prepareData(vector<vector<unsigned char>> & cur_G, vector<unsigned char> & cur_A, InputData & G,
                            vector<unsigned char> const & A, TestsData cur_test);
-    static double calcPValue(vector<unsigned char> const & cur_G, vector<unsigned char> const & cur_A, string ID);
+    static double calcPValue(vector<vector<unsigned char>> const & cur_G, vector<unsigned char> const & cur_A, string ID);
     static AlternativeHypothesisType hashIt (string const& inString);
-    static int calcNumElem(vector<unsigned char>::const_iterator first, vector<unsigned char>::const_iterator last,
-                           unsigned char p = ' ');
-    FRIEND_TEST(pvalue_check, calculate_number_of_elements_no_extra_symbol_checked);
-    FRIEND_TEST(pvalue_check, calculate_number_of_elements_extra_symbol_checked);
+    static int calcNumElem(vector<unsigned char> const & phenotype);
+    static int calcNumElem(vector<vector<unsigned char>> const & genotype);
+    static void doubleSizeOfMatrices(vector<vector<unsigned char>> & cur_G, vector<unsigned char> & cur_A);
+
+    FRIEND_TEST(pvalue_check, calculate_number_of_elements_vector_checked);
+    FRIEND_TEST(pvalue_check, calculate_number_of_elements_matrix_checked);
     FRIEND_TEST(pvalue_check, calculate_number_of_elements_empty_vector_check);
+    FRIEND_TEST(pvalue_check, calculate_number_of_elements_empty_matrix_check);
+    FRIEND_TEST(pvalue_check, calculate_number_of_elements_vector_all_zeros_checked);
+    FRIEND_TEST(pvalue_check, calculate_number_of_elements_matrix_all_zeros_checked);
+    FRIEND_TEST(pvalue_check, calculate_number_of_elements_matrix_all_threes_checked);
 };
 
 #endif //ADJUSTPVALUE_PVALUE_H

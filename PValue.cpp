@@ -13,7 +13,7 @@ vector<double> PValue::adjustPValue(vector<TestsData> const &tests, InputData &G
                                     vector<unsigned char> const &A, ExecutionParameters const &cont){
 
     vector<double> P_values((int)(tests.size())); // The results will be saved here
-    vector<unsigned char> cur_G;
+    vector<vector<unsigned char>> cur_G;
     vector<unsigned char> cur_A;
     double D_main, D_cur;
     int s, m, k, all_iter;
@@ -36,62 +36,56 @@ vector<double> PValue::adjustPValue(vector<TestsData> const &tests, InputData &G
             if (isnan(D_cur)) continue; // If D_cur is NaN go to the next iteration ((D_cur != D_cur))
             s++;
             if (D_cur > D_main) m++;
+
+            break;
         }
         P_values[i] = m/s;
     }
     return P_values;
 }
 
-int PValue::prepareData(vector<unsigned char>& cur_G, vector<unsigned char>& cur_A, InputData & G,
+void PValue::prepareData(vector<vector<unsigned char>>& cur_G, vector<unsigned char>& cur_A, InputData & G,
                         vector<unsigned char> const & A, TestsData cur_test){
 
-    vector<unsigned char> buf_G;
-    if (hashIt(cur_test.ID) != eA){
-        cur_A = A; // Create a new copy of the phenotype
-        cur_G = G.createGenotypeVector(cur_test.lower,cur_test.upper); // Read the appropriate part of the genotype
-    }
-    else {
-        cur_A = {};
-        cur_A.reserve(2*A.size());
-        cur_A.insert(cur_A.end(), A.begin(), A.end());
-        cur_A.insert(cur_A.end(), A.begin(), A.end());
-        cur_G = {};
-        buf_G = G.createGenotypeVector(cur_test.lower,cur_test.upper); // Read the appropriate part of the genotype
-        cur_G.reserve(2*buf_G.size());
-        cur_G.insert(cur_G.end(), buf_G.begin(), buf_G.end());
-        cur_G.insert(cur_G.end(), buf_G.begin(), buf_G.end());
+    cur_A = A; // Create a new copy of the phenotype
+    cur_G = G.createGenotypeMatrix(cur_test.lower, cur_test.upper); // Read the appropriate part of the genotype
+    if (hashIt(cur_test.ID) == eA){
+        doubleSizeOfMatrices(cur_G, cur_A);
     }
 
     switch (hashIt(cur_test.ID)) { // Adjust the values of the genotype
         case eCD:
-            return 0;
+            break;
         case eR:
-            for (vector<unsigned char>::iterator it = cur_G.begin(); it != cur_G.end(); ++it){
-                if (*it == '1') *it = '0';
-                if (*it == '2') *it = '1';
+            for (vector<vector<unsigned char>>::size_type i = 0; i < cur_G.size(); i++) {
+                for (vector<unsigned char>::size_type j = 0; j < cur_G[i].size(); j++ ) {
+                    if (cur_G[i][j] == '1') cur_G[i][j] = '0';
+                    if (cur_G[i][j] == '2') cur_G[i][j] = '1';
+                }
             }
             break;
         case eD:
-            for (vector<unsigned char>::iterator it = cur_G.begin(); it != cur_G.end(); ++it){
-                if (*it == '2') *it = '1';
+            for (vector<vector<unsigned char>>::size_type i = 0; i < cur_G.size(); i++) {
+                for (vector<unsigned char>::size_type j = 0; j < cur_G[i].size(); j++ ) {
+                    if (cur_G[i][j] == '2') cur_G[i][j] = '1';
+                }
             }
             break;
         case eA:
-            for(vector<unsigned char>::size_type i = 0; i < cur_G.size()/2; i++) {
-                if (cur_G[i] == '1') cur_G[i] = '0';
-                if (cur_G[i] == '2') cur_G[i] = '1';
-            }
-            for(vector<unsigned char>::size_type i = cur_G.size()/2; i < cur_G.size(); i++) {
-                if (cur_G[i] == '2') cur_G[i] = '1';
+            for (vector<vector<unsigned char>>::size_type i = 0; i < cur_G.size(); i++) {
+                for (vector<unsigned char>::size_type j = 0; j < cur_G[i].size()/2; j++ ) {
+                    if (cur_G[i][j] == '1') cur_G[i][j] = '0';
+                    if (cur_G[i][j] == '2') cur_G[i][j] = '1';
+                }
+                for (vector<unsigned char>::size_type j = cur_G[i].size()/2; j < cur_G[i].size(); j++ ) {
+                    if (cur_G[i][j] == '2') cur_G[i][j] = '1';
+                }
             }
             break;
-        default:
-            return 5; // Signal a problem
     }
-    return 0;
 }
 
-double PValue::calcPValue(vector<unsigned char> const & cur_G, vector<unsigned char> const & cur_A, string ID){
+double PValue::calcPValue(vector<vector<unsigned char>> const & cur_G, vector<unsigned char> const & cur_A, string ID){
 
     double D = 0.0; // Return value
     int D_num = 0; // Amount of valid D values
@@ -101,11 +95,10 @@ double PValue::calcPValue(vector<unsigned char> const & cur_G, vector<unsigned c
     double chi_sqr;
     int row_sum, col_sum;
     int col_num = (int)cur_A.size(); // The amount of patients
-    int row_num = (int)(cur_G.size()/cur_A.size()); // The amount pf rows in the current genotype matrix
+    int row_num = (int)cur_G.size(); // The amount of rows in the current genotype matrix
     int elem_num; // n in X^2
-    int index;
 
-    A_car = calcNumElem(cur_A.begin(), cur_A.end()); // Make it static? Or check outside of function? Or method of a class to return this value?
+    A_car = calcNumElem(cur_A); // Make it static?
     if (A_car <= 1) return numeric_limits<double>::quiet_NaN();
 
     // Define the size of V matrix
@@ -117,7 +110,7 @@ double PValue::calcPValue(vector<unsigned char> const & cur_G, vector<unsigned c
 
     for (int i = 0; i < row_num; ++i) {
 
-        G_car = calcNumElem(cur_G.begin()+i*col_num, cur_G.begin()+(i+1)*col_num, '3');
+        G_car = calcNumElem(cur_G);
         if (G_car <= 1) continue;
 
         // Fill V with zeros
@@ -128,9 +121,8 @@ double PValue::calcPValue(vector<unsigned char> const & cur_G, vector<unsigned c
         }
         // Fill V (G_car x A_car)
         for(vector<unsigned char>::size_type j = 0; j < col_num; j++) {
-            index = i*col_num + j; // Index of the current element in cur_G, i*col_num - current line, j - current element in line
-            if (cur_G[index] != '3'){
-                V[cur_G[index] - '0'][cur_A[j] - '0']++; // " - '0' " - transforms int to char
+            if (cur_G[i][j] != '3'){
+                V[cur_G[i][j] - '0'][cur_A[j] - '0'] = V[cur_G[i][j] - '0'][cur_A[j] - '0'] + 1; // " - '0' " - transforms int to char
             }
         }
         // Calc elem_num
@@ -182,13 +174,50 @@ AlternativeHypothesisType PValue::hashIt (string const& inString) {
     if (inString == "a")  return eA;
 }
 
-int PValue::calcNumElem(vector<unsigned char>::const_iterator first, vector<unsigned char>::const_iterator last, unsigned char p) {
+
+int PValue::calcNumElem(vector<unsigned char> const & phenotype){
     vector<unsigned char> elements;
-    for (vector<unsigned char>::const_iterator it = first; it != last; ++it) {
-        if (find(elements.begin(), elements.end(), *it) == elements.end()) {
-            elements.push_back(*it);
+    for(vector<unsigned char>::size_type j = 0; j < phenotype.size(); j++) {
+        if (find(elements.begin(), elements.end(), phenotype[j]) == elements.end()) {
+            elements.push_back(phenotype[j]);
         }
     }
-    if (find(elements.begin(), elements.end(), p) != elements.end()) return elements.size() - 1;
-    else return elements.size();
+    return (int)(elements.size());
+}
+
+int PValue::calcNumElem(vector<vector<unsigned char>> const & genotype) {
+    unsigned char p = '3'; // Element that is not considered
+    vector<unsigned char> elements;
+    for (vector<vector<unsigned char>>::size_type i = 0; i < genotype.size(); ++i) {
+        for (vector<unsigned char>::size_type j = 0; j < genotype[i].size(); ++j) {
+            if (find(elements.begin(), elements.end(), genotype[i][j]) == elements.end()) {
+                elements.push_back(genotype[i][j]);
+            }
+        }
+    }
+    if (find(elements.begin(), elements.end(), p) != elements.end()) return (int)(elements.size() - 1);
+    else return (int)(elements.size());
+}
+
+void PValue::doubleSizeOfMatrices(vector<vector<unsigned char>> & cur_G, vector<unsigned char> & cur_A){
+
+    vector<unsigned char> buf_A = cur_A;
+    vector<vector<unsigned char>> buf_G = cur_G;
+
+    cur_A = {};
+    cur_A.reserve(2*buf_A.size());
+    cur_A.insert(cur_A.end(), buf_A.begin(), buf_A.end());
+    cur_A.insert(cur_A.end(), buf_A.begin(), buf_A.end());
+
+    cur_G = {};
+    // Allocate space for new matrix
+    cur_G.reserve(buf_G.size());
+    for (vector<vector<unsigned char>>::size_type i = 0; i < cur_G.size(); i++){
+        cur_G[i].reserve(2*buf_G[i].size());
+    }
+    // Fill cur_G
+    for (vector<vector<unsigned char>>::size_type i = 0; i < cur_G.size(); i++){
+        cur_G[i].insert(cur_G[i].end(), buf_G[i].begin(), buf_G[i].end());
+        cur_G[i].insert(cur_G[i].end(), buf_G[i].begin(), buf_G[i].end());
+    }
 }
