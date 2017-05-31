@@ -28,7 +28,7 @@ vector<double> PValue::adjustPValue(vector<TestsData> const &tests, InputData &G
         //cout << "D_main: " << D_main << endl;
 
         s = 0; m = 0; all_iter = 0;
-        while (s <= cont.maxReplications && m <= k && all_iter <= cont.maxReplications){
+        while (s < cont.maxReplications && m < k && all_iter < cont.maxReplications){
             all_iter++;
             random_shuffle(cur_A.begin(), cur_A.end()); // Create a random permutation of the phenotype values
             D_cur = calcPValue(cur_G, cur_A, tests[i].ID);
@@ -36,10 +36,9 @@ vector<double> PValue::adjustPValue(vector<TestsData> const &tests, InputData &G
             if (isnan(D_cur)) continue; // If D_cur is NaN go to the next iteration ((D_cur != D_cur))
             s++;
             if (D_cur > D_main) m++;
-
-            break;
         }
-        P_values[i] = m/s;
+        //cout << endl << "m: " << m << "    s: " << s << endl;
+        P_values[i] = (double)m/(double)s;
     }
     return P_values;
 }
@@ -122,9 +121,11 @@ double PValue::calcPValue(vector<vector<unsigned char>> const & cur_G, vector<un
         // Fill V (G_car x A_car)
         for(vector<unsigned char>::size_type j = 0; j < col_num; j++) {
             if (cur_G[i][j] != '3'){
-                V[cur_G[i][j] - '0'][cur_A[j] - '0'] = V[cur_G[i][j] - '0'][cur_A[j] - '0'] + 1; // " - '0' " - transforms int to char
+                V[cur_G[i][j] - '0'][cur_A[j] - '0'] = V[cur_G[i][j] - '0'][cur_A[j] - '0'] + 1; // " - '0' " - transforms char to int
             }
+            //cout << endl << "While filling V.  i: " << i << "  j: " << j << endl;
         }
+
         // Calc elem_num
         elem_num = 0;
         for (int m = 0; m < V_rows; ++m) {
@@ -156,10 +157,13 @@ double PValue::calcPValue(vector<vector<unsigned char>> const & cur_G, vector<un
             }
         }
 
+        // http://www.boost.org/doc/libs/1_49_0/libs/math/doc/sf_and_dist/html/math_toolkit/special/sf_gamma/igamma.html
+        // http://keisan.casio.com/exec/system/1180573447
+        // tgamma(a,z): Returns the full (non-normalised) upper incomplete gamma function of a and z
+        // tgamma_lower(a,z): Returns the full (non-normalised) lower incomplete gamma function of a and z
 
-        //cout << "s:" << s << ' ' << "2*chi_sqr: " << 2*chi_sqr << endl;
-        //cout << "boost::math::tgamma_lower(s, 2*chi_sqr):" << boost::math::tgamma_lower(s, 2*chi_sqr) << endl;
-        D += -log10(1 - boost::math::tgamma_lower(s, 2*chi_sqr));
+        D += -log10(1 - boost::math::tgamma(s, 2*chi_sqr)/(boost::math::tgamma(s, 2*chi_sqr) +
+                boost::math::tgamma_lower(s, 2*chi_sqr)));
         //cout << "D from function: " << D << endl;
         D_num++;
     }

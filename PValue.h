@@ -61,6 +61,7 @@ private:
     FRIEND_TEST(pvalue_check, prepare_data_r_check);
     FRIEND_TEST(pvalue_check, prepare_data_d_check);
     FRIEND_TEST(pvalue_check, prepare_data_a_check);
+    FRIEND_TEST(pvalue_check, prepare_data_a_second_check);
 };
 
 #endif //ADJUSTPVALUE_PVALUE_H

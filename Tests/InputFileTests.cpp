@@ -29,28 +29,32 @@ TEST_F(InputData, readPartOfGenotypeMatrix){
 
 
 // How to initialize the object once?
-InputFile genotype("/Users/EL/CLionProjects/AdjustPValue/test.txt");
+//InputFile genotype("/Users/EL/CLionProjects/AdjustPValue/test.txt");
 
 // Reads 3 lines from the middle
 TEST(read_file_check, read_part_of_genotype_matrix_from_middle){
+    InputFile genotype("/Users/EL/CLionProjects/AdjustPValue/test.txt");
     vector<vector<unsigned char>> result = {{'1', '0', '1', '0', '2', '1'}, {'0', '0', '0', '1', '1', '0'}, {'2', '1', '0', '0', '2', '1'}};
     ASSERT_EQ(result, genotype.createGenotypeMatrix(1,3));
 }
 
 // Reads 2 lines from the beginning
 TEST(read_file_check, read_part_of_genotype_matrix_from_beginning){
+    InputFile genotype("/Users/EL/CLionProjects/AdjustPValue/test.txt");
     vector<vector<unsigned char>> result = {{'0', '2', '1', '1', '0', '2'}, {'1', '0', '1', '0', '2', '1'}};
     ASSERT_EQ(result, genotype.createGenotypeMatrix(0,1));
 }
 
 // Reads 1 line from the end
 TEST(read_file_check, read_part_of_genotype_matrix_from_end){
+    InputFile genotype("/Users/EL/CLionProjects/AdjustPValue/test.txt");
     vector<vector<unsigned char>> result = {{'0', '1', '3', '2', '0', '0'}};
     ASSERT_EQ(result, genotype.createGenotypeMatrix(19,19));
 }
 
 // Read non-existent lines
 TEST(read_file_check, read_part_of_genotype_matrix_not_existing_lines){
+    InputFile genotype("/Users/EL/CLionProjects/AdjustPValue/test.txt");
     vector<vector<unsigned char>> result = {};
     ASSERT_EQ(result, genotype.createGenotypeMatrix(25,71));
 }

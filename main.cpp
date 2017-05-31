@@ -39,6 +39,7 @@ int main(int argc, char* argv[]) {
     vector<double> results = PValue::adjustPValue(tests, genotype, phenotype, parameters);
 
     // Print results
+    cout << endl << "Adjusted P-values:" << endl;
     for (vector<double>::iterator it = results.begin(); it != results.end(); ++it) {
         cout << ' ' << *it;
     }
