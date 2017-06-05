@@ -13,7 +13,7 @@ int main(int argc, char* argv[]) {
 
     // Data initialization
     vector<TestsData> tests;
-    tests = {{"cd",2,5}, {"r",6,8}, {"d",10,11}, {"a",12,14}, {"d",16,19}};
+    tests = {{"cd",2,5}, {"r",6,8}, {"d",10,11}, {"a",12,14}, {"d",16,19}}; // {"cd",2,5}, {"r",6,8}, {"d",10,11}, {"a",12,14}, {"d",16,19}
 
     ExecutionParameters parameters;
     parameters.maxReplications = 10; // Should be around 10^(-8)

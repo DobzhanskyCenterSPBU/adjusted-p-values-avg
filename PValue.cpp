@@ -22,13 +22,16 @@ vector<double> PValue::adjustPValue(vector<TestsData> const &tests, InputData &G
     else k = cont.maxReplications;
 
     for (int i = 0; i < (int)(tests.size()); ++i) {
-        prepareData(cur_G, cur_A, G, A, tests[i]);
 
+        //cout << "Test type: " << tests[i].ID << endl;
+        //cout << endl;
+
+        prepareData(cur_G, cur_A, G, A, tests[i]);
         D_main = calcPValue(cur_G, cur_A, tests[i].ID);
         //cout << "D_main: " << D_main << endl;
-
         s = 0; m = 0; all_iter = 0;
         while (s < cont.maxReplications && m < k && all_iter < cont.maxReplications){
+            //cout << endl << "ITETATION NUMBER: " << all_iter << endl << endl;
             all_iter++;
             random_shuffle(cur_A.begin(), cur_A.end()); // Create a random permutation of the phenotype values
             D_cur = calcPValue(cur_G, cur_A, tests[i].ID);
@@ -36,6 +39,8 @@ vector<double> PValue::adjustPValue(vector<TestsData> const &tests, InputData &G
             if (isnan(D_cur)) continue; // If D_cur is NaN go to the next iteration ((D_cur != D_cur))
             s++;
             if (D_cur > D_main) m++;
+
+            //break;
         }
         //cout << endl << "m: " << m << "    s: " << s << endl;
         P_values[i] = (double)m/(double)s;
@@ -91,7 +96,7 @@ double PValue::calcPValue(vector<vector<unsigned char>> const & cur_G, vector<un
     int V_rows, V_cols; // Size of V matrix
     int A_car, G_car; // The cardinality of the sets of values of the phenotype and genotype
     int s;           // Parameters for calculating the incomplete gamma function
-    double chi_sqr;
+    double chi_sqr = 0.0;
     int row_sum, col_sum;
     int col_num = (int)cur_A.size(); // The amount of patients
     int row_num = (int)cur_G.size(); // The amount of rows in the current genotype matrix
@@ -120,8 +125,9 @@ double PValue::calcPValue(vector<vector<unsigned char>> const & cur_G, vector<un
         }
         // Fill V (G_car x A_car)
         for(vector<unsigned char>::size_type j = 0; j < col_num; j++) {
-            if (cur_G[i][j] != '3'){
-                V[cur_G[i][j] - '0'][cur_A[j] - '0'] = V[cur_G[i][j] - '0'][cur_A[j] - '0'] + 1; // " - '0' " - transforms char to int
+            if (cur_G[i][j] != '3') {
+                V[cur_G[i][j] - '0'][cur_A[j] - '0'] =
+                        V[cur_G[i][j] - '0'][cur_A[j] - '0'] + 1; // " - '0' " - transforms char to int
             }
             //cout << endl << "While filling V.  i: " << i << "  j: " << j << endl;
         }

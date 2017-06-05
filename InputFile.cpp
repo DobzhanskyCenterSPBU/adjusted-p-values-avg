@@ -14,7 +14,7 @@ InputFile::InputFile (string fileName){
 
 vector<vector<unsigned char>> InputFile::createGenotypeMatrix(int lowInd, int upInd) {
 
-    vector<vector<unsigned char>> result;//(upInd - lowInd + 1)
+    vector<vector<unsigned char>> result; //(upInd - lowInd + 1)
     char delim = ' '; // Split lines on a delimiter ' '
     string symbol;
     string curLine;
@@ -23,24 +23,22 @@ vector<vector<unsigned char>> InputFile::createGenotypeMatrix(int lowInd, int up
     if (lowInd < 0) lowInd = 0;
     if (upInd < 0) upInd = 0;
 
-    //cout << "Handle status: " << handle.is_open() << endl;
+    // Make sure tellg() won't return -1
+    this->handle.clear();
+
     // Define the length of a line in the given file
-    //cout << "Before seek 0: " << handle.tellg() << endl;
     this->handle.seekg(0);
-    //cout << "After seek 0: " << handle.tellg() << endl;
     getline(this->handle, curLine);
     int length = (int)(curLine.length());
 
-    //cout << "Length: " << length << endl;
     // Read all lines between lowInd and upInd
     for (int i = lowInd; i <= upInd; i++) {
         this->handle.seekg((length+1)*i); // Go to the necessary line
+        if (handle.tellg() == -1) return result;
         getline(this->handle, curLine);
-        //cout << i << ' ' << curLine << endl;
 
         // Add all symbols from current line to the resulting matrix
         if (curLine != ""){
-            //cout << curLine << endl;
             result.push_back({});
             stringstream ss;
             ss.str(curLine);
