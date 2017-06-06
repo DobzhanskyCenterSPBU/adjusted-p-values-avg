@@ -41,6 +41,7 @@ class PValue {
 public:
     static vector<double> adjustPValue(vector<TestsData> const &tests, InputData &G,
                                        vector<unsigned char> const &A, ExecutionParameters const &cont);
+    static vector<unsigned char> mapPhenotypeValuesToChar(vector<string> const &phenotype);
 private:
     static void prepareData(vector<vector<unsigned char>> & cur_G, vector<unsigned char> & cur_A, InputData & G,
                            vector<unsigned char> const & A, TestsData cur_test);
@@ -61,7 +62,6 @@ private:
     FRIEND_TEST(pvalue_check, prepare_data_r_check);
     FRIEND_TEST(pvalue_check, prepare_data_d_check);
     FRIEND_TEST(pvalue_check, prepare_data_a_check);
-    FRIEND_TEST(pvalue_check, prepare_data_a_second_check);
 };
 
 #endif //ADJUSTPVALUE_PVALUE_H

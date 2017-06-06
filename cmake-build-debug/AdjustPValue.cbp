@@ -341,6 +341,12 @@
 		<Unit filename="/Users/EL/CLionProjects/AdjustPValue/PValue.h">
 			<Option target="AdjustPValue"/>
 		</Unit>
+		<Unit filename="/Users/EL/CLionProjects/AdjustPValue/PerformanceTests.cpp">
+			<Option target="AdjustPValue"/>
+		</Unit>
+		<Unit filename="/Users/EL/CLionProjects/AdjustPValue/PerformanceTests.h">
+			<Option target="AdjustPValue"/>
+		</Unit>
 		<Unit filename="/Users/EL/CLionProjects/AdjustPValue/Tests/InputFileTests.cpp">
 			<Option target="AdjustPValue"/>
 		</Unit>

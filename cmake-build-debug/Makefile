@@ -273,6 +273,33 @@ PValue.cpp.s:
 	$(MAKE) -f CMakeFiles/AdjustPValue.dir/build.make CMakeFiles/AdjustPValue.dir/PValue.cpp.s
 .PHONY : PValue.cpp.s
 
+PerformanceTests.o: PerformanceTests.cpp.o
+
+.PHONY : PerformanceTests.o
+
+# target to build an object file
+PerformanceTests.cpp.o:
+	$(MAKE) -f CMakeFiles/AdjustPValue.dir/build.make CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.o
+.PHONY : PerformanceTests.cpp.o
+
+PerformanceTests.i: PerformanceTests.cpp.i
+
+.PHONY : PerformanceTests.i
+
+# target to preprocess a source file
+PerformanceTests.cpp.i:
+	$(MAKE) -f CMakeFiles/AdjustPValue.dir/build.make CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.i
+.PHONY : PerformanceTests.cpp.i
+
+PerformanceTests.s: PerformanceTests.cpp.s
+
+.PHONY : PerformanceTests.s
+
+# target to generate assembly for a file
+PerformanceTests.cpp.s:
+	$(MAKE) -f CMakeFiles/AdjustPValue.dir/build.make CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.s
+.PHONY : PerformanceTests.cpp.s
+
 Tests/InputFileTests.o: Tests/InputFileTests.cpp.o
 
 .PHONY : Tests/InputFileTests.o
@@ -377,6 +404,9 @@ help:
 	@echo "... PValue.o"
 	@echo "... PValue.i"
 	@echo "... PValue.s"
+	@echo "... PerformanceTests.o"
+	@echo "... PerformanceTests.i"
+	@echo "... PerformanceTests.s"
 	@echo "... Tests/InputFileTests.o"
 	@echo "... Tests/InputFileTests.i"
 	@echo "... Tests/InputFileTests.s"

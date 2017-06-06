@@ -43,7 +43,8 @@ vector<double> PValue::adjustPValue(vector<TestsData> const &tests, InputData &G
             //break;
         }
         //cout << endl << "m: " << m << "    s: " << s << endl;
-        P_values[i] = (double)m/(double)s;
+        if (s == 0) P_values[i] = -1;
+        else P_values[i] = (double)m/(double)s;
     }
     return P_values;
 }
@@ -125,11 +126,10 @@ double PValue::calcPValue(vector<vector<unsigned char>> const & cur_G, vector<un
         }
         // Fill V (G_car x A_car)
         for(vector<unsigned char>::size_type j = 0; j < col_num; j++) {
-            if (cur_G[i][j] != '3') {
+            if (cur_G[i][j] < '3') {
                 V[cur_G[i][j] - '0'][cur_A[j] - '0'] =
                         V[cur_G[i][j] - '0'][cur_A[j] - '0'] + 1; // " - '0' " - transforms char to int
             }
-            //cout << endl << "While filling V.  i: " << i << "  j: " << j << endl;
         }
 
         // Calc elem_num
@@ -230,4 +230,18 @@ void PValue::doubleSizeOfMatrices(vector<vector<unsigned char>> & cur_G, vector<
         G_line.insert(G_line.end(), buf_G[i].begin(), buf_G[i].end());
         cur_G.push_back(G_line);
     }
+}
+
+vector<unsigned char> PValue::mapPhenotypeValuesToChar(vector<string> const &phenotype){
+    vector<unsigned char> new_phenotype;
+    vector<string> elements;
+    ptrdiff_t pos;
+    for (std::vector<string>::const_iterator it=phenotype.begin(); it!=phenotype.end(); ++it){
+        if (find(elements.begin(), elements.end(), *it) == elements.end()) {
+            elements.push_back(*it);
+        }
+        pos = find(elements.begin(), elements.end(), *it) - elements.begin();
+        new_phenotype.push_back(pos + '0');
+    }
+    return new_phenotype;
 }

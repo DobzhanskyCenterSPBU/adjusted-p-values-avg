@@ -1,19 +1,31 @@
 #include <iostream>
 #include "PValue.h"
 #include "InputFile.h"
+#include <chrono>
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
+#include "PerformanceTests.h"
 
 using namespace std;
+using namespace std::chrono;
 
 int main(int argc, char* argv[]) {
 
+    // Run unit tests
     testing::InitGoogleTest(&argc, argv);
     RUN_ALL_TESTS();
+    //simplePerformanceTest(10, "a");
+
+
+
+
+
+
+
 
     // Data initialization
     vector<TestsData> tests;
-    tests = {{"cd",2,5}, {"r",6,8}, {"d",10,11}, {"a",12,14}, {"d",16,19}}; // {"cd",2,5}, {"r",6,8}, {"d",10,11}, {"a",12,14}, {"d",16,19}
+    tests = {{"cd",2,5}, {"r",6,8}, {"d",10,11}, {"a",12,14}, {"d",16,19}};
 
     ExecutionParameters parameters;
     parameters.maxReplications = 10; // Should be around 10^(-8)

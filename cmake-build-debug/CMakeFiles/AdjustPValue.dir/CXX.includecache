@@ -506,6 +506,24 @@ gtest/gtest.h
 gmock/gmock.h
 -
 
+/Users/EL/CLionProjects/AdjustPValue/PerformanceTests.cpp
+PerformanceTests.h
+/Users/EL/CLionProjects/AdjustPValue/PerformanceTests.h
+PValue.h
+/Users/EL/CLionProjects/AdjustPValue/PValue.h
+InputFile.h
+/Users/EL/CLionProjects/AdjustPValue/InputFile.h
+string
+-
+iostream
+-
+chrono
+-
+
+/Users/EL/CLionProjects/AdjustPValue/PerformanceTests.h
+string
+-
+
 /Users/EL/CLionProjects/AdjustPValue/Tests/InputFileTests.cpp
 string
 -
@@ -522,8 +540,6 @@ gmock/gmock.h
 string
 -
 vector
--
-cmath
 -
 boost/math/special_functions/gamma.hpp
 -
@@ -543,8 +559,12 @@ PValue.h
 /Users/EL/CLionProjects/AdjustPValue/PValue.h
 InputFile.h
 /Users/EL/CLionProjects/AdjustPValue/InputFile.h
+chrono
+-
 gtest/gtest.h
 -
 gmock/gmock.h
 -
+PerformanceTests.h
+/Users/EL/CLionProjects/AdjustPValue/PerformanceTests.h
 
