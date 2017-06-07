@@ -22,7 +22,7 @@ void simplePerformanceTest(int maxRep, string test_type) {
     // Data initialization
 
     // Generate genotype matrix and write to file
-    string filename = "/Users/EL/CLionProjects/AdjustPValue/performancetest.txt";
+    string filename = "performancetest.txt";
     int values[] = {0, 1, 2, 3};
     int length = sizeof(values) / sizeof(int);
     int randomNumber;
@@ -52,7 +52,7 @@ void simplePerformanceTest(int maxRep, string test_type) {
     ExecutionParameters parameters;
     parameters.maxReplications = maxRep;
     parameters.k = 10;
-    parameters.isAdaptive = true;
+    parameters.isAdaptive = false;
     InputFile genotype(filename);
 
     // Measure time
@@ -68,7 +68,7 @@ void simplePerformanceTest(int maxRep, string test_type) {
          "): " << duration << endl;
 
     // Print results
-    cout << endl << "Adjusted P-values from test:" << endl;
+    cout << endl << "Adjusted P-values from performance test:" << endl;
     for (vector<double>::iterator it = results.begin(); it != results.end(); ++it) {
         cout << ' ' << *it;
     }

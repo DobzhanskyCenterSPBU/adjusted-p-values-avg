@@ -9,10 +9,13 @@
 using namespace std;
 
 InputFile::InputFile (string fileName){
-    this->handle.open(fileName);
+    this->filename = fileName;
 }
 
 vector<vector<unsigned char>> InputFile::createGenotypeMatrix(int lowInd, int upInd) {
+
+    ifstream handle;
+    handle.open(this->filename);
 
     vector<vector<unsigned char>> result; //(upInd - lowInd + 1)
     char delim = ' '; // Split lines on a delimiter ' '
@@ -24,18 +27,18 @@ vector<vector<unsigned char>> InputFile::createGenotypeMatrix(int lowInd, int up
     if (upInd < 0) upInd = 0;
 
     // Make sure tellg() won't return -1
-    this->handle.clear();
+    //this->handle.clear();
 
     // Define the length of a line in the given file
-    this->handle.seekg(0);
-    getline(this->handle, curLine);
+    handle.seekg(0);
+    getline(handle, curLine);
     int length = (int)(curLine.length());
 
     // Read all lines between lowInd and upInd
     for (int i = lowInd; i <= upInd; i++) {
-        this->handle.seekg((length+1)*i); // Go to the necessary line
+        handle.seekg((length+1)*i); // Go to the necessary line
         if (handle.tellg() == -1) return result;
-        getline(this->handle, curLine);
+        getline(handle, curLine);
 
         // Add all symbols from current line to the resulting matrix
         if (curLine != ""){
@@ -48,9 +51,8 @@ vector<vector<unsigned char>> InputFile::createGenotypeMatrix(int lowInd, int up
             line_num++;
         }
     }
-    return result;
-}
 
-InputFile::~InputFile(){
-    this->handle.close();
+    handle.close();
+
+    return result;
 }

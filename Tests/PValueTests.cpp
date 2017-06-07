@@ -10,6 +10,7 @@
 #include "../PValue.h"
 #include "../InputFile.h"
 
+
 // Calculating the number of unique elements in a vector
 TEST(pvalue_check, calculate_number_of_elements_vector_checked){
     vector<unsigned char> test_vec = {'0', '2', '1', '1', '0', '2', '1', '0', '1', '0', '2', '1'};
@@ -76,7 +77,7 @@ TEST(pvalue_check, lower_gamma_function_check){
 TEST(pvalue_check, prepare_data_cd_check){
     vector<vector<unsigned char>> cur_G = {};
     vector<unsigned char> cur_A = {};
-    InputFile genotype("/Users/EL/CLionProjects/AdjustPValue/test.txt");
+    InputFile genotype("test.txt");
     vector<unsigned char> A = {'1', '3', '0', '2', '1', '0'};
 
     vector<vector<unsigned char>> result_G = {{'0', '0', '0', '1', '1' ,'0'}, {'2', '1', '0', '0', '2', '1'},
@@ -94,7 +95,7 @@ TEST(pvalue_check, prepare_data_cd_check){
 TEST(pvalue_check, prepare_data_r_check){
     vector<vector<unsigned char>> cur_G = {};
     vector<unsigned char> cur_A = {};
-    InputFile genotype("/Users/EL/CLionProjects/AdjustPValue/test.txt");
+    InputFile genotype("test.txt");
     vector<unsigned char> A = {'1', '3', '0', '2', '1', '0'};
 
     vector<vector<unsigned char>> result_G = {{'0', '0', '0', '0', '0' ,'0'}, {'1', '0', '0', '0', '1', '0'},
@@ -112,7 +113,7 @@ TEST(pvalue_check, prepare_data_r_check){
 TEST(pvalue_check, prepare_data_d_check){
     vector<vector<unsigned char>> cur_G = {};
     vector<unsigned char> cur_A = {};
-    InputFile genotype("/Users/EL/CLionProjects/AdjustPValue/test.txt");
+    InputFile genotype("test.txt");
     vector<unsigned char> A = {'1', '3', '0', '2', '1', '0'};
 
     vector<vector<unsigned char>> result_G = {{'0', '0', '0', '1', '1' ,'0'}, {'1', '1', '0', '0', '1', '1'},
@@ -130,7 +131,7 @@ TEST(pvalue_check, prepare_data_d_check){
 TEST(pvalue_check, prepare_data_a_check){
     vector<vector<unsigned char>> cur_G = {};
     vector<unsigned char> cur_A = {};
-    InputFile genotype("/Users/EL/CLionProjects/AdjustPValue/test.txt");
+    InputFile genotype("test.txt");
     vector<unsigned char> A = {'1', '3', '0', '2', '1', '0'};
 
     vector<vector<unsigned char>> result_G = {{'0', '0', '0', '0', '0' ,'0',   '0', '0', '0', '1', '1' ,'0'},
@@ -157,12 +158,10 @@ TEST(pvalue_check, map_phenotype_values_to_char_check){
 }
 
 // Testing how an empty vector of strings is converted to a vector of unsigned chars
-TEST(pvalue_check, map_phenotype_values_to_char_empty_vector_check){
+TEST(pvalue_check, map_phenotype_values_to_char_empty_vector_check) {
     vector<string> phen = {};
     vector<unsigned char> new_phen;
     new_phen = PValue::mapPhenotypeValuesToChar(phen);
     vector<unsigned char> result = {};
     ASSERT_EQ(result, new_phen);
 }
-
-

@@ -13,11 +13,10 @@
 using namespace std;
 
 class InputFile: public InputData {
+    string filename;
 public:
-    ifstream handle;
     InputFile (string fileName);
     vector<vector<unsigned char>> createGenotypeMatrix(int lowInd, int upInd);
-    ~InputFile();
 };
 
 #endif //P_VALUE_INPUTFILE_H

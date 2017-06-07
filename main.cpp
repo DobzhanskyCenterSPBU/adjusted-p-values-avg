@@ -14,14 +14,7 @@ int main(int argc, char* argv[]) {
     // Run unit tests
     testing::InitGoogleTest(&argc, argv);
     RUN_ALL_TESTS();
-    //simplePerformanceTest(10, "a");
-
-
-
-
-
-
-
+    simplePerformanceTest(10, "a");
 
     // Data initialization
     vector<TestsData> tests;
@@ -32,7 +25,7 @@ int main(int argc, char* argv[]) {
     parameters.k = 10;
     parameters.isAdaptive = true;
 
-    InputFile genotype("/Users/EL/CLionProjects/AdjustPValue/test.txt");
+    InputFile genotype("test.txt");
     /*
     vector<vector<unsigned char>> res = genotype.createGenotypeMatrix(-3,1);
     cout << endl << "results" << endl;
@@ -56,8 +49,6 @@ int main(int argc, char* argv[]) {
         cout << ' ' << *it;
     }
     cout << '\n';
-
-    // Destroy InputFile object
 
     return 0;
 }

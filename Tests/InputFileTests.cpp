@@ -10,17 +10,18 @@
 
 using testing::Eq;
 
-string filename = "/Users/EL/CLionProjects/AdjustPValue/test.txt";
+string filename = "test.txt"; ///Users/EL/CLionProjects/AdjustPValue
 
 // Reads 3 lines from the middle
 TEST(read_file_check, read_part_of_genotype_matrix_from_middle){
+
     InputFile genotype(filename);
     vector<vector<unsigned char>> result = {{'1', '0', '1', '0', '2', '1'}, {'0', '0', '0', '1', '1', '0'},
                                             {'2', '1', '0', '0', '2', '1'}};
     ASSERT_EQ(result, genotype.createGenotypeMatrix(1,3));
 }
 
-// Read non-existent lines !!!!! Ruines file
+// Read non-existent lines
 TEST(read_file_check, read_part_of_genotype_matrix_not_existing_lines){
     InputFile genotype(filename);
     vector<vector<unsigned char>> result = {};
