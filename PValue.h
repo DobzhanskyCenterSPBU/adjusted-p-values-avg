@@ -50,6 +50,9 @@ private:
     static int calcNumElem(vector<unsigned char> const & phenotype);
     static int calcNumElem(vector<vector<unsigned char>> const & genotype);
     static void doubleSizeOfMatrices(vector<vector<unsigned char>> & cur_G, vector<unsigned char> & cur_A);
+    static vector<vector<int>> fillVMatrix(vector<unsigned char> const & cur_G, vector<unsigned char> const & cur_A,
+                                           int V_rows, int V_cols);
+    static double calculateChiSqr(vector<vector<int>> V, int V_rows, int V_cols);
 
     FRIEND_TEST(pvalue_check, calculate_number_of_elements_vector_checked);
     FRIEND_TEST(pvalue_check, calculate_number_of_elements_matrix_checked);
@@ -62,6 +65,16 @@ private:
     FRIEND_TEST(pvalue_check, prepare_data_r_check);
     FRIEND_TEST(pvalue_check, prepare_data_d_check);
     FRIEND_TEST(pvalue_check, prepare_data_a_check);
+    FRIEND_TEST(pvalue_check, fill_v_matrix_3x4_check);
+    FRIEND_TEST(pvalue_check, fill_v_matrix_2x4_check);
+    FRIEND_TEST(pvalue_check, fill_v_matrix_with_3_in_genotype_check);
+    FRIEND_TEST(pvalue_check, calculate_chi_sqr_V2x4);
+    FRIEND_TEST(pvalue_check, calculate_chi_sqr_V3x4);
+    FRIEND_TEST(pvalue_check, calculate_chi_sqr_V3x4_proportional);
+    FRIEND_TEST(pvalue_check, calculate_chi_sqr_empty_matrix);
+    FRIEND_TEST(pvalue_check, calculate_chi_sqr_row_of_zeros);
+    FRIEND_TEST(pvalue_check, calculate_chi_sqr_column_of_zeros);
+    FRIEND_TEST(pvalue_check, calc_p_value_check);
 };
 
 #endif //ADJUSTPVALUE_PVALUE_H

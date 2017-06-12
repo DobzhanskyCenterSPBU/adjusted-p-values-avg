@@ -6,15 +6,26 @@
 #include <gmock/gmock.h>
 #include "PerformanceTests.h"
 
+#include <boost/math/special_functions/gamma.hpp>
+
 using namespace std;
 using namespace std::chrono;
 
 int main(int argc, char* argv[]) {
 
+
+
+    //cout << boost::math::tgamma(6, 0) << endl;
+    //cout << (boost::math::tgamma(6, 0) + boost::math::tgamma_lower(6, 0)) << endl;
+    //cout << boost::math::tgamma(0, 0) << endl;
+
+
+
+
     // Run unit tests
     testing::InitGoogleTest(&argc, argv);
     RUN_ALL_TESTS();
-    simplePerformanceTest(10, "a");
+    //simplePerformanceTest(10, "a");
 
     // Data initialization
     vector<TestsData> tests;

@@ -10,7 +10,7 @@
 
 using testing::Eq;
 
-string filename = "test.txt"; ///Users/EL/CLionProjects/AdjustPValue
+string filename = "test.txt";
 
 // Reads 3 lines from the middle
 TEST(read_file_check, read_part_of_genotype_matrix_from_middle){

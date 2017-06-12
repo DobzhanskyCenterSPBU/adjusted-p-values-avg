@@ -2,11 +2,11 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
-      <config projectName="AdjustPValue" targetName="AdjustPValue" />
       <config projectName="AdjustPValue" targetName="gtest" />
       <config projectName="AdjustPValue" targetName="gmock_main" />
       <config projectName="AdjustPValue" targetName="gmock" />
       <config projectName="AdjustPValue" targetName="gtest_main" />
+      <config projectName="AdjustPValue" targetName="AdjustPValue" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -16,19 +16,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0730f8d4-9c16-4bff-88f5-a77c20b56664" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdjustPValue.dir/main.cpp.o" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/AdjustPValue" afterPath="$PROJECT_DIR$/cmake-build-debug/AdjustPValue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdjustPValue.dir/InputFile.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdjustPValue.dir/InputFile.cpp.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdjustPValue.dir/PValue.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdjustPValue.dir/PValue.cpp.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdjustPValue.dir/main.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdjustPValue.dir/main.cpp.o" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/InputFile.cpp" afterPath="$PROJECT_DIR$/InputFile.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/InputFile.h" afterPath="$PROJECT_DIR$/InputFile.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PerformanceTests.cpp" afterPath="$PROJECT_DIR$/PerformanceTests.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PValue.cpp" afterPath="$PROJECT_DIR$/PValue.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PValue.h" afterPath="$PROJECT_DIR$/PValue.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/InputFileTests.cpp" afterPath="$PROJECT_DIR$/Tests/InputFileTests.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/PValueTests.cpp" afterPath="$PROJECT_DIR$/Tests/PValueTests.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdjustPValue.dir/CXX.includecache" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AdjustPValue.dir/CXX.includecache" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.cpp" afterPath="$PROJECT_DIR$/main.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -48,8 +44,8 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="41">
-              <caret line="16" column="28" lean-forward="false" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+            <state relative-caret-position="-118">
+              <caret line="34" column="43" lean-forward="false" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -60,30 +56,8 @@
       <file leaf-file-name="InputFileTests.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tests/InputFileTests.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="24" column="71" lean-forward="true" selection-start-line="24" selection-start-column="71" selection-end-line="24" selection-end-column="71" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PerformanceTests.cpp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/PerformanceTests.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="70" column="56" lean-forward="false" selection-start-line="70" selection-start-column="56" selection-end-line="70" selection-end-column="56" />
-              <folding>
-                <element signature="e#37#66#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PerformanceTests.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PerformanceTests.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="39" lean-forward="false" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
+            <state relative-caret-position="25">
+              <caret line="12" column="29" lean-forward="false" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -92,8 +66,8 @@
       <file leaf-file-name="PValue.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PValue.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3265">
-              <caret line="246" column="1" lean-forward="true" selection-start-line="246" selection-start-column="1" selection-end-line="246" selection-end-column="1" />
+            <state relative-caret-position="344">
+              <caret line="107" column="103" lean-forward="true" selection-start-line="107" selection-start-column="103" selection-end-line="107" selection-end-column="103" />
               <folding>
                 <element signature="e#37#56#0" expanded="true" />
               </folding>
@@ -101,11 +75,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PValueTests.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PValueTests.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tests/PValueTests.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-763">
-              <caret line="91" column="1" lean-forward="false" selection-start-line="91" selection-start-column="1" selection-end-line="91" selection-end-column="1" />
+            <state relative-caret-position="420">
+              <caret line="333" column="49" lean-forward="true" selection-start-line="333" selection-start-column="49" selection-end-line="333" selection-end-column="49" />
               <folding>
                 <element signature="e#37#54#0" expanded="true" />
               </folding>
@@ -116,8 +90,8 @@
       <file leaf-file-name="PValue.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PValue.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="43" column="4" lean-forward="false" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="91" />
+            <state relative-caret-position="449">
+              <caret line="76" column="50" lean-forward="false" selection-start-line="76" selection-start-column="50" selection-end-line="76" selection-end-column="50" />
               <folding>
                 <element signature="e#99#116#0" expanded="true" />
               </folding>
@@ -128,7 +102,7 @@
       <file leaf-file-name="InputFile.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/InputFile.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
+            <state relative-caret-position="720">
               <caret line="48" column="69" lean-forward="false" selection-start-line="48" selection-start-column="43" selection-end-line="48" selection-end-column="69" />
               <folding>
                 <element signature="e#37#59#0" expanded="true" />
@@ -154,6 +128,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>size</find>
+      <find>gamma</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -171,14 +146,14 @@
         <option value="$PROJECT_DIR$/Tests/readPartOfGenotypeMatrixTest.cpp" />
         <option value="$PROJECT_DIR$/InputData.h" />
         <option value="$PROJECT_DIR$/PerformanceTests.h" />
-        <option value="$PROJECT_DIR$/PValue.h" />
-        <option value="$PROJECT_DIR$/PValue.cpp" />
         <option value="$PROJECT_DIR$/InputFile.cpp" />
         <option value="$PROJECT_DIR$/InputFile.h" />
-        <option value="$PROJECT_DIR$/Tests/InputFileTests.cpp" />
-        <option value="$PROJECT_DIR$/Tests/PValueTests.cpp" />
-        <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/PerformanceTests.cpp" />
+        <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/PValue.h" />
+        <option value="$PROJECT_DIR$/Tests/InputFileTests.cpp" />
+        <option value="$PROJECT_DIR$/PValue.cpp" />
+        <option value="$PROJECT_DIR$/Tests/PValueTests.cpp" />
       </list>
     </option>
   </component>
@@ -521,7 +496,8 @@
       <workItem from="1495469037535" duration="1629000" />
       <workItem from="1495470753614" duration="19946000" />
       <workItem from="1495617614744" duration="9325000" />
-      <workItem from="1496144910695" duration="75812000" />
+      <workItem from="1496144910695" duration="78157000" />
+      <workItem from="1496941037679" duration="20519000" />
     </task>
     <task id="LOCAL-00001" summary="Renaming file Algorithm.pdf -&gt; Schema-Arina.pdf">
       <created>1495622248880</created>
@@ -545,7 +521,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="193609000" />
+    <option name="totallyTimeSpent" value="216473000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -560,17 +536,16 @@
     <frame x="39" y="23" width="1327" height="745" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16575876" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280255" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7898089" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32854864" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5614035" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280255" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6496815" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32057416" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16342412" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32854864" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24937448" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.06528662" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32961783" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6283892" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -578,6 +553,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32854864" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -614,7 +590,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="29" />
+      <option name="time" value="30" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -651,7 +627,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -679,7 +654,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -717,7 +691,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -753,13 +726,7 @@
     <entry file="file://$PROJECT_DIR$/AdjustPValue.cpp" />
     <entry file="file://$PROJECT_DIR$/AdjustPValue.h" />
     <entry file="file://$PROJECT_DIR$/InputData.cpp" />
-    <entry file="file://$USER_HOME$/Desktop/read_SNP/read_SNP/read_phenotype_genotype.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Desktop/read_SNP/read_SNP/read_phenotype_genotype.cpp" />
     <entry file="file://$PROJECT_DIR$/extra.cpp" />
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
@@ -772,7 +739,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="52" lean-forward="false" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -788,7 +754,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="505" column="0" lean-forward="false" selection-start-line="505" selection-start-column="0" selection-end-line="505" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -796,7 +761,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="62" lean-forward="false" selection-start-line="14" selection-start-column="62" selection-end-line="14" selection-end-column="62" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -804,16 +768,33 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="2398" column="0" lean-forward="false" selection-start-line="2398" selection-start-column="0" selection-end-line="2398" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InputFile.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="48" column="69" lean-forward="false" selection-start-line="48" selection-start-column="43" selection-end-line="48" selection-end-column="69" />
+          <folding>
+            <element signature="e#37#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PerformanceTests.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="39" lean-forward="false" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PValue.h">
+    <entry file="file://$PROJECT_DIR$/PerformanceTests.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="43" column="4" lean-forward="false" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="91" />
+        <state relative-caret-position="810">
+          <caret line="54" column="34" lean-forward="false" selection-start-line="54" selection-start-column="34" selection-end-line="54" selection-end-column="34" />
           <folding>
-            <element signature="e#99#116#0" expanded="true" />
+            <element signature="e#37#66#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -828,68 +809,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/InputFile.cpp">
+    <entry file="file://$PROJECT_DIR$/PValue.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="48" column="69" lean-forward="false" selection-start-line="48" selection-start-column="43" selection-end-line="48" selection-end-column="69" />
+        <state relative-caret-position="449">
+          <caret line="76" column="50" lean-forward="false" selection-start-line="76" selection-start-column="50" selection-end-line="76" selection-end-column="50" />
           <folding>
-            <element signature="e#37#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PValue.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3265">
-          <caret line="246" column="1" lean-forward="true" selection-start-line="246" selection-start-column="1" selection-end-line="246" selection-end-column="1" />
-          <folding>
-            <element signature="e#37#56#0" expanded="true" />
+            <element signature="e#99#116#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Tests/InputFileTests.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="24" column="71" lean-forward="true" selection-start-line="24" selection-start-column="71" selection-end-line="24" selection-end-column="71" />
+        <state relative-caret-position="25">
+          <caret line="12" column="29" lean-forward="false" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PerformanceTests.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="39" lean-forward="false" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/PValueTests.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-763">
-          <caret line="91" column="1" lean-forward="false" selection-start-line="91" selection-start-column="1" selection-end-line="91" selection-end-column="1" />
-          <folding>
-            <element signature="e#37#54#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="41">
-          <caret line="16" column="28" lean-forward="false" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+        <state relative-caret-position="-118">
+          <caret line="34" column="43" lean-forward="false" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PerformanceTests.cpp">
+    <entry file="file://$PROJECT_DIR$/PValue.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="107" column="103" lean-forward="true" selection-start-line="107" selection-start-column="103" selection-end-line="107" selection-end-column="103" />
+          <folding>
+            <element signature="e#37#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/PValueTests.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
-          <caret line="70" column="56" lean-forward="false" selection-start-line="70" selection-start-column="56" selection-end-line="70" selection-end-column="56" />
+          <caret line="333" column="49" lean-forward="true" selection-start-line="333" selection-start-column="49" selection-end-line="333" selection-end-column="49" />
           <folding>
-            <element signature="e#37#66#0" expanded="true" />
+            <element signature="e#37#54#0" expanded="true" />
           </folding>
         </state>
       </provider>
