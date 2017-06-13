@@ -20,8 +20,6 @@ int main(int argc, char* argv[]) {
     //cout << boost::math::tgamma(0, 0) << endl;
 
 
-
-
     // Run unit tests
     testing::InitGoogleTest(&argc, argv);
     RUN_ALL_TESTS();
@@ -49,7 +47,7 @@ int main(int argc, char* argv[]) {
     cout << '\n';
     */
 
-    vector<unsigned char> phenotype = {'1', '3', '0', '2', '1', '0'};
+    vector<unsigned short> phenotype = {1, 3, 0, 2, 1, 0};
 
     // Call adjustPValue
     vector<double> results = PValue::adjustPValue(tests, genotype, phenotype, parameters);

@@ -41,10 +41,10 @@ void simplePerformanceTest(int maxRep, string test_type) {
     myfile.close();
 
     // Generate the phenotype vector
-    vector<unsigned char> phenotype;
+    vector<unsigned short> phenotype;
     for (int i = 0; i < 100; ++i) {
         randomNumber = values[rand() % length];
-        phenotype.push_back(randomNumber + '0');
+        phenotype.push_back((unsigned short)randomNumber);
     }
 
     vector<TestsData> tests;

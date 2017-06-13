@@ -16,7 +16,7 @@ class InputFile: public InputData {
     string filename;
 public:
     InputFile (string fileName);
-    vector<vector<unsigned char>> createGenotypeMatrix(int lowInd, int upInd);
+    vector<vector<unsigned short>> createGenotypeMatrix(int lowInd, int upInd);
 };
 
 #endif //P_VALUE_INPUTFILE_H

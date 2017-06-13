@@ -10,11 +10,11 @@ using namespace std;
 
 
 vector<double> PValue::adjustPValue(vector<TestsData> const &tests, InputData &G,
-                                    vector<unsigned char> const &A, ExecutionParameters const &cont){
+                                    vector<unsigned short> const &A, ExecutionParameters const &cont){
 
     vector<double> P_values((int)(tests.size())); // The results will be saved here
-    vector<vector<unsigned char>> cur_G;
-    vector<unsigned char> cur_A;
+    vector<vector<unsigned short>> cur_G;
+    vector<unsigned short> cur_A;
     double D_main, D_cur;
     int s, m, k, all_iter;
 
@@ -49,8 +49,8 @@ vector<double> PValue::adjustPValue(vector<TestsData> const &tests, InputData &G
     return P_values;
 }
 
-void PValue::prepareData(vector<vector<unsigned char>>& cur_G, vector<unsigned char>& cur_A, InputData & G,
-                        vector<unsigned char> const & A, TestsData cur_test){
+void PValue::prepareData(vector<vector<unsigned short>>& cur_G, vector<unsigned short>& cur_A, InputData & G,
+                        vector<unsigned short> const & A, TestsData cur_test){
 
     cur_A = A; // Create a new copy of the phenotype
     cur_G = G.createGenotypeMatrix(cur_test.lower, cur_test.upper); // Read the appropriate part of the genotype
@@ -62,35 +62,35 @@ void PValue::prepareData(vector<vector<unsigned char>>& cur_G, vector<unsigned c
         case eCD:
             break;
         case eR:
-            for (vector<vector<unsigned char>>::size_type i = 0; i < cur_G.size(); i++) {
-                for (vector<unsigned char>::size_type j = 0; j < cur_G[i].size(); j++ ) {
-                    if (cur_G[i][j] == '1') cur_G[i][j] = '0';
-                    if (cur_G[i][j] == '2') cur_G[i][j] = '1';
+            for (vector<vector<unsigned short>>::size_type i = 0; i < cur_G.size(); i++) {
+                for (vector<unsigned short>::size_type j = 0; j < cur_G[i].size(); j++ ) {
+                    if (cur_G[i][j] == 1) cur_G[i][j] = 0;
+                    if (cur_G[i][j] == 2) cur_G[i][j] = 1;
                 }
             }
             break;
         case eD:
-            for (vector<vector<unsigned char>>::size_type i = 0; i < cur_G.size(); i++) {
-                for (vector<unsigned char>::size_type j = 0; j < cur_G[i].size(); j++ ) {
-                    if (cur_G[i][j] == '2') cur_G[i][j] = '1';
+            for (vector<vector<unsigned short>>::size_type i = 0; i < cur_G.size(); i++) {
+                for (vector<unsigned short>::size_type j = 0; j < cur_G[i].size(); j++ ) {
+                    if (cur_G[i][j] == 2) cur_G[i][j] = 1;
                 }
             }
             break;
         case eA:
-            for (vector<vector<unsigned char>>::size_type i = 0; i < cur_G.size(); i++) {
-                for (vector<unsigned char>::size_type j = 0; j < cur_G[i].size()/2; j++ ) {
-                    if (cur_G[i][j] == '1') cur_G[i][j] = '0';
-                    if (cur_G[i][j] == '2') cur_G[i][j] = '1';
+            for (vector<vector<unsigned short>>::size_type i = 0; i < cur_G.size(); i++) {
+                for (vector<unsigned short>::size_type j = 0; j < cur_G[i].size()/2; j++ ) {
+                    if (cur_G[i][j] == 1) cur_G[i][j] = 0;
+                    if (cur_G[i][j] == 2) cur_G[i][j] = 1;
                 }
-                for (vector<unsigned char>::size_type j = cur_G[i].size()/2; j < cur_G[i].size(); j++ ) {
-                    if (cur_G[i][j] == '2') cur_G[i][j] = '1';
+                for (vector<unsigned short>::size_type j = cur_G[i].size()/2; j < cur_G[i].size(); j++ ) {
+                    if (cur_G[i][j] == 2) cur_G[i][j] = 1;
                 }
             }
             break;
     }
 }
 
-double PValue::calcPValue(vector<vector<unsigned char>> const & cur_G, vector<unsigned char> const & cur_A, string ID){
+double PValue::calcPValue(vector<vector<unsigned short>> const & cur_G, vector<unsigned short> const & cur_A, string ID){
 
     double D = 0.0; // Return value
     int D_num = 0; // Amount of valid D values
@@ -146,9 +146,9 @@ AlternativeHypothesisType PValue::hashIt (string const& inString) {
 }
 
 
-int PValue::calcNumElem(vector<unsigned char> const & phenotype){
-    vector<unsigned char> elements;
-    for(vector<unsigned char>::size_type j = 0; j < phenotype.size(); j++) {
+int PValue::calcNumElem(vector<unsigned short> const & phenotype){
+    vector<unsigned short> elements;
+    for(vector<unsigned short>::size_type j = 0; j < phenotype.size(); j++) {
         if (find(elements.begin(), elements.end(), phenotype[j]) == elements.end()) {
             elements.push_back(phenotype[j]);
         }
@@ -156,11 +156,11 @@ int PValue::calcNumElem(vector<unsigned char> const & phenotype){
     return (int)(elements.size());
 }
 
-int PValue::calcNumElem(vector<vector<unsigned char>> const & genotype) {
-    unsigned char p = '3'; // Element that is not considered
-    vector<unsigned char> elements;
-    for (vector<vector<unsigned char>>::size_type i = 0; i < genotype.size(); ++i) {
-        for (vector<unsigned char>::size_type j = 0; j < genotype[i].size(); ++j) {
+int PValue::calcNumElem(vector<vector<unsigned short>> const & genotype) {
+    unsigned short p = 3; // Element that is not considered
+    vector<unsigned short> elements;
+    for (vector<vector<unsigned short>>::size_type i = 0; i < genotype.size(); ++i) {
+        for (vector<unsigned short>::size_type j = 0; j < genotype[i].size(); ++j) {
             if (find(elements.begin(), elements.end(), genotype[i][j]) == elements.end()) {
                 elements.push_back(genotype[i][j]);
             }
@@ -170,10 +170,10 @@ int PValue::calcNumElem(vector<vector<unsigned char>> const & genotype) {
     else return (int)(elements.size());
 }
 
-void PValue::doubleSizeOfMatrices(vector<vector<unsigned char>> & cur_G, vector<unsigned char> & cur_A){
+void PValue::doubleSizeOfMatrices(vector<vector<unsigned short>> & cur_G, vector<unsigned short> & cur_A){
 
-    vector<unsigned char> buf_A = cur_A, G_line;
-    vector<vector<unsigned char>> buf_G = cur_G;
+    vector<unsigned short> buf_A = cur_A, G_line;
+    vector<vector<unsigned short>> buf_G = cur_G;
 
     cur_A = {};
     cur_A.reserve(2*buf_A.size());
@@ -182,7 +182,7 @@ void PValue::doubleSizeOfMatrices(vector<vector<unsigned char>> & cur_G, vector<
 
     // Fill cur_G
     cur_G = {};
-    for (vector<vector<unsigned char>>::size_type i = 0; i < buf_G.size(); i++){
+    for (vector<vector<unsigned short>>::size_type i = 0; i < buf_G.size(); i++){
         G_line = {};
         G_line.reserve(2*buf_G[i].size());
         G_line.insert(G_line.end(), buf_G[i].begin(), buf_G[i].end());
@@ -191,8 +191,8 @@ void PValue::doubleSizeOfMatrices(vector<vector<unsigned char>> & cur_G, vector<
     }
 }
 
-vector<unsigned char> PValue::mapPhenotypeValuesToChar(vector<string> const &phenotype){
-    vector<unsigned char> new_phenotype;
+vector<unsigned short> PValue::mapPhenotypeValuesToChar(vector<string> const &phenotype){
+    vector<unsigned short> new_phenotype;
     vector<string> elements;
     ptrdiff_t pos;
     for (std::vector<string>::const_iterator it=phenotype.begin(); it!=phenotype.end(); ++it){
@@ -200,12 +200,12 @@ vector<unsigned char> PValue::mapPhenotypeValuesToChar(vector<string> const &phe
             elements.push_back(*it);
         }
         pos = find(elements.begin(), elements.end(), *it) - elements.begin();
-        new_phenotype.push_back(pos + '0');
+        new_phenotype.push_back(pos);
     }
     return new_phenotype;
 }
 
-vector<vector<int>> PValue::fillVMatrix(vector<unsigned char> const & cur_G, vector<unsigned char> const & cur_A,
+vector<vector<int>> PValue::fillVMatrix(vector<unsigned short> const & cur_G, vector<unsigned short> const & cur_A,
                                 int V_rows, int V_cols){
 
     vector<vector<int>> V (V_rows, vector<int>(V_cols));
@@ -219,8 +219,8 @@ vector<vector<int>> PValue::fillVMatrix(vector<unsigned char> const & cur_G, vec
     }
     // Fill V (G_car x A_car)
     for(vector<unsigned char>::size_type j = 0; j < col_num; j++) {
-        if (cur_G[j] < '3') {
-            V[cur_G[j] - '0'][cur_A[j] - '0'] = V[cur_G[j] - '0'][cur_A[j] - '0'] + 1; // " - '0' " - transforms char to int
+        if (cur_G[j] < 3) {
+            V[cur_G[j]][cur_A[j]] = V[cur_G[j]][cur_A[j]] + 1; // " - '0' " - transforms char to int
         }
     }
     return V;

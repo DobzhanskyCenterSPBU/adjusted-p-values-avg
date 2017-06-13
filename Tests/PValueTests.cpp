@@ -13,30 +13,28 @@
 
 // #1 Calculating the number of unique elements in a vector
 TEST(pvalue_check, calculate_number_of_elements_vector_checked){
-    vector<unsigned char> test_vec = {'0', '2', '1', '1', '0', '2', '1', '0', '1', '0', '2', '1'};
+    vector<unsigned short> test_vec = {0, 2, 1, 1, 0, 2, 1, 0, 1, 0, 2, 1};
     int result = PValue::calcNumElem(test_vec);
     ASSERT_EQ(3, result);
 };
 
 // #2 Calculating the number of unique elements in a matrix
 TEST(pvalue_check, calculate_number_of_elements_matrix_checked){
-    vector<vector<unsigned char>> test_matrix = {{'1', '0', '1', '0', '2', '1'}, {'0', '0', '0', '1', '1', '0'},
-                                                 {'2', '1', '0', '0', '2', '1'}};
+    vector<vector<unsigned short>> test_matrix = {{1, 0, 1, 0, 2, 1}, {0, 0, 0, 1, 1, 0}, {2, 1, 0, 0, 2, 1}};
     int result = PValue::calcNumElem(test_matrix);
     ASSERT_EQ(3, result);
 };
 
 // #3 Calculating the number of unique elements in a vector filled with zeros
 TEST(pvalue_check, calculate_number_of_elements_vector_all_zeros_checked){
-    vector<unsigned char> test_vec = {'0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'};
+    vector<unsigned short> test_vec = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     int result = PValue::calcNumElem(test_vec);
     ASSERT_EQ(1, result);
 };
 
 // #4 Calculating the number of unique elements in a matrix filled with zeros
 TEST(pvalue_check, calculate_number_of_elements_matrix_all_zeros_checked){
-    vector<vector<unsigned char>> test_matrix = {{'0', '0', '0', '0', '0', '0'}, {'0', '0', '0', '0', '0', '0'},
-                                                 {'0', '0', '0', '0', '0', '0'}};
+    vector<vector<unsigned short>> test_matrix = {{0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}};
     int result = PValue::calcNumElem(test_matrix);
     ASSERT_EQ(1, result);
 };
@@ -44,22 +42,21 @@ TEST(pvalue_check, calculate_number_of_elements_matrix_all_zeros_checked){
 // #5 Calculating the number of unique elements in a matrix where all elements are '3'
 // The element '3' should not be considered
 TEST(pvalue_check, calculate_number_of_elements_matrix_all_threes_checked){
-    vector<vector<unsigned char>> test_matrix = {{'3', '3', '3', '3', '3', '3'}, {'3', '3', '3', '3', '3', '3'},
-                                                 {'3', '3', '3', '3', '3', '3'}};
+    vector<vector<unsigned short>> test_matrix = {{3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}};
     int result = PValue::calcNumElem(test_matrix);
     ASSERT_EQ(0, result);
 };
 
 // #6 Calculating the number of unique elements in an empty vector
 TEST(pvalue_check, calculate_number_of_elements_empty_vector_check){
-    vector<unsigned char> empty = {};
+    vector<unsigned short> empty = {};
     int result = PValue::calcNumElem(empty);
     ASSERT_EQ(0, result);
 };
 
 // #7 Calculating the number of unique elements in an empty matrix
 TEST(pvalue_check, calculate_number_of_elements_empty_matrix_check){
-    vector<vector<unsigned char>> empty = {};
+    vector<vector<unsigned short>> empty = {};
     int result = PValue::calcNumElem(empty);
     ASSERT_EQ(0, result);
 };
@@ -75,14 +72,14 @@ TEST(pvalue_check, lower_gamma_function_check){
 
 // #9 Testing the function prepareData for test type = "cd"
 TEST(pvalue_check, prepare_data_cd_check){
-    vector<vector<unsigned char>> cur_G = {};
-    vector<unsigned char> cur_A = {};
+    vector<vector<unsigned short>> cur_G = {};
+    vector<unsigned short> cur_A = {};
     InputFile genotype("test.txt");
-    vector<unsigned char> A = {'1', '3', '0', '2', '1', '0'};
+    vector<unsigned short> A = {1, 3, 0, 2, 1, 0};
 
-    vector<vector<unsigned char>> result_G = {{'0', '0', '0', '1', '1' ,'0'}, {'2', '1', '0', '0', '2', '1'},
-                                              {'1', '0', '0', '2', '2', '1'}, {'0', '0', '1', '1', '1', '0'}};
-    vector<unsigned char> result_A = {'1', '3', '0', '2', '1', '0'};
+    vector<vector<unsigned short>> result_G = {{0, 0, 0, 1, 1 ,0}, {2, 1, 0, 0, 2, 1},
+                                              {1, 0, 0, 2, 2, 1}, {0, 0, 1, 1, 1, 0}};
+    vector<unsigned short> result_A = {1, 3, 0, 2, 1, 0};
 
     TestsData cur_test = {"cd",2,5};
     PValue::prepareData(cur_G, cur_A, genotype, A, cur_test);
@@ -93,14 +90,14 @@ TEST(pvalue_check, prepare_data_cd_check){
 
 // #10 Testing the function prepareData for test type = "r"
 TEST(pvalue_check, prepare_data_r_check){
-    vector<vector<unsigned char>> cur_G = {};
-    vector<unsigned char> cur_A = {};
+    vector<vector<unsigned short>> cur_G = {};
+    vector<unsigned short> cur_A = {};
     InputFile genotype("test.txt");
-    vector<unsigned char> A = {'1', '3', '0', '2', '1', '0'};
+    vector<unsigned short> A = {1, 3, 0, 2, 1, 0};
 
-    vector<vector<unsigned char>> result_G = {{'0', '0', '0', '0', '0' ,'0'}, {'1', '0', '0', '0', '1', '0'},
-                                              {'0', '0', '0', '1', '1', '0'}, {'0', '0', '0', '0', '0', '0'}};
-    vector<unsigned char> result_A = {'1', '3', '0', '2', '1', '0'};
+    vector<vector<unsigned short>> result_G = {{0, 0, 0, 0, 0 ,0}, {1, 0, 0, 0, 1, 0},
+                                              {0, 0, 0, 1, 1, 0}, {0, 0, 0, 0, 0, 0}};
+    vector<unsigned short> result_A = {1, 3, 0, 2, 1, 0};
 
     TestsData cur_test = {"r",2,5};
     PValue::prepareData(cur_G, cur_A, genotype, A, cur_test);
@@ -111,14 +108,14 @@ TEST(pvalue_check, prepare_data_r_check){
 
 // #11 Testing the function prepareData for test type = "d"
 TEST(pvalue_check, prepare_data_d_check){
-    vector<vector<unsigned char>> cur_G = {};
-    vector<unsigned char> cur_A = {};
+    vector<vector<unsigned short>> cur_G = {};
+    vector<unsigned short> cur_A = {};
     InputFile genotype("test.txt");
-    vector<unsigned char> A = {'1', '3', '0', '2', '1', '0'};
+    vector<unsigned short> A = {1, 3, 0, 2, 1, 0};
 
-    vector<vector<unsigned char>> result_G = {{'0', '0', '0', '1', '1' ,'0'}, {'1', '1', '0', '0', '1', '1'},
-                                              {'1', '0', '0', '1', '1', '1'}, {'0', '0', '1', '1', '1', '0'}};
-    vector<unsigned char> result_A = {'1', '3', '0', '2', '1', '0'};
+    vector<vector<unsigned short>> result_G = {{0, 0, 0, 1, 1 ,0}, {1, 1, 0, 0, 1, 1},
+                                              {1, 0, 0, 1, 1, 1}, {0, 0, 1, 1, 1, 0}};
+    vector<unsigned short> result_A = {1, 3, 0, 2, 1, 0};
 
     TestsData cur_test = {"d",2,5};
     PValue::prepareData(cur_G, cur_A, genotype, A, cur_test);
@@ -129,17 +126,17 @@ TEST(pvalue_check, prepare_data_d_check){
 
 // #12 Testing the function prepareData for test type = "a"
 TEST(pvalue_check, prepare_data_a_check){
-    vector<vector<unsigned char>> cur_G = {};
-    vector<unsigned char> cur_A = {};
+    vector<vector<unsigned short>> cur_G = {};
+    vector<unsigned short> cur_A = {};
     InputFile genotype("test.txt");
-    vector<unsigned char> A = {'1', '3', '0', '2', '1', '0'};
+    vector<unsigned short> A = {1, 3, 0, 2, 1, 0};
 
-    vector<vector<unsigned char>> result_G = {{'0', '0', '0', '0', '0' ,'0',   '0', '0', '0', '1', '1' ,'0'},
-                                              {'1', '0', '0', '0', '1', '0',   '1', '1', '0', '0', '1', '1'},
-                                              {'0', '0', '0', '1', '1', '0',   '1', '0', '0', '1', '1', '1'},
-                                              {'0', '0', '0', '0', '0', '0',   '0', '0', '1', '1', '1', '0'}};
+    vector<vector<unsigned short>> result_G = {{0, 0, 0, 0, 0, 0,   0, 0, 0, 1, 1 ,0},
+                                              {1, 0, 0, 0, 1, 0,   1, 1, 0, 0, 1, 1},
+                                              {0, 0, 0, 1, 1, 0,   1, 0, 0, 1, 1, 1},
+                                              {0, 0, 0, 0, 0, 0,   0, 0, 1, 1, 1, 0}};
 
-    vector<unsigned char> result_A = {'1', '3', '0', '2', '1', '0',  '1', '3', '0', '2', '1', '0'};
+    vector<unsigned short> result_A = {1, 3, 0, 2, 1, 0,  1, 3, 0, 2, 1, 0};
 
     TestsData cur_test = {"a",2,5};
     PValue::prepareData(cur_G, cur_A, genotype, A, cur_test);
@@ -151,27 +148,27 @@ TEST(pvalue_check, prepare_data_a_check){
 // #13 Testing how a vector of strings is converted to a vector of unsigned chars
 TEST(pvalue_check, map_phenotype_values_to_char_check){
     vector<string> phen = {"blue", "red", "green", "red", "black", "blue", "green"};
-    vector<unsigned char> new_phen;
+    vector<unsigned short> new_phen;
     new_phen = PValue::mapPhenotypeValuesToChar(phen);
-    vector<unsigned char> result = {'0', '1', '2', '1', '3', '0', '2'};
+    vector<unsigned short> result = {0, 1, 2, 1, 3, 0, 2};
     ASSERT_EQ(result, new_phen);
 }
 
 // #14 Testing how an empty vector of strings is converted to a vector of unsigned chars
 TEST(pvalue_check, map_phenotype_values_to_char_empty_vector_check) {
     vector<string> phen = {};
-    vector<unsigned char> new_phen;
+    vector<unsigned short> new_phen;
     new_phen = PValue::mapPhenotypeValuesToChar(phen);
-    vector<unsigned char> result = {};
+    vector<unsigned short> result = {};
     ASSERT_EQ(result, new_phen);
 }
 
 // #15 Testing fillVMatrix with 3x4 matrix
 TEST(pvalue_check, fill_v_matrix_3x4_check){
     vector<vector<int>> V1, V2, V3, V4, real_V1, real_V2, real_V3, real_V4;
-    vector<vector<unsigned char>> genotype = {{'0', '0', '0', '1', '1' ,'0'}, {'2', '1', '0', '0', '2', '1'},
-                                              {'1', '0', '0', '2', '2', '1'}, {'0', '0', '1', '1', '1', '0'}};
-    vector<unsigned char> phenotype = {'1', '3', '0', '2', '1', '0'};
+    vector<vector<unsigned short>> genotype = {{0, 0, 0, 1, 1, 0}, {2, 1, 0, 0, 2, 1},
+                                              {1, 0, 0, 2, 2, 1}, {0, 0, 1, 1, 1, 0}};
+    vector<unsigned short> phenotype = {1, 3, 0, 2, 1, 0};
 
     V1 = PValue::fillVMatrix(genotype[0], phenotype, 3, 4);
     V2 = PValue::fillVMatrix(genotype[1], phenotype, 3, 4);
@@ -192,9 +189,9 @@ TEST(pvalue_check, fill_v_matrix_3x4_check){
 // #16 Testing fillVMatrix with 2x4 matrix
 TEST(pvalue_check, fill_v_matrix_2x4_check){
     vector<vector<int>> V1, V2, V3, V4, real_V1, real_V2, real_V3;
-    vector<vector<unsigned char>> genotype = {{'1', '1', '0', '0', '0' ,'1'}, {'0', '0', '0', '1', '1', '0'},
-                                              {'1', '0', '0', '0', '0', '1'}};
-    vector<unsigned char> phenotype = {'1', '3', '0', '2', '1', '0'};
+    vector<vector<unsigned short>> genotype = {{1, 1, 0, 0, 0, 1}, {0, 0, 0, 1, 1, 0},
+                                              {1, 0, 0, 0, 0, 1}};
+    vector<unsigned short> phenotype = {1, 3, 0, 2, 1, 0};
 
     V1 = PValue::fillVMatrix(genotype[0], phenotype, 2, 4);
     V2 = PValue::fillVMatrix(genotype[1], phenotype, 2, 4);
@@ -212,9 +209,9 @@ TEST(pvalue_check, fill_v_matrix_2x4_check){
 // #17 Testing fillVMatrix with '3' elements in genotype
 TEST(pvalue_check, fill_v_matrix_with_3_in_genotype_check){
     vector<vector<int>> V1, V2, V3, V4, real_V1, real_V2, real_V3, real_V4;
-    vector<vector<unsigned char>> genotype = {{'0', '3', '0', '1', '1' ,'0'}, {'2', '1', '3', '3', '2', '1'},
-                                              {'1', '0', '0', '2', '3', '1'}, {'0', '0', '3', '1', '1', '0'}};
-    vector<unsigned char> phenotype = {'2', '3', '0', '1', '1', '0'};
+    vector<vector<unsigned short>> genotype = {{0, 3, 0, 1, 1, 0}, {2, 1, 3, 3, 2, 1},
+                                              {1, 0, 0, 2, 3, 1}, {0, 0, 3, 1, 1, 0}};
+    vector<unsigned short> phenotype = {2, 3, 0, 1, 1, 0};
 
     V1 = PValue::fillVMatrix(genotype[0], phenotype, 3, 4);
     V2 = PValue::fillVMatrix(genotype[1], phenotype, 3, 4);
@@ -306,11 +303,11 @@ TEST(pvalue_check, calculate_chi_sqr_column_of_zeros){
 
 // #24 Testing calcPValue
 TEST(pvalue_check, calc_p_value_check){
-    vector<vector<unsigned char>> genotype = {{'0', '1', '0', '0', '0' ,'0',   '0', '1', '1', '1', '0' ,'0'},
-                                              {'0', '1', '0', '0', '1', '0',   '0', '1', '1', '0', '1', '1'},
-                                              {'0', '0', '0', '1', '0', '0',   '0', '1', '1', '1', '1', '1'}};
+    vector<vector<unsigned short>> genotype = {{0, 1, 0, 0, 0, 0,   0, 1, 1, 1, 0, 0},
+                                              {0, 1, 0, 0, 1, 0,   0, 1, 1, 0, 1, 1},
+                                              {0, 0, 0, 1, 0, 0,   0, 1, 1, 1, 1, 1}};
 
-    vector<unsigned char> phenotype = {'1', '3', '0', '2', '1', '0',  '1', '3', '0', '2', '1', '0'};
+    vector<unsigned short> phenotype = {1, 3, 0, 2, 1, 0,  1, 3, 0, 2, 1, 0};
     double pValue = PValue::calcPValue(genotype, phenotype, "a");
     double realPValue = 0.0113057;
 
@@ -326,7 +323,7 @@ TEST(pvalue_check, adjust_p_value_check){
     parameters.k = 10;
     parameters.isAdaptive = true;
     InputFile genotype("test.txt");
-    vector<unsigned char> phenotype = {'1', '3', '0', '2', '1', '0'};
+    vector<unsigned short> phenotype = {1, 3, 0, 2, 1, 0};
 
     vector<double> results = PValue::adjustPValue(tests, genotype, phenotype, parameters);
     vector<double> real_results = {0.8, 0.2, 0, 0.9, 0.9};

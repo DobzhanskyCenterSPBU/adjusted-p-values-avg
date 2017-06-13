@@ -12,12 +12,12 @@ InputFile::InputFile (string fileName){
     this->filename = fileName;
 }
 
-vector<vector<unsigned char>> InputFile::createGenotypeMatrix(int lowInd, int upInd) {
+vector<vector<unsigned short>> InputFile::createGenotypeMatrix(int lowInd, int upInd) {
 
     ifstream handle;
     handle.open(this->filename);
 
-    vector<vector<unsigned char>> result; //(upInd - lowInd + 1)
+    vector<vector<unsigned short>> result; //(upInd - lowInd + 1)
     char delim = ' '; // Split lines on a delimiter ' '
     string symbol;
     string curLine;
@@ -25,9 +25,6 @@ vector<vector<unsigned char>> InputFile::createGenotypeMatrix(int lowInd, int up
 
     if (lowInd < 0) lowInd = 0;
     if (upInd < 0) upInd = 0;
-
-    // Make sure tellg() won't return -1
-    //this->handle.clear();
 
     // Define the length of a line in the given file
     handle.seekg(0);
@@ -46,7 +43,7 @@ vector<vector<unsigned char>> InputFile::createGenotypeMatrix(int lowInd, int up
             stringstream ss;
             ss.str(curLine);
             while (getline(ss, symbol, delim)) {
-                result[line_num].push_back((unsigned char) symbol[0]);
+                result[line_num].push_back((unsigned short)stoi(symbol));
             }
             line_num++;
         }

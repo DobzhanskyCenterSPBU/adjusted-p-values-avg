@@ -40,17 +40,17 @@ struct ExecutionParameters {
 class PValue {
 public:
     static vector<double> adjustPValue(vector<TestsData> const &tests, InputData &G,
-                                       vector<unsigned char> const &A, ExecutionParameters const &cont);
-    static vector<unsigned char> mapPhenotypeValuesToChar(vector<string> const &phenotype);
+                                       vector<unsigned short> const &A, ExecutionParameters const &cont);
+    static vector<unsigned short> mapPhenotypeValuesToChar(vector<string> const &phenotype);
 private:
-    static void prepareData(vector<vector<unsigned char>> & cur_G, vector<unsigned char> & cur_A, InputData & G,
-                           vector<unsigned char> const & A, TestsData cur_test);
-    static double calcPValue(vector<vector<unsigned char>> const & cur_G, vector<unsigned char> const & cur_A, string ID);
+    static void prepareData(vector<vector<unsigned short>> & cur_G, vector<unsigned short> & cur_A, InputData & G,
+                           vector<unsigned short> const & A, TestsData cur_test);
+    static double calcPValue(vector<vector<unsigned short>> const & cur_G, vector<unsigned short> const & cur_A, string ID);
     static AlternativeHypothesisType hashIt (string const& inString);
-    static int calcNumElem(vector<unsigned char> const & phenotype);
-    static int calcNumElem(vector<vector<unsigned char>> const & genotype);
-    static void doubleSizeOfMatrices(vector<vector<unsigned char>> & cur_G, vector<unsigned char> & cur_A);
-    static vector<vector<int>> fillVMatrix(vector<unsigned char> const & cur_G, vector<unsigned char> const & cur_A,
+    static int calcNumElem(vector<unsigned short> const & phenotype);
+    static int calcNumElem(vector<vector<unsigned short>> const & genotype);
+    static void doubleSizeOfMatrices(vector<vector<unsigned short>> & cur_G, vector<unsigned short> & cur_A);
+    static vector<vector<int>> fillVMatrix(vector<unsigned short> const & cur_G, vector<unsigned short> const & cur_A,
                                            int V_rows, int V_cols);
     static double calculateChiSqr(vector<vector<int>> V, int V_rows, int V_cols);
 
