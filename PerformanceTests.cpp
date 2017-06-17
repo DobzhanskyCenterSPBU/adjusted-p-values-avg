@@ -5,6 +5,7 @@
 #include "PerformanceTests.h"
 #include "PValue.h"
 #include "InputFile.h"
+#include <vector>
 #include <string>
 #include <iostream>
 #include <chrono>
@@ -69,6 +70,66 @@ void simplePerformanceTest(int maxRep, string test_type) {
 
     // Print results
     cout << endl << "Adjusted P-values from performance test:" << endl;
+    for (vector<double>::iterator it = results.begin(); it != results.end(); ++it) {
+        cout << ' ' << *it;
+    }
+    cout << '\n';
+}
+
+
+vector<unsigned short> createPhenotypeVector(string filename){
+    ifstream handle;
+    handle.open(filename);
+
+    vector<unsigned short> result;
+    char delim = ' '; // Split lines on a delimiter ' '
+    string symbol;
+    string curLine;
+
+    // Define the length of a line in the given file
+    handle.seekg(0);
+    getline(handle, curLine);
+
+    // Add all symbols from  line to the resulting vector
+    stringstream ss;
+    ss.str(curLine);
+    while (getline(ss, symbol, delim)) {
+        result.push_back((unsigned short)stoi(symbol));
+    }
+    handle.close();
+    return result;
+}
+
+void realDataPerformanceTest(int maxRep){
+
+    string test_type = "cd";
+    string genotypeFile = "genotypedatatest1";
+    string phenotypeFile = "phenotypedatatest1";
+
+    vector<unsigned short> phenotype = createPhenotypeVector(phenotypeFile);
+
+    vector<TestsData> tests;
+    tests = {{test_type,0,812}};
+    ExecutionParameters parameters;
+    parameters.maxReplications = maxRep;
+    parameters.k = 10;
+    parameters.isAdaptive = false;
+    InputFile genotype(genotypeFile);
+
+    // Measure time
+    high_resolution_clock::time_point t1 = high_resolution_clock::now();
+
+    // Call adjustPValue
+    vector<double> results = PValue::adjustPValue(tests, genotype, phenotype, parameters);
+
+    // Measure time
+    high_resolution_clock::time_point t2 = high_resolution_clock::now();
+    auto duration = duration_cast<microseconds>( t2 - t1 ).count();
+    cout << endl << "Duration in microseconds (maxReplications = " << maxRep << ", test type = " << test_type <<
+         "): " << duration << endl;
+
+    // Print results
+    cout << endl << "Adjusted P-values from real data performance test:" << endl;
     for (vector<double>::iterator it = results.begin(); it != results.end(); ++it) {
         cout << ' ' << *it;
     }

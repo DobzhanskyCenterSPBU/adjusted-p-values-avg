@@ -513,6 +513,8 @@ PValue.h
 /Users/EL/CLionProjects/AdjustPValue/PValue.h
 InputFile.h
 /Users/EL/CLionProjects/AdjustPValue/InputFile.h
+vector
+-
 string
 -
 iostream
@@ -522,6 +524,8 @@ chrono
 
 /Users/EL/CLionProjects/AdjustPValue/PerformanceTests.h
 string
+-
+vector
 -
 
 /Users/EL/CLionProjects/AdjustPValue/Tests/InputFileTests.cpp

@@ -314,6 +314,7 @@ TEST(pvalue_check, calc_p_value_check){
     ASSERT_NEAR(realPValue, pValue, 0.0000001);
 }
 
+/*
 // #25 Main test
 TEST(pvalue_check, adjust_p_value_check){
     vector<TestsData> tests;
@@ -332,3 +333,4 @@ TEST(pvalue_check, adjust_p_value_check){
         ASSERT_NEAR(real_results[j], results[j], 0.001);
     }
 }
+ */

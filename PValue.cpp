@@ -31,7 +31,7 @@ vector<double> PValue::adjustPValue(vector<TestsData> const &tests, InputData &G
         //cout << "D_main: " << D_main << endl;
         s = 0; m = 0; all_iter = 0;
         while (s < cont.maxReplications && m < k && all_iter < cont.maxReplications){
-            //cout << endl << "ITETATION NUMBER: " << all_iter << endl << endl;
+            cout << "ITETATION NUMBER: " << all_iter << endl;
             all_iter++;
             random_shuffle(cur_A.begin(), cur_A.end()); // Create a random permutation of the phenotype values
             D_cur = calcPValue(cur_G, cur_A, tests[i].ID);
@@ -121,14 +121,14 @@ double PValue::calcPValue(vector<vector<unsigned short>> const & cur_G, vector<u
         s = (A_car - 1)*(G_car - 1);
         chi_sqr = calculateChiSqr(V, V_rows, V_cols);
 
-
         // http://www.boost.org/doc/libs/1_49_0/libs/math/doc/sf_and_dist/html/math_toolkit/special/sf_gamma/igamma.html
         // http://keisan.casio.com/exec/system/1180573447
         // tgamma(a,z): Returns the full (non-normalised) upper incomplete gamma function of a and z
         // tgamma_lower(a,z): Returns the full (non-normalised) lower incomplete gamma function of a and z
 
-        D += -log10(1 - boost::math::tgamma(s, 2*chi_sqr)/(boost::math::tgamma(s, 2*chi_sqr) +
-                boost::math::tgamma_lower(s, 2*chi_sqr)));
+        if (chi_sqr > 0.0){
+            D += -log10(1 - boost::math::tgamma(s, 2*chi_sqr)/tgamma(s));
+        }
         //cout << "D from function: " << D << endl;
         D_num++;
     }
@@ -200,7 +200,7 @@ vector<unsigned short> PValue::mapPhenotypeValuesToChar(vector<string> const &ph
             elements.push_back(*it);
         }
         pos = find(elements.begin(), elements.end(), *it) - elements.begin();
-        new_phenotype.push_back(pos);
+        new_phenotype.push_back((unsigned short)pos);
     }
     return new_phenotype;
 }
@@ -239,7 +239,6 @@ double PValue::calculateChiSqr(vector<vector<int>> V, int V_rows, int V_cols){
             elem_num += V[m][n];
         }
     }
-    //cout << "elem_num: " << elem_num << endl;
 
     for (int m = 0; m < V_rows; ++m) {
         row_sum = 0;
