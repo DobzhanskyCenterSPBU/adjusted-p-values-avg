@@ -100,16 +100,10 @@ vector<unsigned short> createPhenotypeVector(string filename){
     return result;
 }
 
-void realDataPerformanceTest(int maxRep){
-
-    string test_type = "cd";
-    string genotypeFile = "genotypedatatest1";
-    string phenotypeFile = "phenotypedatatest1";
+void realDataPerformanceTest(int maxRep, string genotypeFile, string phenotypeFile, vector<TestsData> tests){
 
     vector<unsigned short> phenotype = createPhenotypeVector(phenotypeFile);
 
-    vector<TestsData> tests;
-    tests = {{test_type,0,812}};
     ExecutionParameters parameters;
     parameters.maxReplications = maxRep;
     parameters.k = 10;
@@ -125,8 +119,7 @@ void realDataPerformanceTest(int maxRep){
     // Measure time
     high_resolution_clock::time_point t2 = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>( t2 - t1 ).count();
-    cout << endl << "Duration in microseconds (maxReplications = " << maxRep << ", test type = " << test_type <<
-         "): " << duration << endl;
+    cout << endl << "Duration in microseconds (maxReplications = " << maxRep << "): " << duration << endl;
 
     // Print results
     cout << endl << "Adjusted P-values from real data performance test:" << endl;
@@ -134,4 +127,19 @@ void realDataPerformanceTest(int maxRep){
         cout << ' ' << *it;
     }
     cout << '\n';
+}
+
+void runMultiplePerformanceTests(int maxRep){
+    string genotypeName, phenotypeName;
+
+    vector<vector<TestsData>> tests;
+    tests = {{{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 20}},
+             {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 23}}, {{"cd", 0, 20}},};
+
+    for (int i = 1; i <=8 ; ++i) {
+        genotypeName = "Tests/newgenotypedatatest" + to_string(i);
+        phenotypeName = "Tests/newphenotypedatatest" + to_string(i);
+
+        realDataPerformanceTest(maxRep, genotypeName, phenotypeName, tests[i-1]);
+    }
 }

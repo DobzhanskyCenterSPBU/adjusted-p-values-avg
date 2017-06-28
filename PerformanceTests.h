@@ -4,6 +4,7 @@
 
 #include <string>
 #include <vector>
+#include "PValue.h"
 
 using namespace std;
 
@@ -11,5 +12,6 @@ using namespace std;
 #define ADJUSTPVALUE_PERFORMANCETESTS_H
 void simplePerformanceTest(int maxRep, string test_type);
 vector<unsigned short> createPhenotypeVector(string filename);
-void realDataPerformanceTest(int maxRep);
+void realDataPerformanceTest(int maxRep, string genotypeFile, string phenotypeFile, vector<TestsData> tests);
+void runMultiplePerformanceTests(int maxRep);
 #endif //ADJUSTPVALUE_PERFORMANCETESTS_H

@@ -5,7 +5,6 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 #include "PerformanceTests.h"
-
 #include <boost/math/special_functions/gamma.hpp>
 
 using namespace std;
@@ -16,7 +15,7 @@ int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);
     RUN_ALL_TESTS();
     //simplePerformanceTest(10, "a");
-    realDataPerformanceTest(1000000);
+    runMultiplePerformanceTests(2);
 
 
     /*
