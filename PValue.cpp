@@ -23,26 +23,18 @@ vector<double> PValue::adjustPValue(vector<TestsData> const &tests, InputData &G
 
     for (int i = 0; i < (int)(tests.size()); ++i) {
 
-        //cout << "Test type: " << tests[i].ID << endl;
-        //cout << endl;
-
         prepareData(cur_G, cur_A, G, A, tests[i]);
         D_main = calcPValue(cur_G, cur_A, tests[i].ID);
-        //cout << "D_main: " << D_main << endl;
         s = 0; m = 0; all_iter = 0;
         while (s < cont.maxReplications && m < k && all_iter < cont.maxReplications){
             cout << "ITETATION NUMBER: " << all_iter << endl;
             all_iter++;
             random_shuffle(cur_A.begin(), cur_A.end()); // Create a random permutation of the phenotype values
             D_cur = calcPValue(cur_G, cur_A, tests[i].ID);
-            //cout << "D_cur: " << D_cur << endl;
             if (isnan(D_cur)) continue; // If D_cur is NaN go to the next iteration ((D_cur != D_cur))
             s++;
             if (D_cur > D_main) m++;
-
-            //break;
         }
-        //cout << endl << "m: " << m << "    s: " << s << endl;
         if (s == 0) P_values[i] = -1;
         else P_values[i] = (double)m/(double)s;
     }
@@ -52,8 +44,17 @@ vector<double> PValue::adjustPValue(vector<TestsData> const &tests, InputData &G
 void PValue::prepareData(vector<vector<unsigned short>>& cur_G, vector<unsigned short>& cur_A, InputData & G,
                         vector<unsigned short> const & A, TestsData cur_test){
 
+
+    if (A.empty()){
+        cerr << "Phenotype is empty!" << endl;
+        exit(2);
+    }
     cur_A = A; // Create a new copy of the phenotype
     cur_G = G.createGenotypeMatrix(cur_test.lower, cur_test.upper); // Read the appropriate part of the genotype
+    if (cur_G.empty()){
+        cerr << "File is empty!" << endl;
+        exit(2);
+    }
     if (hashIt(cur_test.ID) == eA){
         doubleSizeOfMatrices(cur_G, cur_A);
     }
@@ -110,7 +111,7 @@ double PValue::calcPValue(vector<vector<unsigned short>> const & cur_G, vector<u
     else V_rows = 2;
 
 
-    for (int i = 0; i < row_num; ++i) {
+    for (int i = 0; i < row_num; ++i) { // Make this parallel
 
         G_car = calcNumElem(cur_G);
         if (G_car <= 1) continue;
@@ -127,12 +128,12 @@ double PValue::calcPValue(vector<vector<unsigned short>> const & cur_G, vector<u
         // tgamma_lower(a,z): Returns the full (non-normalised) lower incomplete gamma function of a and z
 
         if (chi_sqr > 0.0){
-            D += -log10(1 - boost::math::tgamma(s, 2*chi_sqr)/tgamma(s));
+            D += -log10(boost::math::tgamma(s, 2*chi_sqr)/tgamma(s)); // or (1-lg)/fg
         }
         //cout << "D from function: " << D << endl;
         D_num++;
     }
-    //if (D == 0.0 || D_num == 0 || isnan(D)) return numeric_limits<double>::quiet_NaN(); // ! update
+    if (D_num == 0 || isnan(D)) return numeric_limits<double>::quiet_NaN();
     D = D/D_num;
 
     return D;

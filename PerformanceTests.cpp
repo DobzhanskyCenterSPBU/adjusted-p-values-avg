@@ -30,9 +30,9 @@ void simplePerformanceTest(int maxRep, string test_type) {
     ofstream myfile;
     myfile.open (filename);
     string cur_line;
-    for (int rowNum = 0; rowNum < 1000; ++rowNum) {
+    for (int rowNum = 0; rowNum < 20; ++rowNum) {
         cur_line = "";
-        for (int colNum = 0; colNum < 100; ++colNum) {
+        for (int colNum = 0; colNum < 400; ++colNum) {
             randomNumber = values[rand() % length];
             cur_line += to_string(randomNumber);
             cur_line += " ";
@@ -43,7 +43,7 @@ void simplePerformanceTest(int maxRep, string test_type) {
 
     // Generate the phenotype vector
     vector<unsigned short> phenotype;
-    for (int i = 0; i < 100; ++i) {
+    for (int i = 0; i < 400; ++i) {
         randomNumber = values[rand() % length];
         phenotype.push_back((unsigned short)randomNumber);
     }

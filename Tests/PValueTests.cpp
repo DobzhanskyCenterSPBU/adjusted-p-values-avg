@@ -334,3 +334,26 @@ TEST(pvalue_check, adjust_p_value_check){
     }
 }
  */
+
+// Checking error message when the given file is empty.
+TEST(pvalue_check, prepare_data_check_empty_genotype_matrix){
+    InputFile genotype("emptyfile.txt");
+    vector<vector<unsigned short>> cur_G;
+    vector<unsigned short> cur_A;
+    vector<unsigned short> const A = {1,1,3,2,4,5};
+    TestsData cur_test = {{"cd", 0, 24}};
+
+    ASSERT_DEATH(PValue::prepareData(cur_G, cur_A, genotype, A, cur_test), "File is empty!");
+}
+
+// Checking error message when the given phenotype is empty.
+TEST(pvalue_check, prepare_data_check_empty_phenotype_vector){
+    InputFile genotype("test.txt");
+    vector<vector<unsigned short>> cur_G;
+    vector<unsigned short> cur_A;
+    vector<unsigned short> const A = {};
+    TestsData cur_test = {{"cd", 0, 24}};
+
+    ASSERT_DEATH(PValue::prepareData(cur_G, cur_A, genotype, A, cur_test), "Phenotype is empty!");
+}
+

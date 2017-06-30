@@ -57,3 +57,14 @@ TEST(read_file_check, read_part_of_genotype_matrix_part_of_lines_non_existent_be
     vector<vector<unsigned short>> result = {{0, 2, 1, 1, 0, 2}, {1, 0, 1, 0, 2, 1}};
     ASSERT_EQ(result, genotype.createGenotypeMatrix(-3,1));
 }
+
+// Checking error message when the given file does not exist.
+TEST(read_file_check, read_from_file_that_does_not_exist)
+{
+    InputFile genotype("doesnotexist.txt");
+    ASSERT_DEATH(genotype.createGenotypeMatrix(0, 10), "No such file!");
+    //::testing::internal::CaptureStdout();
+    //std::string capturedStdout = ::testing::internal::GetCapturedStdout().c_str();
+    //EXPECT_STREQ("No such file!", capturedStdout.c_str());
+}
+

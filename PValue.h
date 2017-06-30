@@ -15,10 +15,10 @@ using namespace std;
 
 // Defines the grouping of the genotype = {"cd", "d", "r", "a"}
 enum AlternativeHypothesisType {
-    eCD, // add full names
-    eR,
-    eD,
-    eA
+    eCD, // Codominant
+    eR,  // Dominant
+    eD,  // Recessive
+    eA   // Allelic
 };
 
 // Tests table. Contains information about the sliding windows for each test.
@@ -75,6 +75,8 @@ private:
     FRIEND_TEST(pvalue_check, calculate_chi_sqr_row_of_zeros);
     FRIEND_TEST(pvalue_check, calculate_chi_sqr_column_of_zeros);
     FRIEND_TEST(pvalue_check, calc_p_value_check);
+    FRIEND_TEST(pvalue_check, prepare_data_check_empty_genotype_matrix);
+    FRIEND_TEST(pvalue_check, prepare_data_check_empty_phenotype_vector);
 };
 
 #endif //ADJUSTPVALUE_PVALUE_H

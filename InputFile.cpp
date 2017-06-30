@@ -17,6 +17,12 @@ vector<vector<unsigned short>> InputFile::createGenotypeMatrix(int lowInd, int u
     ifstream handle;
     handle.open(this->filename);
 
+    if(!handle.is_open())
+    {
+        cerr << "No such file!" << endl;
+        exit(1); // What exit code should be used? How to skip to the next iteration?
+    }
+
     vector<vector<unsigned short>> result; //(upInd - lowInd + 1)
     char delim = ' '; // Split lines on a delimiter ' '
     string symbol;

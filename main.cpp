@@ -11,14 +11,12 @@ using namespace std;
 using namespace std::chrono;
 
 int main(int argc, char* argv[]) {
+
     // Run unit tests
     testing::InitGoogleTest(&argc, argv);
     RUN_ALL_TESTS();
-    //simplePerformanceTest(10, "a");
-    runMultiplePerformanceTests(2);
-
-
-    /*
+    simplePerformanceTest(100000, "cd");
+    //runMultiplePerformanceTests(2);
 
     // Data initialization
     vector<TestsData> tests;
@@ -42,8 +40,6 @@ int main(int argc, char* argv[]) {
     cout << '\n';
     */
 
-    /*
-
     vector<unsigned short> phenotype = {1, 3, 0, 2, 1, 0};
 
     // Call adjustPValue
@@ -56,8 +52,6 @@ int main(int argc, char* argv[]) {
     }
     cout << '\n';
 
-
-    */
 
     return 0;
 }
