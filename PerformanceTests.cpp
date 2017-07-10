@@ -134,12 +134,16 @@ void runMultiplePerformanceTests(int maxRep){
 
     vector<vector<TestsData>> tests;
     tests = {{{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 20}},
-             {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 23}}, {{"cd", 0, 20}},};
+             {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 23}}, {{"cd", 0, 20}},
+             {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 20}},
+             {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 23}}, {{"cd", 0, 20}},
+             {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 20}}};
 
-    for (int i = 1; i <=1 ; ++i) {
+    for (int i = 1; i <= 20; ++i) {
         genotypeName = "Tests/newgenotypedatatest" + to_string(i);
         phenotypeName = "Tests/newphenotypedatatest" + to_string(i);
 
         realDataPerformanceTest(maxRep, genotypeName, phenotypeName, tests[i-1]);
     }
 }
+

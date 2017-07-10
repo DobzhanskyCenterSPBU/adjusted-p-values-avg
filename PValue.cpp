@@ -25,6 +25,7 @@ vector<double> PValue::adjustPValue(vector<TestsData> const &tests, InputData &G
 
         prepareData(cur_G, cur_A, G, A, tests[i]);
         D_main = calcPValue(cur_G, cur_A, tests[i].ID);
+        //cout << endl << "D_main: " << D_main << endl;
         s = 0; m = 0; all_iter = 0;
         while (s < cont.maxReplications && m < k && all_iter < cont.maxReplications){
             //cout << "ITETATION NUMBER: " << all_iter << endl;
