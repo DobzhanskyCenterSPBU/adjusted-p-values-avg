@@ -27,9 +27,10 @@ vector<double> PValue::adjustPValue(vector<TestsData> const &tests, InputData &G
         D_main = calcPValue(cur_G, cur_A, tests[i].ID);
         s = 0; m = 0; all_iter = 0;
         while (s < cont.maxReplications && m < k && all_iter < cont.maxReplications){
-            cout << "ITETATION NUMBER: " << all_iter << endl;
+            //cout << "ITETATION NUMBER: " << all_iter << endl;
             all_iter++;
-            random_shuffle(cur_A.begin(), cur_A.end()); // Create a random permutation of the phenotype values
+            cur_A = phenotypeRandomPermutation(cur_A);
+            //random_shuffle(cur_A.begin(), cur_A.end()); // Create a random permutation of the phenotype values
             D_cur = calcPValue(cur_G, cur_A, tests[i].ID);
             if (isnan(D_cur)) continue; // If D_cur is NaN go to the next iteration ((D_cur != D_cur))
             s++;
@@ -113,7 +114,7 @@ double PValue::calcPValue(vector<vector<unsigned short>> const & cur_G, vector<u
 
     for (int i = 0; i < row_num; ++i) { // Make this parallel
 
-        G_car = calcNumElem(cur_G);
+        G_car = calcNumElem(cur_G[i], 3);
         if (G_car <= 1) continue;
 
         V = fillVMatrix(cur_G[i], cur_A, V_rows, V_cols);
@@ -127,9 +128,8 @@ double PValue::calcPValue(vector<vector<unsigned short>> const & cur_G, vector<u
         // tgamma(a,z): Returns the full (non-normalised) upper incomplete gamma function of a and z
         // tgamma_lower(a,z): Returns the full (non-normalised) lower incomplete gamma function of a and z
 
-        if (chi_sqr > 0.0){
-            D += -log10(boost::math::tgamma(s, 2*chi_sqr)/tgamma(s)); // or (1-lg)/fg
-        }
+        D += -log10(boost::math::tgamma(s, 2*chi_sqr)/tgamma(s)); // or 1-lower_gamma/full_gamma
+
         //cout << "D from function: " << D << endl;
         D_num++;
     }
@@ -157,6 +157,7 @@ int PValue::calcNumElem(vector<unsigned short> const & phenotype){
     return (int)(elements.size());
 }
 
+/*
 int PValue::calcNumElem(vector<vector<unsigned short>> const & genotype) {
     unsigned short p = 3; // Element that is not considered
     vector<unsigned short> elements;
@@ -170,6 +171,21 @@ int PValue::calcNumElem(vector<vector<unsigned short>> const & genotype) {
     if (find(elements.begin(), elements.end(), p) != elements.end()) return (int)(elements.size() - 1);
     else return (int)(elements.size());
 }
+ */
+
+
+int PValue::calcNumElem(vector<unsigned short> const & genotype, unsigned short p) {
+    //unsigned short p = 3; // Element that is not considered
+    vector<unsigned short> elements;
+        for (vector<unsigned short>::size_type j = 0; j < genotype.size(); ++j) {
+            if (find(elements.begin(), elements.end(), genotype[j]) == elements.end()) {
+                elements.push_back(genotype[j]);
+            }
+        }
+    if (find(elements.begin(), elements.end(), p) != elements.end()) return (int)(elements.size() - 1);
+    else return (int)(elements.size());
+}
+
 
 void PValue::doubleSizeOfMatrices(vector<vector<unsigned short>> & cur_G, vector<unsigned short> & cur_A){
 
@@ -261,4 +277,15 @@ double PValue::calculateChiSqr(vector<vector<int>> V, int V_rows, int V_cols){
         }
     }
     return chi_sqr;
+}
+
+// Random generation function:
+int PValue::myRandom(int i) {
+    return rand() % i;
+}
+
+// Permutate phenotype
+vector<unsigned short> PValue::phenotypeRandomPermutation(vector<unsigned short>& phenotype) {
+    random_shuffle(phenotype.begin(), phenotype.end(), myRandom); // Using myRandom(int i)
+    return phenotype;
 }

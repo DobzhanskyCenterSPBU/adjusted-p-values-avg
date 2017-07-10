@@ -48,19 +48,22 @@ private:
     static double calcPValue(vector<vector<unsigned short>> const & cur_G, vector<unsigned short> const & cur_A, string ID);
     static AlternativeHypothesisType hashIt (string const& inString);
     static int calcNumElem(vector<unsigned short> const & phenotype);
-    static int calcNumElem(vector<vector<unsigned short>> const & genotype);
+    //static int calcNumElem(vector<vector<unsigned short>> const & genotype);
+    static int calcNumElem(vector<unsigned short> const & genotype, unsigned short p);
     static void doubleSizeOfMatrices(vector<vector<unsigned short>> & cur_G, vector<unsigned short> & cur_A);
     static vector<vector<int>> fillVMatrix(vector<unsigned short> const & cur_G, vector<unsigned short> const & cur_A,
                                            int V_rows, int V_cols);
     static double calculateChiSqr(vector<vector<int>> V, int V_rows, int V_cols);
+    static int myRandom(int i);
+    static vector<unsigned short> phenotypeRandomPermutation(vector<unsigned short>& phenotype);
 
     FRIEND_TEST(pvalue_check, calculate_number_of_elements_vector_checked);
-    FRIEND_TEST(pvalue_check, calculate_number_of_elements_matrix_checked);
-    FRIEND_TEST(pvalue_check, calculate_number_of_elements_empty_vector_check);
-    FRIEND_TEST(pvalue_check, calculate_number_of_elements_empty_matrix_check);
+    FRIEND_TEST(pvalue_check, calculate_number_of_elements_genotype_vector_checked);
     FRIEND_TEST(pvalue_check, calculate_number_of_elements_vector_all_zeros_checked);
-    FRIEND_TEST(pvalue_check, calculate_number_of_elements_matrix_all_zeros_checked);
-    FRIEND_TEST(pvalue_check, calculate_number_of_elements_matrix_all_threes_checked);
+    FRIEND_TEST(pvalue_check, calculate_number_of_elements_genotype_vector_all_zeros_checked);
+    FRIEND_TEST(pvalue_check, calculate_number_of_elements_genotype_vector_all_threes_checked);
+    FRIEND_TEST(pvalue_check, calculate_number_of_elements_empty_vector_check);
+    FRIEND_TEST(pvalue_check, calculate_number_of_elements_empty_genotype_vector_check);
     FRIEND_TEST(pvalue_check, prepare_data_cd_check);
     FRIEND_TEST(pvalue_check, prepare_data_r_check);
     FRIEND_TEST(pvalue_check, prepare_data_d_check);

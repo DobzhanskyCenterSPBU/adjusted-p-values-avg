@@ -15,17 +15,18 @@ int main(int argc, char* argv[]) {
     // Run unit tests
     testing::InitGoogleTest(&argc, argv);
     RUN_ALL_TESTS();
-    simplePerformanceTest(100000, "cd");
-    //runMultiplePerformanceTests(2);
+    //simplePerformanceTest(100, "cd");
+    runMultiplePerformanceTests(10);
 
     // Data initialization
     vector<TestsData> tests;
-    tests = {{"cd",2,5}, {"r",6,8}, {"d",10,11}, {"a",12,14}, {"d",16,19}};
+    //tests = {{"cd",2,5}, {"r",6,8}, {"d",10,11}, {"a",12,14}, {"d",16,19}};
+    tests = {{"cd",2,5}, {"cd",6,8}, {"cd",10,11}, {"cd",12,14}, {"cd",16,19}};
 
     ExecutionParameters parameters;
     parameters.maxReplications = 10; // Should be around 10^(-8)
     parameters.k = 10;
-    parameters.isAdaptive = true;
+    parameters.isAdaptive = false;
 
     InputFile genotype("test.txt");
     /*

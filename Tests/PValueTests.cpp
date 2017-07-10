@@ -11,39 +11,39 @@
 #include "../InputFile.h"
 
 
-// #1 Calculating the number of unique elements in a vector
+// #1 Calculating the number of unique elements in a phenotype vector
 TEST(pvalue_check, calculate_number_of_elements_vector_checked){
     vector<unsigned short> test_vec = {0, 2, 1, 1, 0, 2, 1, 0, 1, 0, 2, 1};
     int result = PValue::calcNumElem(test_vec);
     ASSERT_EQ(3, result);
 };
 
-// #2 Calculating the number of unique elements in a matrix
-TEST(pvalue_check, calculate_number_of_elements_matrix_checked){
-    vector<vector<unsigned short>> test_matrix = {{1, 0, 1, 0, 2, 1}, {0, 0, 0, 1, 1, 0}, {2, 1, 0, 0, 2, 1}};
-    int result = PValue::calcNumElem(test_matrix);
+// #2 Calculating the number of unique elements in a genotype vector
+TEST(pvalue_check, calculate_number_of_elements_genotype_vector_checked){
+    vector<unsigned short> test_matrix = {1, 0, 1, 0, 2, 1};
+    int result = PValue::calcNumElem(test_matrix, 3);
     ASSERT_EQ(3, result);
 };
 
-// #3 Calculating the number of unique elements in a vector filled with zeros
+// #3 Calculating the number of unique elements in a phenotype vector filled with zeros
 TEST(pvalue_check, calculate_number_of_elements_vector_all_zeros_checked){
     vector<unsigned short> test_vec = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     int result = PValue::calcNumElem(test_vec);
     ASSERT_EQ(1, result);
 };
 
-// #4 Calculating the number of unique elements in a matrix filled with zeros
-TEST(pvalue_check, calculate_number_of_elements_matrix_all_zeros_checked){
-    vector<vector<unsigned short>> test_matrix = {{0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}};
-    int result = PValue::calcNumElem(test_matrix);
+// #4 Calculating the number of unique elements in a genotype vector filled with zeros
+TEST(pvalue_check, calculate_number_of_elements_genotype_vector_all_zeros_checked){
+    vector<unsigned short> test_matrix = {0, 0, 0, 0, 0, 0};
+    int result = PValue::calcNumElem(test_matrix, 3);
     ASSERT_EQ(1, result);
 };
 
-// #5 Calculating the number of unique elements in a matrix where all elements are '3'
+// #5 Calculating the number of unique elements in a genotype vector where all elements are '3'
 // The element '3' should not be considered
-TEST(pvalue_check, calculate_number_of_elements_matrix_all_threes_checked){
-    vector<vector<unsigned short>> test_matrix = {{3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}};
-    int result = PValue::calcNumElem(test_matrix);
+TEST(pvalue_check, calculate_number_of_elements_genotype_vector_all_threes_checked){
+    vector<unsigned short> test_matrix = {3, 3, 3, 3, 3, 3};
+    int result = PValue::calcNumElem(test_matrix, 3);
     ASSERT_EQ(0, result);
 };
 
@@ -54,10 +54,10 @@ TEST(pvalue_check, calculate_number_of_elements_empty_vector_check){
     ASSERT_EQ(0, result);
 };
 
-// #7 Calculating the number of unique elements in an empty matrix
-TEST(pvalue_check, calculate_number_of_elements_empty_matrix_check){
-    vector<vector<unsigned short>> empty = {};
-    int result = PValue::calcNumElem(empty);
+// #7 Calculating the number of unique elements in an empty genotype vector
+TEST(pvalue_check, calculate_number_of_elements_empty_genotype_vector_check){
+    vector<unsigned short> empty = {};
+    int result = PValue::calcNumElem(empty, 3);
     ASSERT_EQ(0, result);
 };
 
@@ -309,7 +309,7 @@ TEST(pvalue_check, calc_p_value_check){
 
     vector<unsigned short> phenotype = {1, 3, 0, 2, 1, 0,  1, 3, 0, 2, 1, 0};
     double pValue = PValue::calcPValue(genotype, phenotype, "a");
-    double realPValue = 0.0113057;
+    double realPValue = 2.2095956;
 
     ASSERT_NEAR(realPValue, pValue, 0.0000001);
 }
@@ -357,3 +357,10 @@ TEST(pvalue_check, prepare_data_check_empty_phenotype_vector){
     ASSERT_DEATH(PValue::prepareData(cur_G, cur_A, genotype, A, cur_test), "Phenotype is empty!");
 }
 
+// Checking the gamma function from the standard library
+// The returned value for the given parameters is compared with the value returned by gamma() function
+// in MATLAB
+TEST(pvalue_check, gamma_function_check){
+    int p = 6;
+    ASSERT_NEAR(120, tgamma(p), 0.001);
+};
