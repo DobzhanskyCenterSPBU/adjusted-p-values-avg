@@ -100,7 +100,7 @@ vector<unsigned short> createPhenotypeVector(string filename){
     return result;
 }
 
-void realDataPerformanceTest(int maxRep, string genotypeFile, string phenotypeFile, vector<TestsData> tests){
+long long int realDataPerformanceTest(int maxRep, string genotypeFile, string phenotypeFile, vector<TestsData> tests){
 
     vector<unsigned short> phenotype = createPhenotypeVector(phenotypeFile);
 
@@ -119,14 +119,17 @@ void realDataPerformanceTest(int maxRep, string genotypeFile, string phenotypeFi
     // Measure time
     high_resolution_clock::time_point t2 = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>( t2 - t1 ).count();
-    cout << endl << "Duration in microseconds (maxReplications = " << maxRep << "): " << duration << endl;
+    return duration;
+    //cout << endl << "Duration in microseconds (maxReplications = " << maxRep << "): " << duration << endl;
 
+    /*
     // Print results
     cout << endl << "Adjusted P-values from real data performance test:" << endl;
     for (vector<double>::iterator it = results.begin(); it != results.end(); ++it) {
         cout << ' ' << *it;
     }
     cout << '\n';
+     */
 }
 
 void runMultiplePerformanceTests(int maxRep){
@@ -144,6 +147,30 @@ void runMultiplePerformanceTests(int maxRep){
         phenotypeName = "Tests/newphenotypedatatest" + to_string(i);
 
         realDataPerformanceTest(maxRep, genotypeName, phenotypeName, tests[i-1]);
+    }
+}
+
+void runMultiplePerformanceTestsMultipleTimes(int maxRep){
+    string genotypeName, phenotypeName;
+
+    vector<vector<TestsData>> tests;
+    tests = {{{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 20}},
+             {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 23}}, {{"cd", 0, 20}},
+             {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 20}},
+             {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 23}}, {{"cd", 0, 20}},
+             {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 20}}};
+
+    int iter_num = 20;
+    long long int avg_time;
+    for (int i = 1; i <= 20; ++i) {
+        genotypeName = "Tests/newgenotypedatatest" + to_string(i);
+        phenotypeName = "Tests/newphenotypedatatest" + to_string(i);
+
+        avg_time = 0;
+        for (int j = 0; j < iter_num; ++j) {
+            avg_time += realDataPerformanceTest(maxRep, genotypeName, phenotypeName, tests[i-1]);
+        }
+        cout << "Average time for test " << i << " (in microseconds): " << avg_time/iter_num << endl;
     }
 }
 

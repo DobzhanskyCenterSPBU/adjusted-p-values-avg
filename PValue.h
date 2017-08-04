@@ -48,14 +48,15 @@ private:
     static double calcPValue(vector<vector<unsigned short>> const & cur_G, vector<unsigned short> const & cur_A, string ID);
     static AlternativeHypothesisType hashIt (string const& inString);
     static int calcNumElem(vector<unsigned short> const & phenotype);
-    //static int calcNumElem(vector<vector<unsigned short>> const & genotype);
     static int calcNumElem(vector<unsigned short> const & genotype, unsigned short p);
     static void doubleSizeOfMatrices(vector<vector<unsigned short>> & cur_G, vector<unsigned short> & cur_A);
-    static vector<vector<int>> fillVMatrix(vector<unsigned short> const & cur_G, vector<unsigned short> const & cur_A,
-                                           int V_rows, int V_cols);
-    static double calculateChiSqr(vector<vector<int>> V, int V_rows, int V_cols);
+    static void fillVMatrix(vector<unsigned short> const & cur_G, vector<unsigned short> const & cur_A,
+                             vector<vector<int>> & V);
+    static double calculateChiSqr(vector<vector<int>> const & V, int V_rows, int V_cols);
     static int myRandom(int i);
     static vector<unsigned short> phenotypeRandomPermutation(vector<unsigned short>& phenotype);
+    static bool checkNumElem(vector<unsigned short> const & genotype, unsigned short p);
+    static int calcNumElementsInGenotype(vector<vector<int>> V);
 
     FRIEND_TEST(pvalue_check, calculate_number_of_elements_vector_checked);
     FRIEND_TEST(pvalue_check, calculate_number_of_elements_genotype_vector_checked);
@@ -80,6 +81,11 @@ private:
     FRIEND_TEST(pvalue_check, calc_p_value_check);
     FRIEND_TEST(pvalue_check, prepare_data_check_empty_genotype_matrix);
     FRIEND_TEST(pvalue_check, prepare_data_check_empty_phenotype_vector);
+    FRIEND_TEST(pvalue_check, check_num_elem);
+    FRIEND_TEST(pvalue_check, check_num_elem_2);
+    FRIEND_TEST(pvalue_check, check_num_elem_3);
+    FRIEND_TEST(pvalue_check, check_num_elem_4);
+    FRIEND_TEST(pvalue_check, check_num_elem_5);
 };
 
 #endif //ADJUSTPVALUE_PVALUE_H

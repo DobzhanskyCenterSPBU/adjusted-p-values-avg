@@ -12,6 +12,7 @@ using namespace std;
 #define ADJUSTPVALUE_PERFORMANCETESTS_H
 void simplePerformanceTest(int maxRep, string test_type);
 vector<unsigned short> createPhenotypeVector(string filename);
-void realDataPerformanceTest(int maxRep, string genotypeFile, string phenotypeFile, vector<TestsData> tests);
+long long int realDataPerformanceTest(int maxRep, string genotypeFile, string phenotypeFile, vector<TestsData> tests);
 void runMultiplePerformanceTests(int maxRep);
+void runMultiplePerformanceTestsMultipleTimes(int maxRep);
 #endif //ADJUSTPVALUE_PERFORMANCETESTS_H

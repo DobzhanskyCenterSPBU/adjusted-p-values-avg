@@ -11,53 +11,65 @@
 #include "../InputFile.h"
 
 
-// #1 Calculating the number of unique elements in a phenotype vector
+// Calculating the number of unique elements in a phenotype vector
 TEST(pvalue_check, calculate_number_of_elements_vector_checked){
     vector<unsigned short> test_vec = {0, 2, 1, 1, 0, 2, 1, 0, 1, 0, 2, 1};
     int result = PValue::calcNumElem(test_vec);
     ASSERT_EQ(3, result);
 };
 
-// #2 Calculating the number of unique elements in a genotype vector
+// Calculating the number of unique elements in a genotype vector
 TEST(pvalue_check, calculate_number_of_elements_genotype_vector_checked){
     vector<unsigned short> test_matrix = {1, 0, 1, 0, 2, 1};
-    int result = PValue::calcNumElem(test_matrix, 3);
+    vector<unsigned short> test_vector = {3, 0, 0, 1, 1, 2};
+    vector<vector<int>> V(4, vector<int>(4));
+    PValue::fillVMatrix(test_matrix, test_vector, V);
+    int result = PValue::calcNumElementsInGenotype(V);
     ASSERT_EQ(3, result);
 };
 
-// #3 Calculating the number of unique elements in a phenotype vector filled with zeros
+// Calculating the number of unique elements in a phenotype vector filled with zeros
 TEST(pvalue_check, calculate_number_of_elements_vector_all_zeros_checked){
     vector<unsigned short> test_vec = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     int result = PValue::calcNumElem(test_vec);
     ASSERT_EQ(1, result);
 };
 
-// #4 Calculating the number of unique elements in a genotype vector filled with zeros
+// Calculating the number of unique elements in a genotype vector filled with zeros
 TEST(pvalue_check, calculate_number_of_elements_genotype_vector_all_zeros_checked){
-    vector<unsigned short> test_matrix = {0, 0, 0, 0, 0, 0};
-    int result = PValue::calcNumElem(test_matrix, 3);
+    vector<unsigned short> test_matrix = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    vector<unsigned short> test_vector = {3, 0, 0, 1, 1, 2, 2, 2, 1, 0, 3, 0};
+    vector<vector<int>> V(4, vector<int>(4));
+    PValue::fillVMatrix(test_matrix, test_vector, V);
+    int result = PValue::calcNumElementsInGenotype(V);
     ASSERT_EQ(1, result);
 };
 
-// #5 Calculating the number of unique elements in a genotype vector where all elements are '3'
+// Calculating the number of unique elements in a genotype vector where all elements are '3'
 // The element '3' should not be considered
 TEST(pvalue_check, calculate_number_of_elements_genotype_vector_all_threes_checked){
     vector<unsigned short> test_matrix = {3, 3, 3, 3, 3, 3};
-    int result = PValue::calcNumElem(test_matrix, 3);
+    vector<unsigned short> test_vector = {3, 0, 0, 1, 1, 2};
+    vector<vector<int>> V(4, vector<int>(4));
+    PValue::fillVMatrix(test_matrix, test_vector, V);
+    int result = PValue::calcNumElementsInGenotype(V);
     ASSERT_EQ(0, result);
 };
 
-// #6 Calculating the number of unique elements in an empty vector
+// Calculating the number of unique elements in an empty vector
 TEST(pvalue_check, calculate_number_of_elements_empty_vector_check){
     vector<unsigned short> empty = {};
     int result = PValue::calcNumElem(empty);
     ASSERT_EQ(0, result);
 };
 
-// #7 Calculating the number of unique elements in an empty genotype vector
+// Calculating the number of unique elements in an empty genotype vector
 TEST(pvalue_check, calculate_number_of_elements_empty_genotype_vector_check){
-    vector<unsigned short> empty = {};
-    int result = PValue::calcNumElem(empty, 3);
+    vector<unsigned short> empty_matrix = {};
+    vector<unsigned short> empty_vector = {};
+    vector<vector<int>> V(4, vector<int>(4));
+    PValue::fillVMatrix(empty_matrix, empty_vector, V);
+    int result = PValue::calcNumElementsInGenotype(V);
     ASSERT_EQ(0, result);
 };
 
@@ -70,7 +82,7 @@ TEST(pvalue_check, lower_gamma_function_check){
     ASSERT_NEAR(97.0516, boost::math::tgamma_lower(p1, p2), 0.001);
 };
 
-// #9 Testing the function prepareData for test type = "cd"
+// Testing the function prepareData for test type = "cd"
 TEST(pvalue_check, prepare_data_cd_check){
     vector<vector<unsigned short>> cur_G = {};
     vector<unsigned short> cur_A = {};
@@ -88,7 +100,7 @@ TEST(pvalue_check, prepare_data_cd_check){
     ASSERT_EQ(result_G, cur_G);
 }
 
-// #10 Testing the function prepareData for test type = "r"
+// Testing the function prepareData for test type = "r"
 TEST(pvalue_check, prepare_data_r_check){
     vector<vector<unsigned short>> cur_G = {};
     vector<unsigned short> cur_A = {};
@@ -106,7 +118,7 @@ TEST(pvalue_check, prepare_data_r_check){
     ASSERT_EQ(result_G, cur_G);
 }
 
-// #11 Testing the function prepareData for test type = "d"
+// Testing the function prepareData for test type = "d"
 TEST(pvalue_check, prepare_data_d_check){
     vector<vector<unsigned short>> cur_G = {};
     vector<unsigned short> cur_A = {};
@@ -124,7 +136,7 @@ TEST(pvalue_check, prepare_data_d_check){
     ASSERT_EQ(result_G, cur_G);
 }
 
-// #12 Testing the function prepareData for test type = "a"
+// Testing the function prepareData for test type = "a"
 TEST(pvalue_check, prepare_data_a_check){
     vector<vector<unsigned short>> cur_G = {};
     vector<unsigned short> cur_A = {};
@@ -145,7 +157,7 @@ TEST(pvalue_check, prepare_data_a_check){
     ASSERT_EQ(result_G, cur_G);
 }
 
-// #13 Testing how a vector of strings is converted to a vector of unsigned chars
+// Testing how a vector of strings is converted to a vector of unsigned chars
 TEST(pvalue_check, map_phenotype_values_to_char_check){
     vector<string> phen = {"blue", "red", "green", "red", "black", "blue", "green"};
     vector<unsigned short> new_phen;
@@ -154,7 +166,7 @@ TEST(pvalue_check, map_phenotype_values_to_char_check){
     ASSERT_EQ(result, new_phen);
 }
 
-// #14 Testing how an empty vector of strings is converted to a vector of unsigned chars
+// Testing how an empty vector of strings is converted to a vector of unsigned chars
 TEST(pvalue_check, map_phenotype_values_to_char_empty_vector_check) {
     vector<string> phen = {};
     vector<unsigned short> new_phen;
@@ -163,22 +175,23 @@ TEST(pvalue_check, map_phenotype_values_to_char_empty_vector_check) {
     ASSERT_EQ(result, new_phen);
 }
 
-// #15 Testing fillVMatrix with 3x4 matrix
+// Testing fillVMatrix with 3x4 matrix
 TEST(pvalue_check, fill_v_matrix_3x4_check){
-    vector<vector<int>> V1, V2, V3, V4, real_V1, real_V2, real_V3, real_V4;
+    vector<vector<int>> V1(4, vector<int>(4)), V2(4, vector<int>(4)), V3(4, vector<int>(4)),
+            V4(4, vector<int>(4)), real_V1, real_V2, real_V3, real_V4;
     vector<vector<unsigned short>> genotype = {{0, 0, 0, 1, 1, 0}, {2, 1, 0, 0, 2, 1},
                                               {1, 0, 0, 2, 2, 1}, {0, 0, 1, 1, 1, 0}};
     vector<unsigned short> phenotype = {1, 3, 0, 2, 1, 0};
 
-    V1 = PValue::fillVMatrix(genotype[0], phenotype, 3, 4);
-    V2 = PValue::fillVMatrix(genotype[1], phenotype, 3, 4);
-    V3 = PValue::fillVMatrix(genotype[2], phenotype, 3, 4);
-    V4 = PValue::fillVMatrix(genotype[3], phenotype, 3, 4);
+    PValue::fillVMatrix(genotype[0], phenotype, V1);
+    PValue::fillVMatrix(genotype[1], phenotype, V2);
+    PValue::fillVMatrix(genotype[2], phenotype, V3);
+    PValue::fillVMatrix(genotype[3], phenotype, V4);
 
-    real_V1 = {{2, 1, 0, 1}, {0, 1, 1, 0}, {0, 0, 0, 0}};
-    real_V2 = {{1, 0, 1, 0}, {1, 0, 0, 1}, {0, 2, 0, 0}};
-    real_V3 = {{1, 0, 0, 1}, {1, 1, 0, 0}, {0, 1, 1, 0}};
-    real_V4 = {{1, 1, 0, 1}, {1, 1, 1, 0}, {0, 0, 0, 0}};
+    real_V1 = {{2, 1, 0, 1}, {0, 1, 1, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}};
+    real_V2 = {{1, 0, 1, 0}, {1, 0, 0, 1}, {0, 2, 0, 0}, {0, 0, 0, 0}};
+    real_V3 = {{1, 0, 0, 1}, {1, 1, 0, 0}, {0, 1, 1, 0}, {0, 0, 0, 0}};
+    real_V4 = {{1, 1, 0, 1}, {1, 1, 1, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}};
 
     ASSERT_EQ(real_V1, V1);
     ASSERT_EQ(real_V2, V2);
@@ -186,42 +199,44 @@ TEST(pvalue_check, fill_v_matrix_3x4_check){
     ASSERT_EQ(real_V4, V4);
 }
 
-// #16 Testing fillVMatrix with 2x4 matrix
+// Testing fillVMatrix with 2x4 matrix
 TEST(pvalue_check, fill_v_matrix_2x4_check){
-    vector<vector<int>> V1, V2, V3, V4, real_V1, real_V2, real_V3;
+    vector<vector<int>> V1(4, vector<int>(4)), V2(4, vector<int>(4)), V3(4, vector<int>(4)),
+             real_V1, real_V2, real_V3;
     vector<vector<unsigned short>> genotype = {{1, 1, 0, 0, 0, 1}, {0, 0, 0, 1, 1, 0},
                                               {1, 0, 0, 0, 0, 1}};
     vector<unsigned short> phenotype = {1, 3, 0, 2, 1, 0};
 
-    V1 = PValue::fillVMatrix(genotype[0], phenotype, 2, 4);
-    V2 = PValue::fillVMatrix(genotype[1], phenotype, 2, 4);
-    V3 = PValue::fillVMatrix(genotype[2], phenotype, 2, 4);
+    PValue::fillVMatrix(genotype[0], phenotype, V1);
+    PValue::fillVMatrix(genotype[1], phenotype, V2);
+    PValue::fillVMatrix(genotype[2], phenotype, V3);
 
-    real_V1 = {{1, 1, 1, 0}, {1, 1, 0, 1}};
-    real_V2 = {{2, 1, 0, 1}, {0, 1, 1, 0}};
-    real_V3 = {{1, 1, 1, 1}, {1, 1, 0, 0}};
+    real_V1 = {{1, 1, 1, 0}, {1, 1, 0, 1}, {0, 0, 0, 0}, {0, 0, 0, 0}};
+    real_V2 = {{2, 1, 0, 1}, {0, 1, 1, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}};
+    real_V3 = {{1, 1, 1, 1}, {1, 1, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}};
 
     ASSERT_EQ(real_V1, V1);
     ASSERT_EQ(real_V2, V2);
     ASSERT_EQ(real_V3, V3);
 }
 
-// #17 Testing fillVMatrix with '3' elements in genotype
+// Testing fillVMatrix with '3' elements in genotype
 TEST(pvalue_check, fill_v_matrix_with_3_in_genotype_check){
-    vector<vector<int>> V1, V2, V3, V4, real_V1, real_V2, real_V3, real_V4;
+    vector<vector<int>> V1(4, vector<int>(4)), V2(4, vector<int>(4)), V3(4, vector<int>(4)),
+            V4(4, vector<int>(4)), real_V1, real_V2, real_V3, real_V4;
     vector<vector<unsigned short>> genotype = {{0, 3, 0, 1, 1, 0}, {2, 1, 3, 3, 2, 1},
                                               {1, 0, 0, 2, 3, 1}, {0, 0, 3, 1, 1, 0}};
     vector<unsigned short> phenotype = {2, 3, 0, 1, 1, 0};
 
-    V1 = PValue::fillVMatrix(genotype[0], phenotype, 3, 4);
-    V2 = PValue::fillVMatrix(genotype[1], phenotype, 3, 4);
-    V3 = PValue::fillVMatrix(genotype[2], phenotype, 3, 4);
-    V4 = PValue::fillVMatrix(genotype[3], phenotype, 3, 4);
+    PValue::fillVMatrix(genotype[0], phenotype, V1);
+    PValue::fillVMatrix(genotype[1], phenotype, V2);
+    PValue::fillVMatrix(genotype[2], phenotype, V3);
+    PValue::fillVMatrix(genotype[3], phenotype, V4);
 
-    real_V1 = {{2, 0, 1, 0}, {0, 2, 0, 0}, {0, 0, 0, 0}};
-    real_V2 = {{0, 0, 0, 0}, {1, 0, 0, 1}, {0, 1, 1, 0}};
-    real_V3 = {{1, 0, 0, 1}, {1, 0, 1, 0}, {0, 1, 0, 0}};
-    real_V4 = {{1, 0, 1, 1}, {0, 2, 0, 0}, {0, 0, 0, 0}};
+    real_V1 = {{2, 0, 1, 0}, {0, 2, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 1}};
+    real_V2 = {{0, 0, 0, 0}, {1, 0, 0, 1}, {0, 1, 1, 0}, {1, 1, 0, 0}};
+    real_V3 = {{1, 0, 0, 1}, {1, 0, 1, 0}, {0, 1, 0, 0}, {0, 1, 0, 0}};
+    real_V4 = {{1, 0, 1, 1}, {0, 2, 0, 0}, {0, 0, 0, 0}, {1, 0, 0, 0}};
 
     ASSERT_EQ(real_V1, V1);
     ASSERT_EQ(real_V2, V2);
@@ -229,7 +244,7 @@ TEST(pvalue_check, fill_v_matrix_with_3_in_genotype_check){
     ASSERT_EQ(real_V4, V4);
 }
 
-// #18 Testing calculateChiSqr when V is 2x4
+// Testing calculateChiSqr when V is 2x4
 TEST(pvalue_check, calculate_chi_sqr_V2x4){
     int V_rows = 2, V_cols = 4;
     vector<vector<int>> V;
@@ -241,7 +256,7 @@ TEST(pvalue_check, calculate_chi_sqr_V2x4){
     ASSERT_NEAR(real_chi_sqr, chi_sqr, 0.001);
 }
 
-// #19 Testing calculateChiSqr when V is 3x4
+// Testing calculateChiSqr when V is 3x4
 TEST(pvalue_check, calculate_chi_sqr_V3x4){
     int V_rows = 3, V_cols = 4;
     vector<vector<int>> V;
@@ -253,7 +268,7 @@ TEST(pvalue_check, calculate_chi_sqr_V3x4){
     ASSERT_NEAR(real_chi_sqr, chi_sqr, 0.001);
 }
 
-// #20 Testing calculateChiSqr when V is 3x4 and the rows are proportional
+// Testing calculateChiSqr when V is 3x4 and the rows are proportional
 TEST(pvalue_check, calculate_chi_sqr_V3x4_proportional){
     int V_rows = 3, V_cols = 4;
     vector<vector<int>> V;
@@ -265,7 +280,7 @@ TEST(pvalue_check, calculate_chi_sqr_V3x4_proportional){
     ASSERT_NEAR(real_chi_sqr, chi_sqr, 0.001);
 }
 
-// #21 Testing calculateChiSqr when V is empty
+// Testing calculateChiSqr when V is empty
 TEST(pvalue_check, calculate_chi_sqr_empty_matrix){
     int V_rows = 0, V_cols = 0;
     vector<vector<int>> V;
@@ -277,7 +292,7 @@ TEST(pvalue_check, calculate_chi_sqr_empty_matrix){
     ASSERT_NEAR(real_chi_sqr, chi_sqr, 0.001);
 }
 
-// #22 Testing calculateChiSqr when V has a row of zeros
+// Testing calculateChiSqr when V has a row of zeros
 TEST(pvalue_check, calculate_chi_sqr_row_of_zeros){
     int V_rows = 4, V_cols = 4;
     vector<vector<int>> V;
@@ -289,7 +304,7 @@ TEST(pvalue_check, calculate_chi_sqr_row_of_zeros){
     ASSERT_NEAR(real_chi_sqr, chi_sqr, 0.001);
 }
 
-// 23 Testing calculateChiSqr when V has a column of zeros
+// Testing calculateChiSqr when V has a column of zeros
 TEST(pvalue_check, calculate_chi_sqr_column_of_zeros){
     int V_rows = 3, V_cols = 5;
     vector<vector<int>> V;
@@ -301,7 +316,7 @@ TEST(pvalue_check, calculate_chi_sqr_column_of_zeros){
     ASSERT_NEAR(real_chi_sqr, chi_sqr, 0.001);
 }
 
-// #24 Testing calcPValue
+// Testing calcPValue
 TEST(pvalue_check, calc_p_value_check){
     vector<vector<unsigned short>> genotype = {{0, 1, 0, 0, 0, 0,   0, 1, 1, 1, 0, 0},
                                               {0, 1, 0, 0, 1, 0,   0, 1, 1, 0, 1, 1},
@@ -364,3 +379,38 @@ TEST(pvalue_check, gamma_function_check){
     int p = 6;
     ASSERT_NEAR(120, tgamma(p), 0.001);
 };
+
+TEST(pvalue_check, check_num_elem){
+    vector<unsigned short> const & genotype = {0, 1, 1, 2, 1, 3};
+    bool answ = PValue::checkNumElem(genotype, 3);
+    bool real_answ = true;
+    ASSERT_EQ(real_answ, answ);
+}
+
+TEST(pvalue_check, check_num_elem_2){
+    vector<unsigned short> const & genotype = {3, 1, 1, 2, 1, 2};
+    bool answ = PValue::checkNumElem(genotype, 3);
+    bool real_answ = true;
+    ASSERT_EQ(real_answ, answ);
+}
+
+TEST(pvalue_check, check_num_elem_3){
+    vector<unsigned short> const & genotype = {1, 1, 1, 3, 1, 3};
+    bool answ = PValue::checkNumElem(genotype, 3);
+    bool real_answ = false;
+    ASSERT_EQ(real_answ, answ);
+}
+
+TEST(pvalue_check, check_num_elem_4){
+    vector<unsigned short> const & genotype = {1, 1, 1, 3, 1, 1};
+    bool answ = PValue::checkNumElem(genotype, 3);
+    bool real_answ = false;
+    ASSERT_EQ(real_answ, answ);
+}
+
+TEST(pvalue_check, check_num_elem_5){
+    vector<unsigned short> const & genotype = {1, 1, 1, 1, 1, 1};
+    bool answ = PValue::checkNumElem(genotype, 3);
+    bool real_answ = false;
+    ASSERT_EQ(real_answ, answ);
+}
