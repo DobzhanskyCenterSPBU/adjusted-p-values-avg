@@ -1,4 +1,4 @@
-# Install script for directory: /Users/doby/CLionProjects/adjusted-p-values-avg/lib/googletest-master
+# Install script for directory: /home/gwatch/c/adjusted-p-values-avg/lib/googletest-master
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "Release")
+    set(CMAKE_INSTALL_CONFIG_NAME "")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -27,9 +27,14 @@ if(NOT CMAKE_INSTALL_COMPONENT)
   endif()
 endif()
 
+# Install shared libraries without execute permission?
+if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
+  set(CMAKE_INSTALL_SO_NO_EXE "1")
+endif()
+
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/Users/doby/CLionProjects/adjusted-p-values-avg/cmake-build-release/lib/googletest-master/googlemock/cmake_install.cmake")
+  include("/home/gwatch/c/adjusted-p-values-avg/cmake-build-release/lib/googletest-master/googlemock/cmake_install.cmake")
 
 endif()
 
