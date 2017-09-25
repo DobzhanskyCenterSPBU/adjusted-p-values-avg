@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/EL/CLionProjects/AdjustPValue/lib/googletest-master/googletest/src/gtest-all.cc" "/Users/EL/CLionProjects/AdjustPValue/cmake-build-debug/lib/googletest-master/googlemock/gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o"
+  "/Users/doby/CLionProjects/adjusted-p-values-avg/lib/googletest-master/googletest/src/gtest-all.cc" "/Users/doby/CLionProjects/adjusted-p-values-avg/cmake-build-debug/lib/googletest-master/googlemock/gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "Clang")
 

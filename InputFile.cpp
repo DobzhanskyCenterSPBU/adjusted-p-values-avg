@@ -57,5 +57,17 @@ vector<vector<unsigned short>> InputFile::createGenotypeMatrix(int lowInd, int u
 
     handle.close();
 
+
+    /*
+    // Write resulting matrix to console
+    for (vector<vector<unsigned char>>::size_type i = 0; i < result.size(); i++) {
+        for (vector<unsigned char>::size_type j = 0; j < result[i].size(); j++ ) {
+            cout << result[i][j] << ' ';
+        }
+        cout << '\n';
+    }
+    cout << '\n';
+    */
+
     return result;
 }

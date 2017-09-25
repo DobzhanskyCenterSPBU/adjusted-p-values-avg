@@ -4,12 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/EL/CLionProjects/AdjustPValue/InputFile.cpp" "/Users/EL/CLionProjects/AdjustPValue/cmake-build-release/CMakeFiles/AdjustPValue.dir/InputFile.cpp.o"
-  "/Users/EL/CLionProjects/AdjustPValue/PValue.cpp" "/Users/EL/CLionProjects/AdjustPValue/cmake-build-release/CMakeFiles/AdjustPValue.dir/PValue.cpp.o"
-  "/Users/EL/CLionProjects/AdjustPValue/PerformanceTests.cpp" "/Users/EL/CLionProjects/AdjustPValue/cmake-build-release/CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.o"
-  "/Users/EL/CLionProjects/AdjustPValue/Tests/InputFileTests.cpp" "/Users/EL/CLionProjects/AdjustPValue/cmake-build-release/CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.o"
-  "/Users/EL/CLionProjects/AdjustPValue/Tests/PValueTests.cpp" "/Users/EL/CLionProjects/AdjustPValue/cmake-build-release/CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.o"
-  "/Users/EL/CLionProjects/AdjustPValue/main.cpp" "/Users/EL/CLionProjects/AdjustPValue/cmake-build-release/CMakeFiles/AdjustPValue.dir/main.cpp.o"
+  "/Users/doby/CLionProjects/adjusted-p-values-avg/InputDataBase.cpp" "/Users/doby/CLionProjects/adjusted-p-values-avg/cmake-build-release/CMakeFiles/AdjustPValue.dir/InputDataBase.cpp.o"
+  "/Users/doby/CLionProjects/adjusted-p-values-avg/InputFile.cpp" "/Users/doby/CLionProjects/adjusted-p-values-avg/cmake-build-release/CMakeFiles/AdjustPValue.dir/InputFile.cpp.o"
+  "/Users/doby/CLionProjects/adjusted-p-values-avg/PValue.cpp" "/Users/doby/CLionProjects/adjusted-p-values-avg/cmake-build-release/CMakeFiles/AdjustPValue.dir/PValue.cpp.o"
+  "/Users/doby/CLionProjects/adjusted-p-values-avg/PerformanceTests.cpp" "/Users/doby/CLionProjects/adjusted-p-values-avg/cmake-build-release/CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.o"
+  "/Users/doby/CLionProjects/adjusted-p-values-avg/Tests/InputFileTests.cpp" "/Users/doby/CLionProjects/adjusted-p-values-avg/cmake-build-release/CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.o"
+  "/Users/doby/CLionProjects/adjusted-p-values-avg/Tests/PValueTests.cpp" "/Users/doby/CLionProjects/adjusted-p-values-avg/cmake-build-release/CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.o"
+  "/Users/doby/CLionProjects/adjusted-p-values-avg/main.cpp" "/Users/doby/CLionProjects/adjusted-p-values-avg/cmake-build-release/CMakeFiles/AdjustPValue.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
@@ -17,12 +18,14 @@ set(CMAKE_CXX_COMPILER_ID "AppleClang")
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../lib/googletest-master/googletest/include"
   "../lib/googletest-master/googlemock/include"
+  "/usr/local/Cellar/mysql-connector-c++/1.1.9/include"
+  "/usr/local/Cellar/mysql-connector-c++/1.1.9/include/cppconn"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/Users/EL/CLionProjects/AdjustPValue/cmake-build-release/lib/googletest-master/googlemock/gtest/CMakeFiles/gtest.dir/DependInfo.cmake"
-  "/Users/EL/CLionProjects/AdjustPValue/cmake-build-release/lib/googletest-master/googlemock/gtest/CMakeFiles/gtest_main.dir/DependInfo.cmake"
+  "/Users/doby/CLionProjects/adjusted-p-values-avg/cmake-build-release/lib/googletest-master/googlemock/gtest/CMakeFiles/gtest.dir/DependInfo.cmake"
+  "/Users/doby/CLionProjects/adjusted-p-values-avg/cmake-build-release/lib/googletest-master/googlemock/gtest/CMakeFiles/gtest_main.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

@@ -6,5 +6,5 @@ CXX_FLAGS = -O3 -DNDEBUG   -std=gnu++14
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/Users/EL/CLionProjects/AdjustPValue/lib/googletest-master/googletest/include -I/Users/EL/CLionProjects/AdjustPValue/lib/googletest-master/googlemock/include 
+CXX_INCLUDES = -I/Users/doby/CLionProjects/adjusted-p-values-avg/lib/googletest-master/googletest/include -I/Users/doby/CLionProjects/adjusted-p-values-avg/lib/googletest-master/googlemock/include -I/usr/local/Cellar/mysql-connector-c++/1.1.9/include -I/usr/local/Cellar/mysql-connector-c++/1.1.9/include/cppconn 
 

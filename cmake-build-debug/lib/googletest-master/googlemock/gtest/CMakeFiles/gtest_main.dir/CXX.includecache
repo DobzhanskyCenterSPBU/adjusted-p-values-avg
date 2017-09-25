@@ -278,9 +278,9 @@ cxxabi.h
 acxx_demangle.h
 -
 
-/Users/EL/CLionProjects/AdjustPValue/lib/googletest-master/googletest/src/gtest_main.cc
+/Users/doby/CLionProjects/adjusted-p-values-avg/lib/googletest-master/googletest/src/gtest_main.cc
 stdio.h
 -
 gtest/gtest.h
-/Users/EL/CLionProjects/AdjustPValue/lib/googletest-master/googletest/src/gtest/gtest.h
+/Users/doby/CLionProjects/adjusted-p-values-avg/lib/googletest-master/googletest/src/gtest/gtest.h
 

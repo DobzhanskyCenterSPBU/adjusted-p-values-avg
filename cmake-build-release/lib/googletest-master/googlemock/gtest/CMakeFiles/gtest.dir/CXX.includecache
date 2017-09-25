@@ -540,21 +540,21 @@ sys/types.h
 src/gtest-internal-inl.h
 ../lib/googletest-master/googletest/src/src/gtest-internal-inl.h
 
-/Users/EL/CLionProjects/AdjustPValue/lib/googletest-master/googletest/src/gtest-all.cc
+/Users/doby/CLionProjects/adjusted-p-values-avg/lib/googletest-master/googletest/src/gtest-all.cc
 gtest/gtest.h
-/Users/EL/CLionProjects/AdjustPValue/lib/googletest-master/googletest/src/gtest/gtest.h
+/Users/doby/CLionProjects/adjusted-p-values-avg/lib/googletest-master/googletest/src/gtest/gtest.h
 src/gtest.cc
-/Users/EL/CLionProjects/AdjustPValue/lib/googletest-master/googletest/src/src/gtest.cc
+/Users/doby/CLionProjects/adjusted-p-values-avg/lib/googletest-master/googletest/src/src/gtest.cc
 src/gtest-death-test.cc
-/Users/EL/CLionProjects/AdjustPValue/lib/googletest-master/googletest/src/src/gtest-death-test.cc
+/Users/doby/CLionProjects/adjusted-p-values-avg/lib/googletest-master/googletest/src/src/gtest-death-test.cc
 src/gtest-filepath.cc
-/Users/EL/CLionProjects/AdjustPValue/lib/googletest-master/googletest/src/src/gtest-filepath.cc
+/Users/doby/CLionProjects/adjusted-p-values-avg/lib/googletest-master/googletest/src/src/gtest-filepath.cc
 src/gtest-port.cc
-/Users/EL/CLionProjects/AdjustPValue/lib/googletest-master/googletest/src/src/gtest-port.cc
+/Users/doby/CLionProjects/adjusted-p-values-avg/lib/googletest-master/googletest/src/src/gtest-port.cc
 src/gtest-printers.cc
-/Users/EL/CLionProjects/AdjustPValue/lib/googletest-master/googletest/src/src/gtest-printers.cc
+/Users/doby/CLionProjects/adjusted-p-values-avg/lib/googletest-master/googletest/src/src/gtest-printers.cc
 src/gtest-test-part.cc
-/Users/EL/CLionProjects/AdjustPValue/lib/googletest-master/googletest/src/src/gtest-test-part.cc
+/Users/doby/CLionProjects/adjusted-p-values-avg/lib/googletest-master/googletest/src/src/gtest-test-part.cc
 src/gtest-typed-test.cc
-/Users/EL/CLionProjects/AdjustPValue/lib/googletest-master/googletest/src/src/gtest-typed-test.cc
+/Users/doby/CLionProjects/adjusted-p-values-avg/lib/googletest-master/googletest/src/src/gtest-typed-test.cc
 

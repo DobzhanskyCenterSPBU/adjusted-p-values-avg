@@ -6,5 +6,5 @@ CXX_FLAGS = -g     -DGTEST_HAS_PTHREAD=1   -std=gnu++14
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/Users/EL/CLionProjects/AdjustPValue/lib/googletest-master/googlemock/include -I/Users/EL/CLionProjects/AdjustPValue/lib/googletest-master/googlemock -I/Users/EL/CLionProjects/AdjustPValue/lib/googletest-master/googletest/include -I/Users/EL/CLionProjects/AdjustPValue/lib/googletest-master/googletest 
+CXX_INCLUDES = -I/Users/doby/CLionProjects/adjusted-p-values-avg/lib/googletest-master/googlemock/include -I/Users/doby/CLionProjects/adjusted-p-values-avg/lib/googletest-master/googlemock -I/Users/doby/CLionProjects/adjusted-p-values-avg/lib/googletest-master/googletest/include -I/Users/doby/CLionProjects/adjusted-p-values-avg/lib/googletest-master/googletest 
 

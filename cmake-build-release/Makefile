@@ -48,10 +48,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/EL/CLionProjects/AdjustPValue
+CMAKE_SOURCE_DIR = /Users/doby/CLionProjects/adjusted-p-values-avg
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/EL/CLionProjects/AdjustPValue/cmake-build-release
+CMAKE_BINARY_DIR = /Users/doby/CLionProjects/adjusted-p-values-avg/cmake-build-release
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -124,9 +124,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/EL/CLionProjects/AdjustPValue/cmake-build-release/CMakeFiles /Users/EL/CLionProjects/AdjustPValue/cmake-build-release/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/doby/CLionProjects/adjusted-p-values-avg/cmake-build-release/CMakeFiles /Users/doby/CLionProjects/adjusted-p-values-avg/cmake-build-release/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/EL/CLionProjects/AdjustPValue/cmake-build-release/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/doby/CLionProjects/adjusted-p-values-avg/cmake-build-release/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -218,6 +218,33 @@ gtest: cmake_check_build_system
 gtest/fast:
 	$(MAKE) -f lib/googletest-master/googlemock/gtest/CMakeFiles/gtest.dir/build.make lib/googletest-master/googlemock/gtest/CMakeFiles/gtest.dir/build
 .PHONY : gtest/fast
+
+InputDataBase.o: InputDataBase.cpp.o
+
+.PHONY : InputDataBase.o
+
+# target to build an object file
+InputDataBase.cpp.o:
+	$(MAKE) -f CMakeFiles/AdjustPValue.dir/build.make CMakeFiles/AdjustPValue.dir/InputDataBase.cpp.o
+.PHONY : InputDataBase.cpp.o
+
+InputDataBase.i: InputDataBase.cpp.i
+
+.PHONY : InputDataBase.i
+
+# target to preprocess a source file
+InputDataBase.cpp.i:
+	$(MAKE) -f CMakeFiles/AdjustPValue.dir/build.make CMakeFiles/AdjustPValue.dir/InputDataBase.cpp.i
+.PHONY : InputDataBase.cpp.i
+
+InputDataBase.s: InputDataBase.cpp.s
+
+.PHONY : InputDataBase.s
+
+# target to generate assembly for a file
+InputDataBase.cpp.s:
+	$(MAKE) -f CMakeFiles/AdjustPValue.dir/build.make CMakeFiles/AdjustPValue.dir/InputDataBase.cpp.s
+.PHONY : InputDataBase.cpp.s
 
 InputFile.o: InputFile.cpp.o
 
@@ -398,6 +425,9 @@ help:
 	@echo "... gmock_main"
 	@echo "... gtest_main"
 	@echo "... gtest"
+	@echo "... InputDataBase.o"
+	@echo "... InputDataBase.i"
+	@echo "... InputDataBase.s"
 	@echo "... InputFile.o"
 	@echo "... InputFile.i"
 	@echo "... InputFile.s"

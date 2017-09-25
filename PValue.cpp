@@ -6,6 +6,7 @@
 #include <iostream>
 #include <cmath>
 #include <boost/math/special_functions/gamma.hpp>
+//#include "omp.h"
 using namespace std;
 
 
@@ -21,8 +22,8 @@ vector<double> PValue::adjustPValue(vector<TestsData> const &tests, InputData &G
     if (cont.isAdaptive) k = cont.k;
     else k = cont.maxReplications;
 
+    //#pragma omp parallel for
     for (int i = 0; i < (int)(tests.size()); ++i) {
-
         prepareData(cur_G, cur_A, G, A, tests[i]);
         D_main = calcPValue(cur_G, cur_A, tests[i].ID);
         s = 0; m = 0; all_iter = 0;
@@ -97,7 +98,6 @@ double PValue::calcPValue(vector<vector<unsigned short>> const & cur_G, vector<u
     double D = 0.0; // Return value
     int D_num = 0; // Amount of valid D values
     int V_rows, V_cols; // Size of V matrix
-    //vector<vector<int>> V;
     int A_car, G_car; // The cardinality of the sets of values of the phenotype and genotype
     int s;                // Parameters for calculating the gamma function
     double chi_sqr = 0.0;
@@ -108,7 +108,7 @@ double PValue::calcPValue(vector<vector<unsigned short>> const & cur_G, vector<u
 
     vector<vector<int>> V(4, vector<int>(A_car)); //Allocate memory for V matrix here, it will always be 4xA_car
 
-    for (int i = 0; i < row_num; ++i) { // Make this parallel
+    for (int i = 0; i < row_num; ++i) {
 
         if (!checkNumElem(cur_G[i], 3)) continue;
         fillVMatrix(cur_G[i], cur_A, V);

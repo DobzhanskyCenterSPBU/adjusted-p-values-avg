@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.o"
   "CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.o"
   "CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.o"
+  "CMakeFiles/AdjustPValue.dir/InputDataBase.cpp.o"
   "AdjustPValue.pdb"
   "AdjustPValue"
 )

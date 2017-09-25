@@ -43,10 +43,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/EL/CLionProjects/AdjustPValue
+CMAKE_SOURCE_DIR = /Users/doby/CLionProjects/adjusted-p-values-avg
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/EL/CLionProjects/AdjustPValue/cmake-build-release
+CMAKE_BINARY_DIR = /Users/doby/CLionProjects/adjusted-p-values-avg/cmake-build-release
 
 # Include any dependencies generated for this target.
 include CMakeFiles/AdjustPValue.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/AdjustPValue.dir/flags.make
 
 CMakeFiles/AdjustPValue.dir/main.cpp.o: CMakeFiles/AdjustPValue.dir/flags.make
 CMakeFiles/AdjustPValue.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/EL/CLionProjects/AdjustPValue/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/AdjustPValue.dir/main.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AdjustPValue.dir/main.cpp.o -c /Users/EL/CLionProjects/AdjustPValue/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/doby/CLionProjects/adjusted-p-values-avg/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/AdjustPValue.dir/main.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AdjustPValue.dir/main.cpp.o -c /Users/doby/CLionProjects/adjusted-p-values-avg/main.cpp
 
 CMakeFiles/AdjustPValue.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AdjustPValue.dir/main.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/EL/CLionProjects/AdjustPValue/main.cpp > CMakeFiles/AdjustPValue.dir/main.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/doby/CLionProjects/adjusted-p-values-avg/main.cpp > CMakeFiles/AdjustPValue.dir/main.cpp.i
 
 CMakeFiles/AdjustPValue.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AdjustPValue.dir/main.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/EL/CLionProjects/AdjustPValue/main.cpp -o CMakeFiles/AdjustPValue.dir/main.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/doby/CLionProjects/adjusted-p-values-avg/main.cpp -o CMakeFiles/AdjustPValue.dir/main.cpp.s
 
 CMakeFiles/AdjustPValue.dir/main.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/AdjustPValue.dir/main.cpp.o.provides.build: CMakeFiles/AdjustPValue.d
 
 CMakeFiles/AdjustPValue.dir/InputFile.cpp.o: CMakeFiles/AdjustPValue.dir/flags.make
 CMakeFiles/AdjustPValue.dir/InputFile.cpp.o: ../InputFile.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/EL/CLionProjects/AdjustPValue/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/AdjustPValue.dir/InputFile.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AdjustPValue.dir/InputFile.cpp.o -c /Users/EL/CLionProjects/AdjustPValue/InputFile.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/doby/CLionProjects/adjusted-p-values-avg/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/AdjustPValue.dir/InputFile.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AdjustPValue.dir/InputFile.cpp.o -c /Users/doby/CLionProjects/adjusted-p-values-avg/InputFile.cpp
 
 CMakeFiles/AdjustPValue.dir/InputFile.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AdjustPValue.dir/InputFile.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/EL/CLionProjects/AdjustPValue/InputFile.cpp > CMakeFiles/AdjustPValue.dir/InputFile.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/doby/CLionProjects/adjusted-p-values-avg/InputFile.cpp > CMakeFiles/AdjustPValue.dir/InputFile.cpp.i
 
 CMakeFiles/AdjustPValue.dir/InputFile.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AdjustPValue.dir/InputFile.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/EL/CLionProjects/AdjustPValue/InputFile.cpp -o CMakeFiles/AdjustPValue.dir/InputFile.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/doby/CLionProjects/adjusted-p-values-avg/InputFile.cpp -o CMakeFiles/AdjustPValue.dir/InputFile.cpp.s
 
 CMakeFiles/AdjustPValue.dir/InputFile.cpp.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/AdjustPValue.dir/InputFile.cpp.o.provides.build: CMakeFiles/AdjustPVa
 
 CMakeFiles/AdjustPValue.dir/PValue.cpp.o: CMakeFiles/AdjustPValue.dir/flags.make
 CMakeFiles/AdjustPValue.dir/PValue.cpp.o: ../PValue.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/EL/CLionProjects/AdjustPValue/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/AdjustPValue.dir/PValue.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AdjustPValue.dir/PValue.cpp.o -c /Users/EL/CLionProjects/AdjustPValue/PValue.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/doby/CLionProjects/adjusted-p-values-avg/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/AdjustPValue.dir/PValue.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AdjustPValue.dir/PValue.cpp.o -c /Users/doby/CLionProjects/adjusted-p-values-avg/PValue.cpp
 
 CMakeFiles/AdjustPValue.dir/PValue.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AdjustPValue.dir/PValue.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/EL/CLionProjects/AdjustPValue/PValue.cpp > CMakeFiles/AdjustPValue.dir/PValue.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/doby/CLionProjects/adjusted-p-values-avg/PValue.cpp > CMakeFiles/AdjustPValue.dir/PValue.cpp.i
 
 CMakeFiles/AdjustPValue.dir/PValue.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AdjustPValue.dir/PValue.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/EL/CLionProjects/AdjustPValue/PValue.cpp -o CMakeFiles/AdjustPValue.dir/PValue.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/doby/CLionProjects/adjusted-p-values-avg/PValue.cpp -o CMakeFiles/AdjustPValue.dir/PValue.cpp.s
 
 CMakeFiles/AdjustPValue.dir/PValue.cpp.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/AdjustPValue.dir/PValue.cpp.o.provides.build: CMakeFiles/AdjustPValue
 
 CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.o: CMakeFiles/AdjustPValue.dir/flags.make
 CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.o: ../Tests/InputFileTests.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/EL/CLionProjects/AdjustPValue/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.o -c /Users/EL/CLionProjects/AdjustPValue/Tests/InputFileTests.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/doby/CLionProjects/adjusted-p-values-avg/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.o -c /Users/doby/CLionProjects/adjusted-p-values-avg/Tests/InputFileTests.cpp
 
 CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/EL/CLionProjects/AdjustPValue/Tests/InputFileTests.cpp > CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/doby/CLionProjects/adjusted-p-values-avg/Tests/InputFileTests.cpp > CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.i
 
 CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/EL/CLionProjects/AdjustPValue/Tests/InputFileTests.cpp -o CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/doby/CLionProjects/adjusted-p-values-avg/Tests/InputFileTests.cpp -o CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.s
 
 CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.o.requires:
 
@@ -155,16 +155,16 @@ CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.o.provides.build: CMakeFile
 
 CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.o: CMakeFiles/AdjustPValue.dir/flags.make
 CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.o: ../Tests/PValueTests.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/EL/CLionProjects/AdjustPValue/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.o -c /Users/EL/CLionProjects/AdjustPValue/Tests/PValueTests.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/doby/CLionProjects/adjusted-p-values-avg/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.o -c /Users/doby/CLionProjects/adjusted-p-values-avg/Tests/PValueTests.cpp
 
 CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/EL/CLionProjects/AdjustPValue/Tests/PValueTests.cpp > CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/doby/CLionProjects/adjusted-p-values-avg/Tests/PValueTests.cpp > CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.i
 
 CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/EL/CLionProjects/AdjustPValue/Tests/PValueTests.cpp -o CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/doby/CLionProjects/adjusted-p-values-avg/Tests/PValueTests.cpp -o CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.s
 
 CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.o.requires:
 
@@ -179,16 +179,16 @@ CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.o.provides.build: CMakeFiles/A
 
 CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.o: CMakeFiles/AdjustPValue.dir/flags.make
 CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.o: ../PerformanceTests.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/EL/CLionProjects/AdjustPValue/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.o -c /Users/EL/CLionProjects/AdjustPValue/PerformanceTests.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/doby/CLionProjects/adjusted-p-values-avg/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.o -c /Users/doby/CLionProjects/adjusted-p-values-avg/PerformanceTests.cpp
 
 CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/EL/CLionProjects/AdjustPValue/PerformanceTests.cpp > CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/doby/CLionProjects/adjusted-p-values-avg/PerformanceTests.cpp > CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.i
 
 CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/EL/CLionProjects/AdjustPValue/PerformanceTests.cpp -o CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/doby/CLionProjects/adjusted-p-values-avg/PerformanceTests.cpp -o CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.s
 
 CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.o.requires:
 
@@ -201,6 +201,30 @@ CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.o.provides: CMakeFiles/AdjustPV
 CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.o.provides.build: CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.o
 
 
+CMakeFiles/AdjustPValue.dir/InputDataBase.cpp.o: CMakeFiles/AdjustPValue.dir/flags.make
+CMakeFiles/AdjustPValue.dir/InputDataBase.cpp.o: ../InputDataBase.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/doby/CLionProjects/adjusted-p-values-avg/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/AdjustPValue.dir/InputDataBase.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AdjustPValue.dir/InputDataBase.cpp.o -c /Users/doby/CLionProjects/adjusted-p-values-avg/InputDataBase.cpp
+
+CMakeFiles/AdjustPValue.dir/InputDataBase.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AdjustPValue.dir/InputDataBase.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/doby/CLionProjects/adjusted-p-values-avg/InputDataBase.cpp > CMakeFiles/AdjustPValue.dir/InputDataBase.cpp.i
+
+CMakeFiles/AdjustPValue.dir/InputDataBase.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AdjustPValue.dir/InputDataBase.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/doby/CLionProjects/adjusted-p-values-avg/InputDataBase.cpp -o CMakeFiles/AdjustPValue.dir/InputDataBase.cpp.s
+
+CMakeFiles/AdjustPValue.dir/InputDataBase.cpp.o.requires:
+
+.PHONY : CMakeFiles/AdjustPValue.dir/InputDataBase.cpp.o.requires
+
+CMakeFiles/AdjustPValue.dir/InputDataBase.cpp.o.provides: CMakeFiles/AdjustPValue.dir/InputDataBase.cpp.o.requires
+	$(MAKE) -f CMakeFiles/AdjustPValue.dir/build.make CMakeFiles/AdjustPValue.dir/InputDataBase.cpp.o.provides.build
+.PHONY : CMakeFiles/AdjustPValue.dir/InputDataBase.cpp.o.provides
+
+CMakeFiles/AdjustPValue.dir/InputDataBase.cpp.o.provides.build: CMakeFiles/AdjustPValue.dir/InputDataBase.cpp.o
+
+
 # Object files for target AdjustPValue
 AdjustPValue_OBJECTS = \
 "CMakeFiles/AdjustPValue.dir/main.cpp.o" \
@@ -208,7 +232,8 @@ AdjustPValue_OBJECTS = \
 "CMakeFiles/AdjustPValue.dir/PValue.cpp.o" \
 "CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.o" \
 "CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.o" \
-"CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.o"
+"CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.o" \
+"CMakeFiles/AdjustPValue.dir/InputDataBase.cpp.o"
 
 # External object files for target AdjustPValue
 AdjustPValue_EXTERNAL_OBJECTS =
@@ -219,12 +244,14 @@ AdjustPValue: CMakeFiles/AdjustPValue.dir/PValue.cpp.o
 AdjustPValue: CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.o
 AdjustPValue: CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.o
 AdjustPValue: CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.o
+AdjustPValue: CMakeFiles/AdjustPValue.dir/InputDataBase.cpp.o
 AdjustPValue: CMakeFiles/AdjustPValue.dir/build.make
+AdjustPValue: /usr/local/Cellar/mysql-connector-c++/1.1.9/lib/libmysqlcppconn.dylib
 AdjustPValue: lib/googletest-master/googlemock/gtest/libgtest.a
 AdjustPValue: lib/googletest-master/googlemock/gtest/libgtest_main.a
 AdjustPValue: lib/googletest-master/googlemock/gtest/libgtest.a
 AdjustPValue: CMakeFiles/AdjustPValue.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/EL/CLionProjects/AdjustPValue/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable AdjustPValue"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/doby/CLionProjects/adjusted-p-values-avg/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable AdjustPValue"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/AdjustPValue.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -238,6 +265,7 @@ CMakeFiles/AdjustPValue.dir/requires: CMakeFiles/AdjustPValue.dir/PValue.cpp.o.r
 CMakeFiles/AdjustPValue.dir/requires: CMakeFiles/AdjustPValue.dir/Tests/InputFileTests.cpp.o.requires
 CMakeFiles/AdjustPValue.dir/requires: CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.o.requires
 CMakeFiles/AdjustPValue.dir/requires: CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.o.requires
+CMakeFiles/AdjustPValue.dir/requires: CMakeFiles/AdjustPValue.dir/InputDataBase.cpp.o.requires
 
 .PHONY : CMakeFiles/AdjustPValue.dir/requires
 
@@ -246,6 +274,6 @@ CMakeFiles/AdjustPValue.dir/clean:
 .PHONY : CMakeFiles/AdjustPValue.dir/clean
 
 CMakeFiles/AdjustPValue.dir/depend:
-	cd /Users/EL/CLionProjects/AdjustPValue/cmake-build-release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/EL/CLionProjects/AdjustPValue /Users/EL/CLionProjects/AdjustPValue /Users/EL/CLionProjects/AdjustPValue/cmake-build-release /Users/EL/CLionProjects/AdjustPValue/cmake-build-release /Users/EL/CLionProjects/AdjustPValue/cmake-build-release/CMakeFiles/AdjustPValue.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/doby/CLionProjects/adjusted-p-values-avg/cmake-build-release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/doby/CLionProjects/adjusted-p-values-avg /Users/doby/CLionProjects/adjusted-p-values-avg /Users/doby/CLionProjects/adjusted-p-values-avg/cmake-build-release /Users/doby/CLionProjects/adjusted-p-values-avg/cmake-build-release /Users/doby/CLionProjects/adjusted-p-values-avg/cmake-build-release/CMakeFiles/AdjustPValue.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/AdjustPValue.dir/depend
 
