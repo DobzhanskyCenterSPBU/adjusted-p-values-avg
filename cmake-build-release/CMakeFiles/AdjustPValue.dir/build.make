@@ -246,7 +246,6 @@ AdjustPValue: CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.o
 AdjustPValue: CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.o
 AdjustPValue: CMakeFiles/AdjustPValue.dir/InputDataBase.cpp.o
 AdjustPValue: CMakeFiles/AdjustPValue.dir/build.make
-AdjustPValue: /usr/lib/libmysqlcppconn.a
 AdjustPValue: /usr/lib/libmysqlcppconn.so
 AdjustPValue: /usr/lib/libmysqlcppconn-static.a
 AdjustPValue: lib/googletest-master/googlemock/gtest/libgtest.a

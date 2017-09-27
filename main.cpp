@@ -7,7 +7,7 @@
 #include "PerformanceTests.h"
 #include <boost/math/special_functions/gamma.hpp>
 #include "InputDataBase.h"
-//#include "omp.h"
+#include "omp.h"
 
 using namespace std;
 using namespace std::chrono;
@@ -23,7 +23,7 @@ int main(int argc, char* argv[]) {
 
     // Data initialization
 
-    InputDataBase DBConnectObj(argv[1], argv[2], argv[3]);
+    InputDataBase DBConnectObj("root", "123", "adjustpvaluetest");
 
     vector<TestsData> tests = DBConnectObj.createTopHitsVector();
     //vector<TestsData>  tests = {{"cd",2,5}, {"r",6,8}, {"d",10,11}, {"a",12,14}, {"d",16,19}};
