@@ -81,6 +81,12 @@ vector<unsigned short> createPhenotypeVector(string filename){
     ifstream handle;
     handle.open(filename);
 
+    if(!handle.is_open())
+    {
+        cerr << "No such file!" << endl;
+        exit(1); // What exit code should be used? How to skip to the next iteration?
+    }
+
     vector<unsigned short> result;
     char delim = ' '; // Split lines on a delimiter ' '
     string symbol;
@@ -119,21 +125,23 @@ long long int realDataPerformanceTest(int maxRep, string genotypeFile, string ph
     // Measure time
     high_resolution_clock::time_point t2 = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>( t2 - t1 ).count();
-    return duration;
-    //cout << endl << "Duration in microseconds (maxReplications = " << maxRep << "): " << duration << endl;
+    //return duration;
 
-    /*
+    cout << endl << "Duration in microseconds (maxReplications = " << maxRep << "): " << duration << endl;
+
+
     // Print results
     cout << endl << "Adjusted P-values from real data performance test:" << endl;
     for (vector<double>::iterator it = results.begin(); it != results.end(); ++it) {
         cout << ' ' << *it;
     }
     cout << '\n';
-     */
+
 }
 
 void runMultiplePerformanceTests(int maxRep){
     string genotypeName, phenotypeName;
+
 
     vector<vector<TestsData>> tests;
     tests = {{{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 20}},
@@ -143,8 +151,8 @@ void runMultiplePerformanceTests(int maxRep){
              {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 20}}};
 
     for (int i = 1; i <= 20; ++i) {
-        genotypeName = "Tests/newgenotypedatatest" + to_string(i);
-        phenotypeName = "Tests/newphenotypedatatest" + to_string(i);
+        genotypeName = "Tests2/newgenotypedatatest" + to_string(i);
+        phenotypeName = "Tests2/newphenotypedatatest" + to_string(i);
 
         realDataPerformanceTest(maxRep, genotypeName, phenotypeName, tests[i-1]);
     }

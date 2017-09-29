@@ -255,6 +255,7 @@ double PValue::calculateChiSqr(vector<vector<int>> const & V, int V_rows, int V_
 
 // Random generation function:
 int PValue::myRandom(int i) {
+    srand (time(NULL)); //Seeding the random generator
     return rand() % i;
 }
 

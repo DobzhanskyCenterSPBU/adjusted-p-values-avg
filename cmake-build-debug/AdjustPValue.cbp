@@ -357,6 +357,9 @@
 		<Unit filename="/Users/doby/CLionProjects/adjusted-p-values-avg/PerformanceTests.h">
 			<Option target="AdjustPValue"/>
 		</Unit>
+		<Unit filename="/Users/doby/CLionProjects/adjusted-p-values-avg/Tests/InputDataBaseTests.cpp">
+			<Option target="AdjustPValue"/>
+		</Unit>
 		<Unit filename="/Users/doby/CLionProjects/adjusted-p-values-avg/Tests/InputFileTests.cpp">
 			<Option target="AdjustPValue"/>
 		</Unit>

@@ -18,7 +18,7 @@ int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);
     RUN_ALL_TESTS();
     //simplePerformanceTest(10000000, "cd");
-    //runMultiplePerformanceTests(100000);
+    //runMultiplePerformanceTests(10);
     //runMultiplePerformanceTestsMultipleTimes(100);
 
     // Data initialization

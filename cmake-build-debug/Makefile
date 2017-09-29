@@ -327,6 +327,33 @@ PerformanceTests.cpp.s:
 	$(MAKE) -f CMakeFiles/AdjustPValue.dir/build.make CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.s
 .PHONY : PerformanceTests.cpp.s
 
+Tests/InputDataBaseTests.o: Tests/InputDataBaseTests.cpp.o
+
+.PHONY : Tests/InputDataBaseTests.o
+
+# target to build an object file
+Tests/InputDataBaseTests.cpp.o:
+	$(MAKE) -f CMakeFiles/AdjustPValue.dir/build.make CMakeFiles/AdjustPValue.dir/Tests/InputDataBaseTests.cpp.o
+.PHONY : Tests/InputDataBaseTests.cpp.o
+
+Tests/InputDataBaseTests.i: Tests/InputDataBaseTests.cpp.i
+
+.PHONY : Tests/InputDataBaseTests.i
+
+# target to preprocess a source file
+Tests/InputDataBaseTests.cpp.i:
+	$(MAKE) -f CMakeFiles/AdjustPValue.dir/build.make CMakeFiles/AdjustPValue.dir/Tests/InputDataBaseTests.cpp.i
+.PHONY : Tests/InputDataBaseTests.cpp.i
+
+Tests/InputDataBaseTests.s: Tests/InputDataBaseTests.cpp.s
+
+.PHONY : Tests/InputDataBaseTests.s
+
+# target to generate assembly for a file
+Tests/InputDataBaseTests.cpp.s:
+	$(MAKE) -f CMakeFiles/AdjustPValue.dir/build.make CMakeFiles/AdjustPValue.dir/Tests/InputDataBaseTests.cpp.s
+.PHONY : Tests/InputDataBaseTests.cpp.s
+
 Tests/InputFileTests.o: Tests/InputFileTests.cpp.o
 
 .PHONY : Tests/InputFileTests.o
@@ -437,6 +464,9 @@ help:
 	@echo "... PerformanceTests.o"
 	@echo "... PerformanceTests.i"
 	@echo "... PerformanceTests.s"
+	@echo "... Tests/InputDataBaseTests.o"
+	@echo "... Tests/InputDataBaseTests.i"
+	@echo "... Tests/InputDataBaseTests.s"
 	@echo "... Tests/InputFileTests.o"
 	@echo "... Tests/InputFileTests.i"
 	@echo "... Tests/InputFileTests.s"
