@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/gwatch/c/adjusted-p-values-avg/lib/googletest-master/googletest/src/gtest-all.cc" "/home/gwatch/c/adjusted-p-values-avg/cmake-build-release/lib/googletest-master/googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.o"
-  "/home/gwatch/c/adjusted-p-values-avg/lib/googletest-master/googlemock/src/gmock-all.cc" "/home/gwatch/c/adjusted-p-values-avg/cmake-build-release/lib/googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o"
+  "/home/elutsenko/adjusted-p-values-avg/lib/googletest-master/googletest/src/gtest-all.cc" "/home/elutsenko/adjusted-p-values-avg/cmake-build-release/lib/googletest-master/googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.o"
+  "/home/elutsenko/adjusted-p-values-avg/lib/googletest-master/googlemock/src/gmock-all.cc" "/home/elutsenko/adjusted-p-values-avg/cmake-build-release/lib/googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

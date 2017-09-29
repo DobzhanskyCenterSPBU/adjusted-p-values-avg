@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/gwatch/c/adjusted-p-values-avg
+CMAKE_SOURCE_DIR = /home/elutsenko/adjusted-p-values-avg
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/gwatch/c/adjusted-p-values-avg/cmake-build-release
+CMAKE_BINARY_DIR = /home/elutsenko/adjusted-p-values-avg/cmake-build-release
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -124,9 +124,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gwatch/c/adjusted-p-values-avg/cmake-build-release/CMakeFiles /home/gwatch/c/adjusted-p-values-avg/cmake-build-release/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/elutsenko/adjusted-p-values-avg/cmake-build-release/CMakeFiles /home/elutsenko/adjusted-p-values-avg/cmake-build-release/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gwatch/c/adjusted-p-values-avg/cmake-build-release/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/elutsenko/adjusted-p-values-avg/cmake-build-release/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

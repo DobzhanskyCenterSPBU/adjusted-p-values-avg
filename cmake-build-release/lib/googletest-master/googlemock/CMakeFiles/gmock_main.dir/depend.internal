@@ -34,7 +34,7 @@ lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/__/googletest/src/gte
  ../lib/googletest-master/googletest/src/gtest-test-part.cc
  ../lib/googletest-master/googletest/src/gtest-typed-test.cc
  ../lib/googletest-master/googletest/src/gtest.cc
- /home/gwatch/c/adjusted-p-values-avg/lib/googletest-master/googletest/src/gtest-all.cc
+ /home/elutsenko/adjusted-p-values-avg/lib/googletest-master/googletest/src/gtest-all.cc
 lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/src/gmock-all.cc.o
  ../lib/googletest-master/googlemock/include/gmock/gmock-actions.h
  ../lib/googletest-master/googlemock/include/gmock/gmock-cardinalities.h
@@ -80,7 +80,7 @@ lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/src/gmock-all.cc.o
  ../lib/googletest-master/googletest/include/gtest/internal/gtest-string.h
  ../lib/googletest-master/googletest/include/gtest/internal/gtest-tuple.h
  ../lib/googletest-master/googletest/include/gtest/internal/gtest-type-util.h
- /home/gwatch/c/adjusted-p-values-avg/lib/googletest-master/googlemock/src/gmock-all.cc
+ /home/elutsenko/adjusted-p-values-avg/lib/googletest-master/googlemock/src/gmock-all.cc
 lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o
  ../lib/googletest-master/googlemock/include/gmock/gmock-actions.h
  ../lib/googletest-master/googlemock/include/gmock/gmock-cardinalities.h
@@ -121,4 +121,4 @@ lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o
  ../lib/googletest-master/googletest/include/gtest/internal/gtest-string.h
  ../lib/googletest-master/googletest/include/gtest/internal/gtest-tuple.h
  ../lib/googletest-master/googletest/include/gtest/internal/gtest-type-util.h
- /home/gwatch/c/adjusted-p-values-avg/lib/googletest-master/googlemock/src/gmock_main.cc
+ /home/elutsenko/adjusted-p-values-avg/lib/googletest-master/googlemock/src/gmock_main.cc

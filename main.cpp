@@ -17,13 +17,13 @@ int main(int argc, char* argv[]) {
     // Run unit tests
     testing::InitGoogleTest(&argc, argv);
     RUN_ALL_TESTS();
-    //simplePerformanceTest(10000000, "cd");
+    //simplePerformanceTest(10, "cd");
     //runMultiplePerformanceTests(100000);
     //runMultiplePerformanceTestsMultipleTimes(100);
 
     // Data initialization
 
-    InputDataBase DBConnectObj("root", "123", "adjustpvaluetest");
+    InputDataBase DBConnectObj("elutsenko", "cherry", "Module_LIZA_N");
 
     vector<TestsData> tests = DBConnectObj.createTopHitsVector();
     //vector<TestsData>  tests = {{"cd",2,5}, {"r",6,8}, {"d",10,11}, {"a",12,14}, {"d",16,19}};
@@ -68,6 +68,7 @@ int main(int argc, char* argv[]) {
         cout << ' ' << *it;
     }
     cout << '\n';
+    // 0.6 0.9 0.6 0.2 0.2
 
     // Write results to database
     DBConnectObj.writeAdjustedPValuesToDB(results);

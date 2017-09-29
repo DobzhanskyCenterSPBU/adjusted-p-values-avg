@@ -6,5 +6,5 @@ CXX_FLAGS =    -Wall -Wshadow -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-un
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/gwatch/c/adjusted-p-values-avg/lib/googletest-master/googlemock/include -I/home/gwatch/c/adjusted-p-values-avg/lib/googletest-master/googlemock -I/home/gwatch/c/adjusted-p-values-avg/lib/googletest-master/googletest/include -I/home/gwatch/c/adjusted-p-values-avg/lib/googletest-master/googletest 
+CXX_INCLUDES = -I/home/elutsenko/adjusted-p-values-avg/lib/googletest-master/googlemock/include -I/home/elutsenko/adjusted-p-values-avg/lib/googletest-master/googlemock -I/home/elutsenko/adjusted-p-values-avg/lib/googletest-master/googletest/include -I/home/elutsenko/adjusted-p-values-avg/lib/googletest-master/googletest 
 

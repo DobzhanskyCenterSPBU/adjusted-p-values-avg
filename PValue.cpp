@@ -6,7 +6,7 @@
 #include <iostream>
 #include <cmath>
 #include <boost/math/special_functions/gamma.hpp>
-//#include "omp.h"
+#include "omp.h"
 using namespace std;
 
 
@@ -22,7 +22,7 @@ vector<double> PValue::adjustPValue(vector<TestsData> const &tests, InputData &G
     if (cont.isAdaptive) k = cont.k;
     else k = cont.maxReplications;
 
-    //#pragma omp parallel for
+   // #pragma omp parallel for
     for (int i = 0; i < (int)(tests.size()); ++i) {
         prepareData(cur_G, cur_A, G, A, tests[i]);
         D_main = calcPValue(cur_G, cur_A, tests[i].ID);
@@ -255,6 +255,7 @@ double PValue::calculateChiSqr(vector<vector<int>> const & V, int V_rows, int V_
 
 // Random generation function:
 int PValue::myRandom(int i) {
+    srand (time(NULL)); //Seeding the random generator
     return rand() % i;
 }
 

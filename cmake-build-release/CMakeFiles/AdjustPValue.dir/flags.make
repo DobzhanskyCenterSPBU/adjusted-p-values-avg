@@ -6,5 +6,5 @@ CXX_FLAGS =  -std=c++14 -fext-numeric-literals -fopenmp -lmysqlcppconn -lmysqlcl
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/gwatch/c/adjusted-p-values-avg/lib/googletest-master/googletest/include -I/home/gwatch/c/adjusted-p-values-avg/lib/googletest-master/googlemock/include -I/usr/include/cppconn -I/usr/share/doc 
+CXX_INCLUDES = -I/home/elutsenko/adjusted-p-values-avg/lib/googletest-master/googletest/include -I/home/elutsenko/adjusted-p-values-avg/lib/googletest-master/googlemock/include -I/usr/include/cppconn -I/usr/share/doc 
 

@@ -9,7 +9,7 @@
 #include <string>
 #include <iostream>
 #include <chrono>
-
+#include "omp.h"
 using namespace std;
 using namespace std::chrono;
 
@@ -119,17 +119,17 @@ long long int realDataPerformanceTest(int maxRep, string genotypeFile, string ph
     // Measure time
     high_resolution_clock::time_point t2 = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>( t2 - t1 ).count();
-    return duration;
-    //cout << endl << "Duration in microseconds (maxReplications = " << maxRep << "): " << duration << endl;
+    //return duration;
+    cout << endl << "Duration in microseconds (maxReplications = " << maxRep << "): " << duration << endl;
 
-    /*
+   
     // Print results
     cout << endl << "Adjusted P-values from real data performance test:" << endl;
     for (vector<double>::iterator it = results.begin(); it != results.end(); ++it) {
         cout << ' ' << *it;
     }
     cout << '\n';
-     */
+     
 }
 
 void runMultiplePerformanceTests(int maxRep){
@@ -141,10 +141,11 @@ void runMultiplePerformanceTests(int maxRep){
              {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 20}},
              {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 23}}, {{"cd", 0, 20}},
              {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 20}}};
-
+	
+    #pragma omp parallel for
     for (int i = 1; i <= 20; ++i) {
-        genotypeName = "Tests/newgenotypedatatest" + to_string(i);
-        phenotypeName = "Tests/newphenotypedatatest" + to_string(i);
+        genotypeName = "TestData/newgenotypedatatest" + to_string(i);
+        phenotypeName = "TestData/newphenotypedatatest" + to_string(i);
 
         realDataPerformanceTest(maxRep, genotypeName, phenotypeName, tests[i-1]);
     }
@@ -163,8 +164,8 @@ void runMultiplePerformanceTestsMultipleTimes(int maxRep){
     int iter_num = 20;
     long long int avg_time;
     for (int i = 1; i <= 20; ++i) {
-        genotypeName = "Tests/newgenotypedatatest" + to_string(i);
-        phenotypeName = "Tests/newphenotypedatatest" + to_string(i);
+        genotypeName = "TestData/newgenotypedatatest" + to_string(i);
+        phenotypeName = "TestData/newphenotypedatatest" + to_string(i);
 
         avg_time = 0;
         for (int j = 0; j < iter_num; ++j) {
