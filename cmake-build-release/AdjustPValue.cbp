@@ -330,6 +330,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/doby/CLionProjects/adjusted-p-values-avg/AuxiliaryFunctions.cpp">
+			<Option target="AdjustPValue"/>
+		</Unit>
 		<Unit filename="/Users/doby/CLionProjects/adjusted-p-values-avg/InputData.h">
 			<Option target="AdjustPValue"/>
 		</Unit>
@@ -343,6 +346,12 @@
 			<Option target="AdjustPValue"/>
 		</Unit>
 		<Unit filename="/Users/doby/CLionProjects/adjusted-p-values-avg/InputFile.h">
+			<Option target="AdjustPValue"/>
+		</Unit>
+		<Unit filename="/Users/doby/CLionProjects/adjusted-p-values-avg/InputPLINK.cpp">
+			<Option target="AdjustPValue"/>
+		</Unit>
+		<Unit filename="/Users/doby/CLionProjects/adjusted-p-values-avg/InputPLINK.h">
 			<Option target="AdjustPValue"/>
 		</Unit>
 		<Unit filename="/Users/doby/CLionProjects/adjusted-p-values-avg/PValue.cpp">

@@ -249,6 +249,54 @@ CMakeFiles/AdjustPValue.dir/Tests/InputDataBaseTests.cpp.o.provides: CMakeFiles/
 CMakeFiles/AdjustPValue.dir/Tests/InputDataBaseTests.cpp.o.provides.build: CMakeFiles/AdjustPValue.dir/Tests/InputDataBaseTests.cpp.o
 
 
+CMakeFiles/AdjustPValue.dir/InputPLINK.cpp.o: CMakeFiles/AdjustPValue.dir/flags.make
+CMakeFiles/AdjustPValue.dir/InputPLINK.cpp.o: ../InputPLINK.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/doby/CLionProjects/adjusted-p-values-avg/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/AdjustPValue.dir/InputPLINK.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AdjustPValue.dir/InputPLINK.cpp.o -c /Users/doby/CLionProjects/adjusted-p-values-avg/InputPLINK.cpp
+
+CMakeFiles/AdjustPValue.dir/InputPLINK.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AdjustPValue.dir/InputPLINK.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/doby/CLionProjects/adjusted-p-values-avg/InputPLINK.cpp > CMakeFiles/AdjustPValue.dir/InputPLINK.cpp.i
+
+CMakeFiles/AdjustPValue.dir/InputPLINK.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AdjustPValue.dir/InputPLINK.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/doby/CLionProjects/adjusted-p-values-avg/InputPLINK.cpp -o CMakeFiles/AdjustPValue.dir/InputPLINK.cpp.s
+
+CMakeFiles/AdjustPValue.dir/InputPLINK.cpp.o.requires:
+
+.PHONY : CMakeFiles/AdjustPValue.dir/InputPLINK.cpp.o.requires
+
+CMakeFiles/AdjustPValue.dir/InputPLINK.cpp.o.provides: CMakeFiles/AdjustPValue.dir/InputPLINK.cpp.o.requires
+	$(MAKE) -f CMakeFiles/AdjustPValue.dir/build.make CMakeFiles/AdjustPValue.dir/InputPLINK.cpp.o.provides.build
+.PHONY : CMakeFiles/AdjustPValue.dir/InputPLINK.cpp.o.provides
+
+CMakeFiles/AdjustPValue.dir/InputPLINK.cpp.o.provides.build: CMakeFiles/AdjustPValue.dir/InputPLINK.cpp.o
+
+
+CMakeFiles/AdjustPValue.dir/AuxiliaryFunctions.cpp.o: CMakeFiles/AdjustPValue.dir/flags.make
+CMakeFiles/AdjustPValue.dir/AuxiliaryFunctions.cpp.o: ../AuxiliaryFunctions.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/doby/CLionProjects/adjusted-p-values-avg/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/AdjustPValue.dir/AuxiliaryFunctions.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AdjustPValue.dir/AuxiliaryFunctions.cpp.o -c /Users/doby/CLionProjects/adjusted-p-values-avg/AuxiliaryFunctions.cpp
+
+CMakeFiles/AdjustPValue.dir/AuxiliaryFunctions.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AdjustPValue.dir/AuxiliaryFunctions.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/doby/CLionProjects/adjusted-p-values-avg/AuxiliaryFunctions.cpp > CMakeFiles/AdjustPValue.dir/AuxiliaryFunctions.cpp.i
+
+CMakeFiles/AdjustPValue.dir/AuxiliaryFunctions.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AdjustPValue.dir/AuxiliaryFunctions.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/doby/CLionProjects/adjusted-p-values-avg/AuxiliaryFunctions.cpp -o CMakeFiles/AdjustPValue.dir/AuxiliaryFunctions.cpp.s
+
+CMakeFiles/AdjustPValue.dir/AuxiliaryFunctions.cpp.o.requires:
+
+.PHONY : CMakeFiles/AdjustPValue.dir/AuxiliaryFunctions.cpp.o.requires
+
+CMakeFiles/AdjustPValue.dir/AuxiliaryFunctions.cpp.o.provides: CMakeFiles/AdjustPValue.dir/AuxiliaryFunctions.cpp.o.requires
+	$(MAKE) -f CMakeFiles/AdjustPValue.dir/build.make CMakeFiles/AdjustPValue.dir/AuxiliaryFunctions.cpp.o.provides.build
+.PHONY : CMakeFiles/AdjustPValue.dir/AuxiliaryFunctions.cpp.o.provides
+
+CMakeFiles/AdjustPValue.dir/AuxiliaryFunctions.cpp.o.provides.build: CMakeFiles/AdjustPValue.dir/AuxiliaryFunctions.cpp.o
+
+
 # Object files for target AdjustPValue
 AdjustPValue_OBJECTS = \
 "CMakeFiles/AdjustPValue.dir/main.cpp.o" \
@@ -258,7 +306,9 @@ AdjustPValue_OBJECTS = \
 "CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.o" \
 "CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.o" \
 "CMakeFiles/AdjustPValue.dir/InputDataBase.cpp.o" \
-"CMakeFiles/AdjustPValue.dir/Tests/InputDataBaseTests.cpp.o"
+"CMakeFiles/AdjustPValue.dir/Tests/InputDataBaseTests.cpp.o" \
+"CMakeFiles/AdjustPValue.dir/InputPLINK.cpp.o" \
+"CMakeFiles/AdjustPValue.dir/AuxiliaryFunctions.cpp.o"
 
 # External object files for target AdjustPValue
 AdjustPValue_EXTERNAL_OBJECTS =
@@ -271,13 +321,16 @@ AdjustPValue: CMakeFiles/AdjustPValue.dir/Tests/PValueTests.cpp.o
 AdjustPValue: CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.o
 AdjustPValue: CMakeFiles/AdjustPValue.dir/InputDataBase.cpp.o
 AdjustPValue: CMakeFiles/AdjustPValue.dir/Tests/InputDataBaseTests.cpp.o
+AdjustPValue: CMakeFiles/AdjustPValue.dir/InputPLINK.cpp.o
+AdjustPValue: CMakeFiles/AdjustPValue.dir/AuxiliaryFunctions.cpp.o
 AdjustPValue: CMakeFiles/AdjustPValue.dir/build.make
+AdjustPValue: /usr/local/lib/libplinkio.a
 AdjustPValue: /usr/local/Cellar/mysql-connector-c++/1.1.9/lib/libmysqlcppconn.dylib
 AdjustPValue: lib/googletest-master/googlemock/gtest/libgtest.a
 AdjustPValue: lib/googletest-master/googlemock/gtest/libgtest_main.a
 AdjustPValue: lib/googletest-master/googlemock/gtest/libgtest.a
 AdjustPValue: CMakeFiles/AdjustPValue.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/doby/CLionProjects/adjusted-p-values-avg/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable AdjustPValue"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/doby/CLionProjects/adjusted-p-values-avg/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable AdjustPValue"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/AdjustPValue.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -293,6 +346,8 @@ CMakeFiles/AdjustPValue.dir/requires: CMakeFiles/AdjustPValue.dir/Tests/PValueTe
 CMakeFiles/AdjustPValue.dir/requires: CMakeFiles/AdjustPValue.dir/PerformanceTests.cpp.o.requires
 CMakeFiles/AdjustPValue.dir/requires: CMakeFiles/AdjustPValue.dir/InputDataBase.cpp.o.requires
 CMakeFiles/AdjustPValue.dir/requires: CMakeFiles/AdjustPValue.dir/Tests/InputDataBaseTests.cpp.o.requires
+CMakeFiles/AdjustPValue.dir/requires: CMakeFiles/AdjustPValue.dir/InputPLINK.cpp.o.requires
+CMakeFiles/AdjustPValue.dir/requires: CMakeFiles/AdjustPValue.dir/AuxiliaryFunctions.cpp.o.requires
 
 .PHONY : CMakeFiles/AdjustPValue.dir/requires
 

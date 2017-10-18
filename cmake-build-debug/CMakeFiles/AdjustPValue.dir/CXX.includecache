@@ -462,6 +462,12 @@ cxxabi.h
 acxx_demangle.h
 -
 
+/Users/doby/CLionProjects/adjusted-p-values-avg/AuxiliaryFunctions.cpp
+iostream
+-
+vector
+-
+
 /Users/doby/CLionProjects/adjusted-p-values-avg/InputData.h
 vector
 -
@@ -517,6 +523,26 @@ string
 -
 fstream
 -
+vector
+-
+
+/Users/doby/CLionProjects/adjusted-p-values-avg/InputPLINK.cpp
+InputPLINK.h
+/Users/doby/CLionProjects/adjusted-p-values-avg/InputPLINK.h
+plinkio/plinkio.h
+-
+iostream
+-
+math.h
+-
+sstream
+-
+fstream
+-
+
+/Users/doby/CLionProjects/adjusted-p-values-avg/InputPLINK.h
+InputData.h
+/Users/doby/CLionProjects/adjusted-p-values-avg/InputData.h
 vector
 -
 
@@ -625,6 +651,12 @@ boost/math/special_functions/gamma.hpp
 -
 InputDataBase.h
 /Users/doby/CLionProjects/adjusted-p-values-avg/InputDataBase.h
+plinkio/plinkio.h
+-
+InputPLINK.h
+/Users/doby/CLionProjects/adjusted-p-values-avg/InputPLINK.h
+AuxiliaryFunctions.cpp
+/Users/doby/CLionProjects/adjusted-p-values-avg/AuxiliaryFunctions.cpp
 
 /usr/local/Cellar/mysql-connector-c++/1.1.9/include/cppconn/build_config.h
 

@@ -7,6 +7,9 @@
 #include "PerformanceTests.h"
 #include <boost/math/special_functions/gamma.hpp>
 #include "InputDataBase.h"
+#include <plinkio/plinkio.h>
+#include "InputPLINK.h"
+#include "AuxiliaryFunctions.cpp"
 //#include "omp.h"
 
 using namespace std;
@@ -71,6 +74,18 @@ int main(int argc, char* argv[]) {
 
     // Write results to database
     DBConnectObj.writeAdjustedPValuesToDB(results);
+
+
+    char* filename = "/Users/doby/Desktop/plink_file_work/input/cleaned_all_final";
+    InputPLINK testPLINK(filename);
+    vector<vector<unsigned short>> result = testPLINK.createGenotypeMatrix(10,20);
+    printVectorOfVectors(result);
+
+
+    cout << endl << endl << endl;
+
+    vector<unsigned short> phen_res = testPLINK.createPhenotypeVector();
+    printVector(phen_res);
 
     return 0;
 }

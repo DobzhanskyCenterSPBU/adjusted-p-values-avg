@@ -219,6 +219,33 @@ gtest/fast:
 	$(MAKE) -f lib/googletest-master/googlemock/gtest/CMakeFiles/gtest.dir/build.make lib/googletest-master/googlemock/gtest/CMakeFiles/gtest.dir/build
 .PHONY : gtest/fast
 
+AuxiliaryFunctions.o: AuxiliaryFunctions.cpp.o
+
+.PHONY : AuxiliaryFunctions.o
+
+# target to build an object file
+AuxiliaryFunctions.cpp.o:
+	$(MAKE) -f CMakeFiles/AdjustPValue.dir/build.make CMakeFiles/AdjustPValue.dir/AuxiliaryFunctions.cpp.o
+.PHONY : AuxiliaryFunctions.cpp.o
+
+AuxiliaryFunctions.i: AuxiliaryFunctions.cpp.i
+
+.PHONY : AuxiliaryFunctions.i
+
+# target to preprocess a source file
+AuxiliaryFunctions.cpp.i:
+	$(MAKE) -f CMakeFiles/AdjustPValue.dir/build.make CMakeFiles/AdjustPValue.dir/AuxiliaryFunctions.cpp.i
+.PHONY : AuxiliaryFunctions.cpp.i
+
+AuxiliaryFunctions.s: AuxiliaryFunctions.cpp.s
+
+.PHONY : AuxiliaryFunctions.s
+
+# target to generate assembly for a file
+AuxiliaryFunctions.cpp.s:
+	$(MAKE) -f CMakeFiles/AdjustPValue.dir/build.make CMakeFiles/AdjustPValue.dir/AuxiliaryFunctions.cpp.s
+.PHONY : AuxiliaryFunctions.cpp.s
+
 InputDataBase.o: InputDataBase.cpp.o
 
 .PHONY : InputDataBase.o
@@ -272,6 +299,33 @@ InputFile.s: InputFile.cpp.s
 InputFile.cpp.s:
 	$(MAKE) -f CMakeFiles/AdjustPValue.dir/build.make CMakeFiles/AdjustPValue.dir/InputFile.cpp.s
 .PHONY : InputFile.cpp.s
+
+InputPLINK.o: InputPLINK.cpp.o
+
+.PHONY : InputPLINK.o
+
+# target to build an object file
+InputPLINK.cpp.o:
+	$(MAKE) -f CMakeFiles/AdjustPValue.dir/build.make CMakeFiles/AdjustPValue.dir/InputPLINK.cpp.o
+.PHONY : InputPLINK.cpp.o
+
+InputPLINK.i: InputPLINK.cpp.i
+
+.PHONY : InputPLINK.i
+
+# target to preprocess a source file
+InputPLINK.cpp.i:
+	$(MAKE) -f CMakeFiles/AdjustPValue.dir/build.make CMakeFiles/AdjustPValue.dir/InputPLINK.cpp.i
+.PHONY : InputPLINK.cpp.i
+
+InputPLINK.s: InputPLINK.cpp.s
+
+.PHONY : InputPLINK.s
+
+# target to generate assembly for a file
+InputPLINK.cpp.s:
+	$(MAKE) -f CMakeFiles/AdjustPValue.dir/build.make CMakeFiles/AdjustPValue.dir/InputPLINK.cpp.s
+.PHONY : InputPLINK.cpp.s
 
 PValue.o: PValue.cpp.o
 
@@ -452,12 +506,18 @@ help:
 	@echo "... gmock_main"
 	@echo "... gtest_main"
 	@echo "... gtest"
+	@echo "... AuxiliaryFunctions.o"
+	@echo "... AuxiliaryFunctions.i"
+	@echo "... AuxiliaryFunctions.s"
 	@echo "... InputDataBase.o"
 	@echo "... InputDataBase.i"
 	@echo "... InputDataBase.s"
 	@echo "... InputFile.o"
 	@echo "... InputFile.i"
 	@echo "... InputFile.s"
+	@echo "... InputPLINK.o"
+	@echo "... InputPLINK.i"
+	@echo "... InputPLINK.s"
 	@echo "... PValue.o"
 	@echo "... PValue.i"
 	@echo "... PValue.s"
