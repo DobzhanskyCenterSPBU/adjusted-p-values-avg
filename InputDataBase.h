@@ -32,6 +32,7 @@ public:
     vector<unsigned short> createPhenotypeShortVector();
     vector<TestsData> createTopHitsVector();
     void writeAdjustedPValuesToDB(vector<double> pvalues);
+    void writeTopHitsTableToDB(vector<TableEntry> TopHitsTable);
 };
 
 

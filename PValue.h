@@ -30,6 +30,16 @@ struct TestsData {
     int upper; // Upper bound of the current window
 };
 
+// New format for the Top Hits Table
+struct TableEntry {
+    string test_index;        // From .csv file, not used for computations
+    string chromosome_index;  // From .csv file, not used for computations
+    string ID;                // Defines the grouping of the genotype. ID = {"cd", "d", "r", "a"}, comes from user(?)
+    int lower;                // Lower bound of the current window, from .csv file
+    int upper;                // Upper bound of the current window, from .csv file
+    double adjusted_p_value;  // Place for the results of computations
+};
+
 // Execution parameters
 struct ExecutionParameters {
     int maxReplications; // Maximum amount of replications

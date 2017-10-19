@@ -133,3 +133,21 @@ void InputDataBase::writeAdjustedPValuesToDB(vector<double> pvalues){
         this->pstmt->executeUpdate();
     }
 }
+
+// Creates new table TopHits in DB and writes all the results
+void InputDataBase::writeTopHitsTableToDB(vector<TableEntry> TopHitsTable){
+    this->res = this->stmt->executeQuery("CREATE TABLE IF NOT EXISTS TopHits (test_index VARCHAR(20), "
+                                                      "chromosome_index VARCHAR(20), ID VARCHAR(20), lower INT, "
+                                                      "upper INT, adjusted_p_value DOUBLE)");
+    this->pstmt = this->con->prepareStatement("INSERT INTO TopHits (test_index,chromosome_index,ID,lower,upper,"
+                                                      "adjusted_p_value) VALUES(?,?,?,?,?,?)");
+    for (vector<TableEntry>::size_type j = 0; j < TopHitsTable.size(); j++){
+        this->pstmt->setString(1, TopHitsTable[j].test_index);
+        this->pstmt->setString(2, TopHitsTable[j].chromosome_index);
+        this->pstmt->setString(3, TopHitsTable[j].ID);
+        this->pstmt->setInt(4, TopHitsTable[j].lower);
+        this->pstmt->setInt(5, TopHitsTable[j].upper);
+        this->pstmt->setDouble(6, TopHitsTable[j].adjusted_p_value);
+        this->pstmt->executeUpdate();
+    }
+}
