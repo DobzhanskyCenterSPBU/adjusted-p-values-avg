@@ -98,15 +98,16 @@ double PValue::calcPValue(vector<vector<unsigned short>> const & cur_G, vector<u
     double D = 0.0; // Return value
     int D_num = 0; // Amount of valid D values
     int V_rows, V_cols; // Size of V matrix
-    int A_car, G_car; // The cardinality of the sets of values of the phenotype and genotype
+    int G_car; // The cardinality of the sets of values of the phenotype and genotype
     int s;                // Parameters for calculating the gamma function
     double chi_sqr = 0.0;
     int row_num = (int)cur_G.size(); // The amount of rows in the current genotype matrix
+    PhenotypeStatistics phen_stat;
 
-    A_car = calcNumElem(cur_A); // Make it static?
-    if (A_car <= 1) return numeric_limits<double>::quiet_NaN();
+    phen_stat = calcNumElem(cur_A); // Make it static?
+    if (phen_stat.num_elements <= 1) return numeric_limits<double>::quiet_NaN();
 
-    vector<vector<int>> V(4, vector<int>(A_car)); //Allocate memory for V matrix here, it will always be 4xA_car
+    vector<vector<int>> V(4, vector<int>(phen_stat.max_element+1)); //Allocate memory for V matrix here, it will always be 4xphen_stat.max_element+1
 
     for (int i = 0; i < row_num; ++i) {
 
@@ -115,8 +116,8 @@ double PValue::calcPValue(vector<vector<unsigned short>> const & cur_G, vector<u
         G_car = calcNumElementsInGenotype(V); // Check this!
 
         // Calculate s and X^2
-        s = (A_car - 1)*(G_car - 1);
-        chi_sqr = calculateChiSqr(V, 3, A_car); // Last line correspondong to '3' in genotype not considered
+        s = (phen_stat.num_elements - 1)*(G_car - 1);
+        chi_sqr = calculateChiSqr(V, 3, phen_stat.max_element+1); // Last line correspondong to '3' in genotype not considered
 
         // http://www.boost.org/doc/libs/1_49_0/libs/math/doc/sf_and_dist/html/math_toolkit/special/sf_gamma/igamma.html
         // http://keisan.casio.com/exec/system/1180573447
@@ -141,14 +142,17 @@ AlternativeHypothesisType PValue::hashIt (string const& inString) {
     if (inString == "a")  return eA;
 }
 
-int PValue::calcNumElem(vector<unsigned short> const & phenotype){
+PhenotypeStatistics PValue::calcNumElem(vector<unsigned short> const & phenotype){
+    PhenotypeStatistics phen_stat = {.max_element = 0, .num_elements = 0};
     vector<unsigned short> elements;
     for(vector<unsigned short>::size_type j = 0; j < phenotype.size(); j++) {
         if (find(elements.begin(), elements.end(), phenotype[j]) == elements.end()) {
             elements.push_back(phenotype[j]);
+            if (phenotype[j] > phen_stat.max_element) phen_stat.max_element = phenotype[j];
         }
     }
-    return (int)(elements.size());
+    phen_stat.num_elements = (int)(elements.size());
+    return phen_stat;
 }
 
 // Determines if there are at least two distinct elements (not equal to 3) in the genotype vector

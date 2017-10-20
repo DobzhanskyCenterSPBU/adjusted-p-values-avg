@@ -151,7 +151,7 @@ int main(int argc, char* argv[]) {
      * Input data from .csv and PLINK files
      * Results are placed into a database
      */
-    /*
+
     char* PLINK_filename = "/Users/doby/Desktop/plink_file_work/input/cleaned_all_final";
     string topHitsTable_filename = "F_density_50000_test.csv";
     int number_of_lines = 10;
@@ -176,7 +176,7 @@ int main(int argc, char* argv[]) {
     // Write results into DB
     insertAdjPValInTopHitsTable(top_hits_table, results); // Insert adjusted P Values into Top Hits Table
     DBConnectObj.writeTopHitsTableToDB(top_hits_table);
-     */
+
 
     return 0;
 }

@@ -10,9 +10,5 @@
 
 using testing::Eq;
 
-// Check if connection to DB is successful
-TEST(read_from_data_base_check, read_part_of_genotype_matrix_from_middle){
 
-
-}
 

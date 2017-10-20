@@ -14,8 +14,8 @@
 // Calculating the number of unique elements in a phenotype vector
 TEST(pvalue_check, calculate_number_of_elements_vector_checked){
     vector<unsigned short> test_vec = {0, 2, 1, 1, 0, 2, 1, 0, 1, 0, 2, 1};
-    int result = PValue::calcNumElem(test_vec);
-    ASSERT_EQ(3, result);
+    PhenotypeStatistics phen_stat = PValue::calcNumElem(test_vec);
+    ASSERT_EQ(3, phen_stat.num_elements);
 };
 
 // Calculating the number of unique elements in a genotype vector
@@ -31,8 +31,8 @@ TEST(pvalue_check, calculate_number_of_elements_genotype_vector_checked){
 // Calculating the number of unique elements in a phenotype vector filled with zeros
 TEST(pvalue_check, calculate_number_of_elements_vector_all_zeros_checked){
     vector<unsigned short> test_vec = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-    int result = PValue::calcNumElem(test_vec);
-    ASSERT_EQ(1, result);
+    PhenotypeStatistics phen_stat = PValue::calcNumElem(test_vec);
+    ASSERT_EQ(1, phen_stat.num_elements);
 };
 
 // Calculating the number of unique elements in a genotype vector filled with zeros
@@ -59,8 +59,8 @@ TEST(pvalue_check, calculate_number_of_elements_genotype_vector_all_threes_check
 // Calculating the number of unique elements in an empty vector
 TEST(pvalue_check, calculate_number_of_elements_empty_vector_check){
     vector<unsigned short> empty = {};
-    int result = PValue::calcNumElem(empty);
-    ASSERT_EQ(0, result);
+    PhenotypeStatistics phen_stat = PValue::calcNumElem(empty);
+    ASSERT_EQ(0, phen_stat.num_elements);
 };
 
 // Calculating the number of unique elements in an empty genotype vector
@@ -73,7 +73,28 @@ TEST(pvalue_check, calculate_number_of_elements_empty_genotype_vector_check){
     ASSERT_EQ(0, result);
 };
 
-// #8 Checking the lower gamma function from the boost library
+// Getting the value of the max element in phenotype vector
+TEST(pvalue_check, calculate_max_element_in_phenotype_vector_check){
+    vector<unsigned short> phenotype = {0,0,4,3,3,2,3,5,2,0,1,1,0};
+    PhenotypeStatistics phen_stat = PValue::calcNumElem(phenotype);
+    ASSERT_EQ(5, phen_stat.max_element);
+};
+
+// Getting the value of the max element in phenotype vector (max is last)
+TEST(pvalue_check, calculate_max_element_last_in_phenotype_vector_check){
+    vector<unsigned short> phenotype = {0,0,4,3,3,2,3,5,2,0,1,1,6};
+    PhenotypeStatistics phen_stat = PValue::calcNumElem(phenotype);
+    ASSERT_EQ(6, phen_stat.max_element);
+};
+
+// Getting the value of the max element in an empty phenotype vector
+TEST(pvalue_check, calculate_max_element_in_empty_phenotype_vector_check){
+    vector<unsigned short> phenotype = {};
+    PhenotypeStatistics phen_stat = PValue::calcNumElem(phenotype);
+    ASSERT_EQ(0, phen_stat.max_element);
+};
+
+// Checking the lower gamma function from the boost library
 // The returned value for the given parameters is compared with the value obtained on this resource:
 // http://keisan.casio.com/exec/system/1180573447
 TEST(pvalue_check, lower_gamma_function_check){
@@ -329,8 +350,21 @@ TEST(pvalue_check, calc_p_value_check){
     ASSERT_NEAR(realPValue, pValue, 0.0000001);
 }
 
+// Testing calcPValue when there is no '0'-elements in the phenotype
+TEST(pvalue_check, calc_p_value_cut_phenotype_check){
+    vector<vector<unsigned short>> genotype = {{0, 1, 0, 0, 0, 0,   0, 1, 1, 1, 0, 0},
+                                               {0, 1, 0, 0, 1, 0,   0, 1, 1, 0, 1, 1},
+                                               {0, 0, 0, 1, 0, 0,   0, 1, 1, 1, 1, 1}};
+
+    vector<unsigned short> phenotype = {2, 4, 1, 3, 2, 1,  2, 4, 1, 3, 2, 1};
+    double pValue = PValue::calcPValue(genotype, phenotype, "a");
+    double realPValue = 2.2095956;
+
+    ASSERT_NEAR(realPValue, pValue, 0.0000001);
+}
+
 /*
-// #25 Main test
+//  Main test
 TEST(pvalue_check, adjust_p_value_check){
     vector<TestsData> tests;
     tests = {{"cd",2,5}, {"r",6,8}, {"d",10,11}, {"a",12,14}, {"d",16,19}};

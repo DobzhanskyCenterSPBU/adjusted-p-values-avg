@@ -40,6 +40,11 @@ struct TableEntry {
     double adjusted_p_value;  // Place for the results of computations
 };
 
+struct PhenotypeStatistics {
+    unsigned short max_element;
+    int num_elements;
+};
+
 // Execution parameters
 struct ExecutionParameters {
     int maxReplications; // Maximum amount of replications
@@ -57,7 +62,7 @@ private:
                            vector<unsigned short> const & A, TableEntry cur_test);
     static double calcPValue(vector<vector<unsigned short>> const & cur_G, vector<unsigned short> const & cur_A, string ID);
     static AlternativeHypothesisType hashIt (string const& inString);
-    static int calcNumElem(vector<unsigned short> const & phenotype);
+    static PhenotypeStatistics calcNumElem(vector<unsigned short> const & phenotype);
     static int calcNumElem(vector<unsigned short> const & genotype, unsigned short p);
     static void doubleSizeOfMatrices(vector<vector<unsigned short>> & cur_G, vector<unsigned short> & cur_A);
     static void fillVMatrix(vector<unsigned short> const & cur_G, vector<unsigned short> const & cur_A,
@@ -96,6 +101,10 @@ private:
     FRIEND_TEST(pvalue_check, check_num_elem_3);
     FRIEND_TEST(pvalue_check, check_num_elem_4);
     FRIEND_TEST(pvalue_check, check_num_elem_5);
+    FRIEND_TEST(pvalue_check, calculate_max_element_in_phenotype_vector_check);
+    FRIEND_TEST(pvalue_check, calculate_max_element_last_in_phenotype_vector_check);
+    FRIEND_TEST(pvalue_check, calculate_max_element_in_empty_phenotype_vector_check);
+    FRIEND_TEST(pvalue_check, calc_p_value_cut_phenotype_check);
 };
 
 #endif //ADJUSTPVALUE_PVALUE_H
