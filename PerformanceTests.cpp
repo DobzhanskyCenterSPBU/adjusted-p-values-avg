@@ -163,7 +163,7 @@ void runMultiplePerformanceTests(int maxRep){
 void runMultiplePerformanceTestsMultipleTimes(int maxRep){
     string genotypeName, phenotypeName;
 
-    vector<vector<TableEntry>> tests2;
+    vector<vector<TableEntry>> tests;
     tests = {{{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}},
              {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 23, 0}}, {{"","","cd", 0, 20, 0}},
              {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}},
@@ -173,8 +173,8 @@ void runMultiplePerformanceTestsMultipleTimes(int maxRep){
     int iter_num = 20;
     long long int avg_time;
     for (int i = 1; i <= 20; ++i) {
-        genotypeName = "Tests/newgenotypedatatest" + to_string(i);
-        phenotypeName = "Tests/newphenotypedatatest" + to_string(i);
+        genotypeName = "Tests2/newgenotypedatatest" + to_string(i);
+        phenotypeName = "Tests2/newphenotypedatatest" + to_string(i);
 
         avg_time = 0;
         for (int j = 0; j < iter_num; ++j) {
