@@ -10,7 +10,7 @@
 using namespace std;
 
 
-vector<double> PValue::adjustPValue(vector<TestsData> const &tests, InputData &G,
+vector<double> PValue::adjustPValue(vector<TableEntry> const &tests, InputData &G,
                                     vector<unsigned short> const &A, ExecutionParameters const &cont){
 
     vector<double> P_values((int)(tests.size())); // The results will be saved here
@@ -44,7 +44,7 @@ vector<double> PValue::adjustPValue(vector<TestsData> const &tests, InputData &G
 }
 
 void PValue::prepareData(vector<vector<unsigned short>>& cur_G, vector<unsigned short>& cur_A, InputData & G,
-                        vector<unsigned short> const & A, TestsData cur_test){
+                        vector<unsigned short> const & A, TableEntry cur_test){
 
 
     if (A.empty()){
@@ -54,7 +54,7 @@ void PValue::prepareData(vector<vector<unsigned short>>& cur_G, vector<unsigned 
     cur_A = A; // Create a new copy of the phenotype
     cur_G = G.createGenotypeMatrix(cur_test.lower, cur_test.upper); // Read the appropriate part of the genotype
     if (cur_G.empty()){
-        cerr << "File is empty!" << endl;
+        cerr << "Genotype file is empty!" << endl;
         exit(2);
     }
     if (hashIt(cur_test.ID) == eA){

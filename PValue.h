@@ -49,12 +49,12 @@ struct ExecutionParameters {
 
 class PValue {
 public:
-    static vector<double> adjustPValue(vector<TestsData> const &tests, InputData &G,
+    static vector<double> adjustPValue(vector<TableEntry> const &tests, InputData &G,
                                        vector<unsigned short> const &A, ExecutionParameters const &cont);
     static vector<unsigned short> mapPhenotypeValuesToChar(vector<string> const &phenotype);
 private:
     static void prepareData(vector<vector<unsigned short>> & cur_G, vector<unsigned short> & cur_A, InputData & G,
-                           vector<unsigned short> const & A, TestsData cur_test);
+                           vector<unsigned short> const & A, TableEntry cur_test);
     static double calcPValue(vector<vector<unsigned short>> const & cur_G, vector<unsigned short> const & cur_A, string ID);
     static AlternativeHypothesisType hashIt (string const& inString);
     static int calcNumElem(vector<unsigned short> const & phenotype);

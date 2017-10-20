@@ -93,7 +93,7 @@ TEST(pvalue_check, prepare_data_cd_check){
                                               {1, 0, 0, 2, 2, 1}, {0, 0, 1, 1, 1, 0}};
     vector<unsigned short> result_A = {1, 3, 0, 2, 1, 0};
 
-    TestsData cur_test = {"cd",2,5};
+    TableEntry cur_test = {"","","cd",2,5,0};
     PValue::prepareData(cur_G, cur_A, genotype, A, cur_test);
 
     ASSERT_EQ(result_A, cur_A);
@@ -111,7 +111,7 @@ TEST(pvalue_check, prepare_data_r_check){
                                               {0, 0, 0, 1, 1, 0}, {0, 0, 0, 0, 0, 0}};
     vector<unsigned short> result_A = {1, 3, 0, 2, 1, 0};
 
-    TestsData cur_test = {"r",2,5};
+    TableEntry cur_test = {"","","r",2,5,0};
     PValue::prepareData(cur_G, cur_A, genotype, A, cur_test);
 
     ASSERT_EQ(result_A, cur_A);
@@ -129,7 +129,7 @@ TEST(pvalue_check, prepare_data_d_check){
                                               {1, 0, 0, 1, 1, 1}, {0, 0, 1, 1, 1, 0}};
     vector<unsigned short> result_A = {1, 3, 0, 2, 1, 0};
 
-    TestsData cur_test = {"d",2,5};
+    TableEntry cur_test = {"","","d",2,5,0};
     PValue::prepareData(cur_G, cur_A, genotype, A, cur_test);
 
     ASSERT_EQ(result_A, cur_A);
@@ -150,7 +150,7 @@ TEST(pvalue_check, prepare_data_a_check){
 
     vector<unsigned short> result_A = {1, 3, 0, 2, 1, 0,  1, 3, 0, 2, 1, 0};
 
-    TestsData cur_test = {"a",2,5};
+    TableEntry cur_test = {"","","a",2,5,0};
     PValue::prepareData(cur_G, cur_A, genotype, A, cur_test);
 
     ASSERT_EQ(result_A, cur_A);
@@ -356,9 +356,9 @@ TEST(pvalue_check, prepare_data_check_empty_genotype_matrix){
     vector<vector<unsigned short>> cur_G;
     vector<unsigned short> cur_A;
     vector<unsigned short> const A = {1,1,3,2,4,5};
-    TestsData cur_test = {{"cd", 0, 24}};
+    TableEntry cur_test = {"","","cd", 0, 24,0};
 
-    ASSERT_DEATH(PValue::prepareData(cur_G, cur_A, genotype, A, cur_test), "File is empty!");
+    ASSERT_DEATH(PValue::prepareData(cur_G, cur_A, genotype, A, cur_test), "Genotype file is empty!");
 }
 
 // Checking error message when the given phenotype is empty.
@@ -367,7 +367,7 @@ TEST(pvalue_check, prepare_data_check_empty_phenotype_vector){
     vector<vector<unsigned short>> cur_G;
     vector<unsigned short> cur_A;
     vector<unsigned short> const A = {};
-    TestsData cur_test = {{"cd", 0, 24}};
+    TableEntry cur_test = {"","","cd", 0, 24,0};
 
     ASSERT_DEATH(PValue::prepareData(cur_G, cur_A, genotype, A, cur_test), "Phenotype is empty!");
 }

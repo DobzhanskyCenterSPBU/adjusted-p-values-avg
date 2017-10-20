@@ -13,6 +13,8 @@
 using namespace std;
 using namespace std::chrono;
 
+
+
 void simplePerformanceTest(int maxRep, string test_type) {
 
     /*
@@ -48,8 +50,8 @@ void simplePerformanceTest(int maxRep, string test_type) {
         phenotype.push_back((unsigned short)randomNumber);
     }
 
-    vector<TestsData> tests;
-    tests = {{test_type,0,999}};
+    vector<TableEntry> tests;
+    tests = {{"","",test_type,0,999,0}};
     ExecutionParameters parameters;
     parameters.maxReplications = maxRep;
     parameters.k = 10;
@@ -106,7 +108,7 @@ vector<unsigned short> createPhenotypeVector(string filename){
     return result;
 }
 
-long long int realDataPerformanceTest(int maxRep, string genotypeFile, string phenotypeFile, vector<TestsData> tests){
+long long int realDataPerformanceTest(int maxRep, string genotypeFile, string phenotypeFile, vector<TableEntry> tests){
 
     vector<unsigned short> phenotype = createPhenotypeVector(phenotypeFile);
 
@@ -143,12 +145,12 @@ void runMultiplePerformanceTests(int maxRep){
     string genotypeName, phenotypeName;
 
 
-    vector<vector<TestsData>> tests;
-    tests = {{{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 20}},
-             {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 23}}, {{"cd", 0, 20}},
-             {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 20}},
-             {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 23}}, {{"cd", 0, 20}},
-             {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 20}}};
+    vector<vector<TableEntry>> tests;
+    tests = {{{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}},
+             {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 23, 0}}, {{"","","cd", 0, 20, 0}},
+             {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}},
+             {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 23, 0}}, {{"","","cd", 0, 20, 0}},
+             {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}}};
 
     for (int i = 1; i <= 20; ++i) {
         genotypeName = "Tests2/newgenotypedatatest" + to_string(i);
@@ -161,12 +163,12 @@ void runMultiplePerformanceTests(int maxRep){
 void runMultiplePerformanceTestsMultipleTimes(int maxRep){
     string genotypeName, phenotypeName;
 
-    vector<vector<TestsData>> tests;
-    tests = {{{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 20}},
-             {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 23}}, {{"cd", 0, 20}},
-             {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 20}},
-             {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 23}}, {{"cd", 0, 20}},
-             {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 20}}, {{"cd", 0, 20}}};
+    vector<vector<TableEntry>> tests;
+    tests = {{{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}},
+             {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 23, 0}}, {{"","","cd", 0, 20, 0}},
+             {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}},
+             {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 23, 0}}, {{"","","cd", 0, 20, 0}},
+             {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}}};
 
     int iter_num = 20;
     long long int avg_time;
