@@ -105,12 +105,12 @@ vector<unsigned short> InputDataBase::createPhenotypeShortVector(){
 // Read data from table density: test ids, indices of SNPs in the genotype matrix
 // into a vector of TestsData structures
 // tests will be used as input data for PValue::adjustPValue(tests, genotype, phenotype, parameters);
-vector<TestsData> InputDataBase::createTopHitsVector(){
-    vector<TestsData> tests;
+vector<TableEntry> InputDataBase::createTopHitsVector(){
+    vector<TableEntry> tests;
     this->top_hits_ids = {};
     this->res = this->stmt->executeQuery("SELECT snp_id, test_id, lower, upper FROM density");
     while (this->res->next()) {
-        tests.push_back({this->res->getString("test_id"), this->res->getInt("lower"), this->res->getInt("upper")});
+        tests.push_back({"", "", this->res->getString("test_id"), this->res->getInt("lower"), this->res->getInt("upper"), 0});
         this->top_hits_ids.push_back(this->res->getString("snp_id"));
     }
 
@@ -135,7 +135,7 @@ void InputDataBase::writeAdjustedPValuesToDB(vector<double> pvalues){
 }
 
 // Creates new table TopHits in DB and writes all the results
-void InputDataBase::writeTopHitsTableToDB(vector<TableEntry> TopHitsTable){
+void InputDataBase::writeTopHitsTableToDB(vector<TableEntry> const & TopHitsTable){
     this->stmt->execute("CREATE TABLE IF NOT EXISTS TopHits (test_index VARCHAR(20), chromosome_index VARCHAR(20), "
                                 "ID VARCHAR(20), lower INT, upper INT, adjusted_p_value DOUBLE)");
     this->pstmt = this->con->prepareStatement("INSERT INTO TopHits (test_index,chromosome_index,ID,lower,upper,"

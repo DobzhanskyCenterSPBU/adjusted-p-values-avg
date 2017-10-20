@@ -92,15 +92,12 @@ int main(int argc, char* argv[]) {
     //runMultiplePerformanceTests(10);
     //runMultiplePerformanceTestsMultipleTimes(100);
 
-
-
     /*
      * Manual data initialization + genotype is read from .txt
      * Results are presented in standard output
      */
-
     /*
-    vector<TestsData>  tests = {{"cd",2,5}, {"r",6,8}, {"d",10,11}, {"a",12,14}, {"d",16,19}};
+    vector<TableEntry>  tests = {{"","","cd",2,5,0}, {"","","r",6,8,0}, {"","","d",10,11,0}, {"","","a",12,14,0}, {"","","d",16,19,0}};
     vector<unsigned short> phenotype = {1, 3, 0, 2, 1, 0};
     InputFile genotype("test.txt");
     ExecutionParameters parameters;
@@ -122,12 +119,11 @@ int main(int argc, char* argv[]) {
      * Input from DataBase
      * Results are placed into a database
      */
-
     /*
     // Data initialization
     InputDataBase DBConnectObj(argv[1], argv[2], argv[3]);
 
-    vector<TestsData> tests = DBConnectObj.createTopHitsVector(); // Genotype
+    vector<TableEntry> tests = DBConnectObj.createTopHitsVector(); // Genotype
 
     ExecutionParameters parameters;
     parameters.maxReplications = 10; // Should be around 10^(-8)
@@ -155,6 +151,7 @@ int main(int argc, char* argv[]) {
      * Input data from .csv and PLINK files
      * Results are placed into a database
      */
+    /*
     char* PLINK_filename = "/Users/doby/Desktop/plink_file_work/input/cleaned_all_final";
     string topHitsTable_filename = "F_density_50000_test.csv";
     int number_of_lines = 10;
@@ -179,6 +176,7 @@ int main(int argc, char* argv[]) {
     // Write results into DB
     insertAdjPValInTopHitsTable(top_hits_table, results); // Insert adjusted P Values into Top Hits Table
     DBConnectObj.writeTopHitsTableToDB(top_hits_table);
+     */
 
     return 0;
 }

@@ -30,9 +30,9 @@ public:
     vector<vector<unsigned short>> createGenotypeMatrix(int lowInd, int upInd);
     vector<string> createPhenotypeStringVector();
     vector<unsigned short> createPhenotypeShortVector();
-    vector<TestsData> createTopHitsVector();
+    vector<TableEntry> createTopHitsVector();
     void writeAdjustedPValuesToDB(vector<double> pvalues);
-    void writeTopHitsTableToDB(vector<TableEntry> TopHitsTable);
+    void writeTopHitsTableToDB(vector<TableEntry> const & TopHitsTable);
 };
 
 

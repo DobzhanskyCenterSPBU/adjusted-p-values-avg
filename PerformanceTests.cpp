@@ -163,7 +163,7 @@ void runMultiplePerformanceTests(int maxRep){
 void runMultiplePerformanceTestsMultipleTimes(int maxRep){
     string genotypeName, phenotypeName;
 
-    vector<vector<TableEntry>> tests;
+    vector<vector<TableEntry>> tests2;
     tests = {{{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}},
              {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 23, 0}}, {{"","","cd", 0, 20, 0}},
              {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}}, {{"","","cd", 0, 20, 0}},
